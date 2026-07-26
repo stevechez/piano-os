@@ -18,6 +18,48 @@ Our primary goal is helping users understand music.
 
 ---
 
+# PianoOS Core Principles
+
+These principles must inform every product and engineering decision. When in doubt, defer to these over convenience or convention:
+
+- Adult beginners only.
+- Teach understanding before memorization.
+- Teach patterns before notation.
+- Chords before scales.
+- Songs before exercises.
+- Every lesson must create an "aha" moment.
+- Premium product.
+- No free tier.
+- Interactive onboarding before checkout.
+- Stripe is the payment provider.
+- Build the smallest magical experience first.
+- Simplicity beats feature count.
+- Every feature must make someone a better musician.
+
+---
+
+# Guiding Customer Flow Architecture
+
+This is the current guiding architecture for the customer journey and should shape future work:
+
+```
+Landing Page
+      ↓
+Interactive Onboarding
+      ↓
+Demonstrate the PianoOS Philosophy
+      ↓
+Stripe Checkout
+      ↓
+Account Creation
+      ↓
+Continue Learning
+```
+
+Authentication exists in the product, but it happens **after** payment, not before. Account creation is a side effect of a successful Stripe checkout — never a standalone signup step, and never a gate in front of onboarding or the interactive demonstration of the philosophy.
+
+---
+
 # Product Philosophy
 
 Always optimize for:
