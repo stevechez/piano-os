@@ -146,3 +146,11 @@ These stay deferred per `12-mvp-definition.md` and `26-technical-mvp-architectur
 **Reason:** Module 1 only ever needed one step per lesson, but later modules won't. Making this change now — while there are only five lessons to migrate — is far cheaper than retrofitting it once dozens of lessons exist. Every lesson keeps rendering through the same two components regardless of how many steps it has.
 
 **Date:** July 2026
+
+## Decision 004
+
+**Decision:** The five Module 1 lessons *are* PianoOS's onboarding experience. There is one lesson engine — `LessonPlayer`, `LessonStep`, `PianoKeyboard`, `ChordVisualizer` — used for the public onboarding today and for the paid curriculum after checkout. No parallel `onboarding/` component tree is built.
+
+**Reason:** A Phase 6 handoff document proposed onboarding-specific components (`OnboardingShell`, `WelcomeStep`, `PatternStep`, etc.) that would duplicate the existing engine's structure and responsibilities. The handoff's product goals — a 3-5 minute, interactive, "aha"-moment-driven first experience — are already what Module 1 was built to be; nothing about them requires a second implementation. Keeping one engine means every future improvement to pacing, visuals, or interaction quality benefits onboarding and the paid curriculum simultaneously, and there's no risk of the two drifting apart. Refinement work (visuals, animation, pacing, interaction polish) happens on the existing `LessonStep`/`LessonPlayer`/`PianoKeyboard`/`ChordVisualizer` components, not a rebuild.
+
+**Date:** July 2026
