@@ -21,7 +21,7 @@ export default async function LessonPage({
   const next = getNextLesson(lessonId);
 
   return (
-    <LessonExperience
+    <LessonPlayer
       key={lesson.id}
       lesson={lesson}
       totalLessons={TOTAL_LESSONS}

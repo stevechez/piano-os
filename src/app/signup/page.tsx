@@ -1,29 +1,11 @@
-import Link from "next/link";
-import { AuthCard } from "@/components/auth/AuthCard";
-import { SignupForm } from "@/components/auth/SignupForm";
+import { redirect } from "next/navigation";
 
-export default async function SignupPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ redirectTo?: string }>;
-}) {
-  const { redirectTo } = await searchParams;
-
-  return (
-    <AuthCard
-      eyebrow="Create Account"
-      heading="Welcome to PianoOS"
-      subheading="Begin your musical journey."
-      footer={
-        <>
-          Already have an account?{" "}
-          <Link href="/login" className="text-gold hover:opacity-80">
-            Sign in
-          </Link>
-        </>
-      }
-    >
-      <SignupForm redirectTo={redirectTo} />
-    </AuthCard>
-  );
+/**
+ * There is no free password signup — see docs/43-commerce-and-checkout.md.
+ * Accounts are created automatically after a Stripe purchase. Anyone who
+ * lands here (an old link, a bookmark) gets sent to the actual entry
+ * point instead of a dead form.
+ */
+export default function SignupPage() {
+  redirect("/learn/complete");
 }

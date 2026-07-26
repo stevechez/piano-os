@@ -39,10 +39,10 @@ export function AppShell({ isAuthenticated, children }: AppShellProps) {
             </form>
           ) : (
             <Link
-              href="/signup"
+              href="/learn/complete"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              Save Progress
+              Unlock PianoOS
             </Link>
           )}
         </div>

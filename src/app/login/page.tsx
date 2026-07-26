@@ -17,8 +17,8 @@ export default async function LoginPage({
       footer={
         <>
           New to PianoOS?{" "}
-          <Link href="/signup" className="text-gold hover:opacity-80">
-            Create an account
+          <Link href="/learn" className="text-gold hover:opacity-80">
+            Start the free experience
           </Link>
         </>
       }

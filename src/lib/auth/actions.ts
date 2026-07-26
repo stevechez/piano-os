@@ -5,29 +5,38 @@ import { createClient } from "@/lib/supabase/server";
 
 export interface AuthActionState {
   error?: string;
-  /** Set when signup succeeded but requires email confirmation before login. */
-  awaitingConfirmation?: boolean;
+  /** Set once a magic-link sign-in email has been sent. */
+  magicLinkSent?: boolean;
 }
 
-export async function signUp(
+/**
+ * There is no free password signup — see docs/43-commerce-and-checkout.md.
+ * Accounts are created passwordlessly, either right after a Stripe
+ * purchase (/api/checkout/complete) or via this magic-link flow for a
+ * returning customer signing in on a new device/session.
+ *
+ * Note: this relies on the Supabase "Magic Link" email template pointing
+ * at `{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email`
+ * instead of Supabase's default hosted verify URL — a one-time dashboard
+ * setting (Authentication -> Email Templates).
+ */
+export async function sendMagicLink(
   _prevState: AuthActionState | null,
   formData: FormData
 ): Promise<AuthActionState> {
   const email = String(formData.get("email") ?? "").trim();
-  const password = String(formData.get("password") ?? "");
-  const displayName = String(formData.get("displayName") ?? "").trim();
   const redirectTo = String(formData.get("redirectTo") ?? "/learn");
 
-  if (!email || !password) {
-    return { error: "Email and password are required." };
+  if (!email) {
+    return { error: "Enter your email." };
   }
 
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
   const supabase = await createClient();
-  const { data, error } = await supabase.auth.signUp({
+  const { error } = await supabase.auth.signInWithOtp({
     email,
-    password,
     options: {
-      data: { display_name: displayName || null },
+      emailRedirectTo: `${appUrl}/auth/confirm?next=${encodeURIComponent(redirectTo)}`,
     },
   });
 
@@ -35,14 +44,7 @@ export async function signUp(
     return { error: error.message };
   }
 
-  // If email confirmation is required, Supabase returns a user but no
-  // session yet. Send the person to check their email instead of
-  // redirecting into a route they aren't authenticated for yet.
-  if (!data.session) {
-    return { awaitingConfirmation: true };
-  }
-
-  redirect(redirectTo || "/learn");
+  return { magicLinkSent: true };
 }
 
 export async function signIn(

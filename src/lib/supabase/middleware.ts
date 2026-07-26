@@ -3,9 +3,10 @@ import { NextResponse, type NextRequest } from "next/server";
 
 // PianoOS philosophy: the product sells a transformation, not an account.
 // /learn is intentionally public — Module 1 must be experienceable with
-// zero friction. Nothing is gated today; this stays as the extension point
-// for genuinely account-only routes (e.g. a future /account or /settings).
-const PROTECTED_PREFIXES: string[] = [];
+// zero friction. /account is genuinely account-only (there's nothing to
+// show a visitor who hasn't purchased). Future protected content (the real
+// dashboard/lesson library from Phase 6) extends this list.
+const PROTECTED_PREFIXES: string[] = ["/account"];
 const AUTH_PREFIXES = ["/login", "/signup"];
 
 /**

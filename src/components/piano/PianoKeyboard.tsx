@@ -84,6 +84,8 @@ export function PianoKeyboard({
 
   return (
     <div
+      role="group"
+      aria-label="Piano keyboard"
       className={cn(
         "relative flex w-full select-none overflow-hidden rounded-xl border border-border/80 bg-secondary/40",
         SIZE_HEIGHT[size],
@@ -102,12 +104,17 @@ export function PianoKeyboard({
             key={note.id}
             type="button"
             aria-label={`Play ${note.id}`}
+            aria-pressed={isActive || isPressed}
             onClick={() => handlePress(note.id)}
             className={cn(
-              "relative flex-1 border-r border-border/60 bg-foreground/95 transition-colors last:border-r-0",
+              "relative flex-1 border-r border-border/60 bg-foreground/95 last:border-r-0",
               "flex items-end justify-center pb-2",
+              "transition-[background-color,transform] duration-150",
+              "hover:brightness-110 active:brightness-95",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold",
               (isActive || isPressed) && "bg-gold",
-              isHighlighted && !isActive && !isPressed && "bg-gold/25"
+              isHighlighted && !isActive && !isPressed && "bg-gold/25",
+              isPressed && "translate-y-0.5"
             )}
           >
             {isHighlighted && !isActive && (
@@ -137,14 +144,18 @@ export function PianoKeyboard({
             key={note.id}
             type="button"
             aria-label={`Play ${note.id}`}
+            aria-pressed={isActive || isPressed}
             onClick={() => handlePress(note.id)}
             style={{
               left: `${(boundaryIndex / totalWhite) * 100}%`,
               width: `${blackKeyWidthPercent}%`,
-              transform: "translateX(-50%)",
+              transform: isPressed ? "translateX(-50%) translateY(2px)" : "translateX(-50%)",
             }}
             className={cn(
-              "absolute top-0 z-10 h-[60%] rounded-b-md bg-[oklch(0.08_0.008_58)] transition-colors",
+              "absolute top-0 z-10 h-[60%] rounded-b-md bg-[oklch(0.08_0.008_58)]",
+              "transition-[background-color,transform] duration-150",
+              "hover:brightness-125 active:brightness-90",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold",
               (isActive || isPressed) && "bg-gold",
               isHighlighted && !isActive && !isPressed && "bg-gold/50"
             )}

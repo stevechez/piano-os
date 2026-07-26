@@ -51,7 +51,7 @@ export function LessonList() {
                   {lesson.title}
                 </div>
                 <div className="mt-0.5 text-sm text-muted-foreground">
-                  {lesson.concept.heading}
+                  {lesson.steps[0].concept.heading}
                 </div>
               </div>
 
