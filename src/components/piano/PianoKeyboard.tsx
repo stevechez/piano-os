@@ -30,6 +30,14 @@ const SIZE_HEIGHT: Record<NonNullable<PianoKeyboardProps["size"]>, string> = {
   lg: "h-52",
 };
 
+/**
+ * How long a key's gold "ring-out" glow takes to fade after release, in ms.
+ * Loosely echoes the synth's own decay envelope (see piano-synth.ts) so the
+ * visual and the sound settle together, rather than the key snapping off
+ * well before the note actually finishes ringing.
+ */
+const RING_DECAY_MS = 550;
+
 export function PianoKeyboard({
   startOctave = 3,
   endOctave = 6,
@@ -41,7 +49,7 @@ export function PianoKeyboard({
   size = "md",
   className,
 }: PianoKeyboardProps) {
-  const [pressedNote, setPressedNote] = useState<string | null>(null);
+  const [ringingNotes, setRingingNotes] = useState<Set<string>>(new Set());
 
   const notes = useMemo(
     () => generateNoteRange(startOctave, endOctave),
@@ -72,10 +80,15 @@ export function PianoKeyboard({
 
   function handlePress(note: string) {
     playNote(note);
-    setPressedNote(note);
+    setRingingNotes((prev) => new Set(prev).add(note));
     window.setTimeout(() => {
-      setPressedNote((current) => (current === note ? null : current));
-    }, 150);
+      setRingingNotes((prev) => {
+        if (!prev.has(note)) return prev;
+        const next = new Set(prev);
+        next.delete(note);
+        return next;
+      });
+    }, RING_DECAY_MS);
     onNotePlay?.(note);
   }
 
@@ -95,7 +108,7 @@ export function PianoKeyboard({
       {whiteNotes.map((note) => {
         const isHighlighted = highlightedSet.has(note.id);
         const isActive = activeSet.has(note.id);
-        const isPressed = pressedNote === note.id;
+        const isRinging = ringingNotes.has(note.id);
         const label = note.pitch === "C" ? `${note.pitch}${note.octave}` : note.pitch;
         const shouldLabel = showLabels && (!labelFilter || labelFilter(note.id));
 
@@ -104,27 +117,34 @@ export function PianoKeyboard({
             key={note.id}
             type="button"
             aria-label={`Play ${note.id}`}
-            aria-pressed={isActive || isPressed}
+            aria-pressed={isActive || isRinging}
             onClick={() => handlePress(note.id)}
             className={cn(
               "relative flex-1 border-r border-border/60 bg-foreground/95 last:border-r-0",
               "flex items-end justify-center pb-2",
-              "transition-[background-color,transform] duration-150",
-              "hover:brightness-110 active:brightness-95",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold",
-              (isActive || isPressed) && "bg-gold",
-              isHighlighted && !isActive && !isPressed && "bg-gold/25",
-              isPressed && "translate-y-0.5"
+              "transition-transform duration-100 ease-out",
+              "hover:brightness-110 active:translate-y-0.5 active:brightness-95",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
             )}
           >
+            <span
+              aria-hidden
+              className={cn(
+                "pointer-events-none absolute inset-0 bg-gold transition-opacity ease-out",
+                isActive && "opacity-100 duration-150",
+                !isActive && isRinging && "opacity-70 duration-75",
+                !isActive && !isRinging && isHighlighted && "animate-key-glow",
+                !isActive && !isRinging && !isHighlighted && "opacity-0 duration-500"
+              )}
+            />
             {isHighlighted && !isActive && (
-              <span className="pointer-events-none absolute inset-x-1 top-1 h-1.5 rounded-full bg-gold" />
+              <span className="pointer-events-none absolute inset-x-1 top-1 h-1.5 rounded-full bg-gold animate-key-marker" />
             )}
             {shouldLabel && (
               <span
                 className={cn(
-                  "pointer-events-none text-[10px] font-medium tracking-wide",
-                  isActive || isPressed ? "text-gold-foreground" : "text-background/50"
+                  "relative pointer-events-none text-[10px] font-medium tracking-wide",
+                  isActive || isRinging ? "text-gold-foreground" : "text-background/50"
                 )}
               >
                 {label}
@@ -137,29 +157,40 @@ export function PianoKeyboard({
       {blackKeys.map(({ note, boundaryIndex }) => {
         const isHighlighted = highlightedSet.has(note.id);
         const isActive = activeSet.has(note.id);
-        const isPressed = pressedNote === note.id;
+        const isRinging = ringingNotes.has(note.id);
 
         return (
           <button
             key={note.id}
             type="button"
             aria-label={`Play ${note.id}`}
-            aria-pressed={isActive || isPressed}
+            aria-pressed={isActive || isRinging}
             onClick={() => handlePress(note.id)}
             style={{
               left: `${(boundaryIndex / totalWhite) * 100}%`,
               width: `${blackKeyWidthPercent}%`,
-              transform: isPressed ? "translateX(-50%) translateY(2px)" : "translateX(-50%)",
             }}
             className={cn(
-              "absolute top-0 z-10 h-[60%] rounded-b-md bg-[oklch(0.08_0.008_58)]",
-              "transition-[background-color,transform] duration-150",
-              "hover:brightness-125 active:brightness-90",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold",
-              (isActive || isPressed) && "bg-gold",
-              isHighlighted && !isActive && !isPressed && "bg-gold/50"
+              "absolute top-0 z-10 h-[60%] -translate-x-1/2 rounded-b-md bg-[oklch(0.08_0.008_58)]",
+              "transition-transform duration-100 ease-out",
+              "hover:brightness-125 active:translate-y-0.5 active:brightness-90",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
             )}
-          />
+          >
+            <span
+              aria-hidden
+              className={cn(
+                "pointer-events-none absolute inset-0 rounded-b-md bg-gold transition-opacity ease-out",
+                isActive && "opacity-100 duration-150",
+                !isActive && isRinging && "opacity-80 duration-75",
+                !isActive && !isRinging && isHighlighted && "animate-key-glow",
+                !isActive && !isRinging && !isHighlighted && "opacity-0 duration-500"
+              )}
+            />
+            {isHighlighted && !isActive && (
+              <span className="pointer-events-none absolute inset-x-0 bottom-1.5 mx-auto h-1 w-1/2 rounded-full bg-gold animate-key-marker" />
+            )}
+          </button>
         );
       })}
     </div>

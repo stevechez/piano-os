@@ -143,4 +143,36 @@
   .bg-grain {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   }
+
+  /* Piano keyboard: a slow, calm breathing glow for "find this note" cues.
+     Two intensities share one rhythm — a faint wash across the key and a
+     brighter marker bar/dot — so a target note reads as alive, not static,
+     without ever becoming a bright, game-like color. See
+     docs/41-piano-component-spec.md. */
+  @keyframes key-glow-pulse {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.38; }
+  }
+  @keyframes key-marker-pulse {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+  }
+  .animate-key-glow {
+    animation: key-glow-pulse 2.4s ease-in-out infinite;
+  }
+  .animate-key-marker {
+    animation: key-marker-pulse 2.4s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-key-glow,
+    .animate-key-marker {
+      animation: none;
+    }
+    .animate-key-glow {
+      opacity: 0.28;
+    }
+    .animate-key-marker {
+      opacity: 0.85;
+    }
+  }
 }
