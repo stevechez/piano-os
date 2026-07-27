@@ -18,8 +18,7 @@ export function AICoachSection() {
 
           <div>
             <p className="leading-relaxed text-muted-foreground">
-              PianoOS remembers where you are and quietly guides your next
-              step:
+              PianoOS quietly guides your next step:
             </p>
 
             <ul className="mt-5 space-y-3">

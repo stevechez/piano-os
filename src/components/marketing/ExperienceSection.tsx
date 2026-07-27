@@ -29,8 +29,8 @@ export function ExperienceSection() {
           </h2>
 
           <p className="max-w-md text-base leading-relaxed text-muted-foreground md:justify-self-end">
-            Every lesson connects musical concepts to real songs, so you
-            understand why the music works.
+            Every lesson connects a concept to a real song, so you
+            understand why it works.
           </p>
         </div>
 

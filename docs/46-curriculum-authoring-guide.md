@@ -152,6 +152,10 @@ Notice what each new lesson actually required:
 
 No changes to `LessonPlayer`, `LessonStep`, `PianoKeyboard`, or the progress system. This is the bar for how cheap a new lesson should be when it reuses an existing interaction shape.
 
+## A Second Reuse Example: Octaves And Intervals
+
+Lessons 3 and 4 introduced a second recurring shape: "click a note, then find the note exactly N semitones away." Rather than building two one-off interactions, this became `IntervalPairInteraction` (parametrized by `semitones`), with `OctavePairInteraction` (12 semitones) and `FifthPairInteraction` (7 semitones) as thin wrappers — the same extraction pattern as `FindNotesInteraction`, applied the second time the pattern showed up rather than pre-built speculatively the first time. That ordering — build bespoke, extract on genuine repetition — is the rule, not a one-time exception.
+
 ---
 
 # 3. Current Curriculum Inventory
@@ -170,15 +174,15 @@ No changes to `LessonPlayer`, `LessonStep`, `PianoKeyboard`, or the progress sys
 
 1. Keyboard Patterns (2 steps)
 2. Finding Notes (1 step)
+3. Octaves (1 step)
+4. Intervals (1 step)
 
-That is the entire built curriculum as of this document. Nothing beyond these seven experiences exists in the product today.
+That is the entire built curriculum as of this document. Nothing beyond these nine experiences exists in the product today.
 
 ## PLANNED (not built — do not treat as existing)
 
-A suggested sequence for the remainder of Module 1, per the original Phase 7 handoff. Titles and order may evolve; none of this content, copy, or interaction has been written:
+A suggested sequence for the remainder of Module 1, per the original Phase 7 handoff. Titles and order may evolve; none of this content, copy, or interaction has been written. **Per `47-first-user-test-results.md`'s decision gate, these wait for a real external user test — see Section 4 below.**
 
-3. Octaves
-4. Intervals
 5. Building Chords
 6. Major vs Minor
 7. Recognizing Progressions
@@ -190,17 +194,21 @@ Module 2 and beyond are not yet named or scoped.
 
 # 4. Validation Gate
 
+Status, updated as each item clears:
+
+✓ Stripe Price IDs are fixed
+
+✓ Purchase flow works end-to-end
+
+✓ A **simulated** first user test was run (`47-first-user-test-results.md`) — surfaced real findings (a landing-page gap, a Lesson 5 content/mechanic contradiction) that were acted on directly, and Lessons 3–4 were built as a deliberate, explicit exception to extend the "aha" experience before real testing, per product direction.
+
 > ## STOP.
 >
-> **Do not create Module 1 Lessons 3–8 until:**
+> **Do not create Module 1 Lessons 5–8 until:**
 >
-> ✓ Stripe Price IDs are fixed
+> ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation above does not satisfy this)
 >
-> ✓ Purchase flow works end-to-end
->
-> ✓ First external user test is completed
->
-> ✓ Feedback is reviewed
+> ✓ Its feedback is reviewed, and Module 1 is refined based on it — see `47`'s "Future Phase": refine, don't expand
 >
 > **The next milestone is validation, not curriculum expansion.**
 >
@@ -208,7 +216,7 @@ Module 2 and beyond are not yet named or scoped.
 >
 > The goal is to prove that the first learning experience creates a transformation.
 
-If you are reading this document and considering writing Lesson 3, check the four boxes above first. If they aren't checked, the correct next action is to help get them checked — not to write curriculum.
+If you are reading this document and considering writing Lesson 5, check the two boxes above first. If they aren't checked, the correct next action is to help get them checked — not to write curriculum.
 
 ---
 
@@ -219,5 +227,13 @@ If you are reading this document and considering writing Lesson 3, check the fou
 **Decision:** This guide is scoped to curriculum creation only — pedagogy, lesson structure, content inventory, and the validation gate. It intentionally excludes engineering setup, deployment, and business operations.
 
 **Reason:** Curriculum authors (who may not be engineers) and engineers extending curriculum have different needs from a handoff document. Mixing the two produces a document that serves neither well. An engineering handoff, if needed, is a separate document.
+
+**Date:** July 2026
+
+## Decision 002
+
+**Decision:** Lessons 3 (Octaves) and 4 (Intervals) were built as an explicit, bounded exception to the original "no Lessons 3–8 before a real user test" gate. Lessons 5–8 remain blocked.
+
+**Reason:** After reviewing the simulated user test (`47-first-user-test-results.md`), the product owner's assessment was that five minutes of onboarding isn't enough exposure to the teaching method to justify a $19/month decision — the fix isn't pricing, it's giving the free/early experience more room to prove the method before asking someone to commit. Two more lessons extend that proof; eight would be guessing at scale before any real human has responded to even the first two. The boundary was deliberately kept at "2 more, then stop and test again," not moved to "build the rest of the module."
 
 **Date:** July 2026

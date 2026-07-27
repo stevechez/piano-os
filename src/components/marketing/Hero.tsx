@@ -27,8 +27,8 @@ export function Hero() {
             </h1>
 
             <p className="mt-7 max-w-md text-lg leading-relaxed text-muted-foreground">
-              Stop memorizing notes. Start understanding the chords,
-              patterns, and harmony behind the songs you love.
+              Stop memorizing notes. Start understanding the chords and
+              patterns behind the songs you love.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-6">

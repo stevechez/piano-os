@@ -8,6 +8,8 @@ import { FirstSongInteraction } from "./FirstSongInteraction";
 import { BlackKeyPairsInteraction } from "./BlackKeyPairsInteraction";
 import { BlackKeyTripletsInteraction } from "./BlackKeyTripletsInteraction";
 import { FindingNotesInteraction } from "./FindingNotesInteraction";
+import { OctavePairInteraction } from "./OctavePairInteraction";
+import { FifthPairInteraction } from "./FifthPairInteraction";
 
 export type { LessonInteractionProps };
 
@@ -26,4 +28,6 @@ export const LESSON_INTERACTIONS: Record<
   "keyboard-patterns-pairs": BlackKeyPairsInteraction,
   "keyboard-patterns-triplets": BlackKeyTripletsInteraction,
   "finding-notes": FindingNotesInteraction,
+  octaves: OctavePairInteraction,
+  intervals: FifthPairInteraction,
 };

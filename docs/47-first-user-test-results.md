@@ -161,7 +161,7 @@ Predicted reactions written down as they'd occur, per the script's instruction t
 
 ## Must Fix Before More Curriculum
 
-1. **Lesson 5's "you played it" claim doesn't match its mechanic.** Either make the interaction require the student to actually trigger each chord (closer to Lesson 4's mechanic), or change the Discovery copy so it doesn't claim an active action that didn't happen. This sits at the single most important emotional beat in the entire free experience — it should not be the one place the product's core promise and its actual behavior disagree.
+1. ~~**Lesson 5's "you played it" claim doesn't match its mechanic.**~~ **Resolved.** `FirstSongInteraction` now requires the student to play every chord themselves, one at a time, on the keyboard, instead of one button that auto-played everything. The Discovery copy was left unchanged since it's now accurate.
 
 ## Improve Soon
 
@@ -200,5 +200,13 @@ Per the brief this document was written against: once real feedback exists, the 
 **Decision:** This document simulates a user test using personas and a live walkthrough of the actual product, rather than waiting for real recruitment to produce any written findings.
 
 **Reason:** Requested directly, to pressure-test the test script and surface fixable friction cheaply before spending a real stranger's first impression on it. Explicitly does not satisfy the validation gate's "first external user test" requirement — see the disclaimer at the top of this document.
+
+**Date:** July 2026
+
+## Decision 002
+
+**Decision:** Acting on this document's findings, the product owner's assessment was that the underlying problem isn't pricing — it's that five minutes of onboarding doesn't yet demonstrate enough of the teaching method to justify a subscription decision. Rather than moving the paywall immediately, the response was: fix the Lesson 5 contradiction now, extend Module 1 by exactly two lessons (Octaves, Intervals) to give the method more room to prove itself, then test again before deciding where the paywall belongs.
+
+**Reason:** Moving the free/paid boundary is a real product decision that itself needs validation, not a reaction to a single (simulated) round of feedback. Fixing a concretely broken thing (Lesson 5) and adding a bounded amount of proof (2 lessons, not 6) are low-risk, immediately actionable; restructuring checkout is not, and was deliberately deferred. See `46-curriculum-authoring-guide.md` Decision 002.
 
 **Date:** July 2026

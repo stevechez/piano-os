@@ -40,8 +40,8 @@ export function PricingSection() {
               </div>
 
               <p className="mt-4 max-w-sm leading-relaxed text-muted-foreground">
-                Try the first module free — no account required. Unlock the
-                full method whenever it clicks.
+                Try Module 1 free — no account required. Unlock the rest
+                whenever it clicks.
               </p>
 
               <Link

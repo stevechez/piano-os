@@ -9,14 +9,18 @@ import type { Module } from "./types";
 export const MODULE_1_ID = "module-1";
 
 /**
- * Module 1: Piano Foundations. Lessons 1-2 are the Phase 7 vertical slice —
- * proving Module -> Lesson -> Step end to end before Lessons 3-8 are
- * written. Lesson 1 deliberately has two steps (unlike every onboarding
- * lesson, which has one) to exercise that part of the engine for real.
+ * Module 1: Piano Foundations. Lessons 1-4 exist; per
+ * docs/47-first-user-test-results.md's decision gate, Lessons 5-8 wait for
+ * a real external user test before being written. Lesson 1 deliberately has
+ * two steps (unlike every onboarding lesson, which has one) to exercise
+ * that part of the engine for real.
  *
- * Both lessons build directly on the onboarding's "pattern-machine" lesson
- * (every C looks the same) by teaching the actual landmark musicians use to
- * navigate the keyboard: the two repeating black-key shapes.
+ * Lessons 1-2 build directly on onboarding's "pattern-machine" lesson
+ * (every C looks the same) by teaching the landmark musicians use to
+ * navigate the keyboard: the two repeating black-key shapes. Lessons 3-4
+ * build on that landmark again — octaves and intervals are both "click a
+ * note, then find the related note" applications of the same
+ * pattern-over-counting skill, not new unrelated theory.
  */
 export const MODULE_1: Module = {
   id: MODULE_1_ID,
@@ -67,6 +71,42 @@ export const MODULE_1: Module = {
           discovery: {
             heading: "You found it by pattern, not by counting.",
             body: "This is the actual skill: recognizing shapes instead of memorizing 88 individual key positions. Every note has a landmark like this one.",
+          },
+        },
+      ],
+    },
+    {
+      id: "octaves",
+      index: 3,
+      title: "Octaves",
+      steps: [
+        {
+          id: "octaves",
+          concept: {
+            heading: "You've seen this repeat before.",
+            body: "Every C on the keyboard looks the same — you already found that. That repeat has a name: an octave. Same note, doubled in pitch. Pick any note, then find its octave.",
+          },
+          discovery: {
+            heading: "Same note, twice.",
+            body: "An octave is the most 'in tune with itself' sound in music — that's why two Cs an octave apart still sound like the same note, just higher or lower. Every note on the keyboard has one.",
+          },
+        },
+      ],
+    },
+    {
+      id: "intervals",
+      index: 4,
+      title: "Intervals",
+      steps: [
+        {
+          id: "intervals",
+          concept: {
+            heading: "Not every distance sounds the same.",
+            body: "Two different notes played together create a distance — an interval. You've already played one: C to G, the first jump in the progression you know. That distance is called a fifth.",
+          },
+          discovery: {
+            heading: "Chords are built from distances like this.",
+            body: "A fifth is one of the building blocks every chord you've played is made from. Once you can hear and find an interval, you're most of the way to building a chord from scratch.",
           },
         },
       ],

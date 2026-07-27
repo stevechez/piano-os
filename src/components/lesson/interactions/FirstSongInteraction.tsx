@@ -2,42 +2,62 @@
 
 import { useState } from "react";
 import { PianoKeyboard } from "@/components/piano/PianoKeyboard";
-import { playProgression } from "@/lib/audio/piano-synth";
+import { playChord } from "@/lib/audio/piano-synth";
 import { getChord, getProgression } from "@/lib/music/chords";
 import { cn } from "@/lib/utils";
 
 const PROGRESSION = getProgression("classicPop");
 const CHORDS = PROGRESSION.chordIds.map(getChord);
-const CHORD_DURATION_S = 1.1;
-const GAP_MS = 150;
-const STEP_MS = CHORD_DURATION_S * 1000 + GAP_MS;
+/** Pause after a chord completes, before revealing the next one — long
+ * enough to hear it land, short enough to keep momentum. */
+const ADVANCE_DELAY_MS = 700;
 
 export interface LessonInteractionProps {
   onComplete: () => void;
 }
 
+/**
+ * The student plays every chord of the progression themselves, one at a
+ * time, on the keyboard — not a single button that plays it for them. See
+ * docs/47-first-user-test-results.md: the previous auto-play version
+ * contradicted its own Discovery copy ("you played it").
+ */
 export function FirstSongInteraction({ onComplete }: LessonInteractionProps) {
-  const [status, setStatus] = useState<"idle" | "playing" | "done">("idle");
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [chordIndex, setChordIndex] = useState(0);
+  const [playedInChord, setPlayedInChord] = useState<Set<string>>(new Set());
+  const [done, setDone] = useState(false);
 
-  const handlePlay = () => {
-    if (status === "playing") return;
-    setStatus("playing");
+  const currentChord = CHORDS[chordIndex];
+  const lastChord = CHORDS[CHORDS.length - 1];
 
-    playProgression(
-      CHORDS.map((c) => c.notes),
-      { chordDuration: CHORD_DURATION_S, gapMs: GAP_MS }
-    );
+  const handleNotePlay = (note: string) => {
+    if (done || !currentChord.notes.includes(note) || playedInChord.has(note)) {
+      return;
+    }
 
-    CHORDS.forEach((_, i) => {
-      window.setTimeout(() => setActiveIndex(i), i * STEP_MS);
-    });
+    const next = new Set(playedInChord);
+    next.add(note);
+    setPlayedInChord(next);
 
-    window.setTimeout(() => {
-      setActiveIndex(null);
-      setStatus("done");
+    if (next.size !== currentChord.notes.length) return;
+
+    playChord(currentChord.notes);
+
+    if (chordIndex === CHORDS.length - 1) {
+      setDone(true);
       onComplete();
-    }, CHORDS.length * STEP_MS);
+    } else {
+      window.setTimeout(() => {
+        setChordIndex((i) => i + 1);
+        setPlayedInChord(new Set());
+      }, ADVANCE_DELAY_MS);
+    }
+  };
+
+  const handleReplay = () => {
+    setChordIndex(0);
+    setPlayedInChord(new Set());
+    setDone(false);
   };
 
   return (
@@ -48,33 +68,42 @@ export function FirstSongInteraction({ onComplete }: LessonInteractionProps) {
           <span className="text-foreground">
             &ldquo;{PROGRESSION.songReference.title}&rdquo;
           </span>{" "}
-          by {PROGRESSION.songReference.artist}.
+          by {PROGRESSION.songReference.artist}. Play each chord yourself, in
+          order —{" "}
+          <span className="text-foreground">{PROGRESSION.label}</span>.
+          {!done && (
+            <>
+              {" "}
+              Chord {chordIndex + 1} of {CHORDS.length}:{" "}
+              <span className="text-foreground">{currentChord.name}</span>.
+            </>
+          )}
         </p>
       )}
 
       <PianoKeyboard
         startOctave={3}
         endOctave={5}
-        highlightedNotes={activeIndex !== null ? CHORDS[activeIndex].notes : []}
-        activeNotes={activeIndex !== null ? CHORDS[activeIndex].notes : []}
+        highlightedNotes={
+          done ? [] : currentChord.notes.filter((n) => !playedInChord.has(n))
+        }
+        activeNotes={done ? lastChord.notes : Array.from(playedInChord)}
+        onNotePlay={handleNotePlay}
         size="lg"
       />
 
-      <button
-        type="button"
-        onClick={handlePlay}
-        disabled={status === "playing"}
-        className={cn(
-          "rounded-full px-7 py-3.5 text-sm font-medium transition-all",
-          status === "playing"
-            ? "cursor-not-allowed bg-secondary text-muted-foreground"
-            : "bg-gold text-gold-foreground hover:scale-[1.02]"
-        )}
-      >
-        {status === "idle" && "Play the song"}
-        {status === "playing" && "Playing…"}
-        {status === "done" && "Play it again"}
-      </button>
+      {done && (
+        <button
+          type="button"
+          onClick={handleReplay}
+          className={cn(
+            "rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-gold-foreground",
+            "transition-transform hover:scale-[1.02]"
+          )}
+        >
+          Play it again
+        </button>
+      )}
     </div>
   );
 }
