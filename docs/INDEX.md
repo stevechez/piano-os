@@ -26,3 +26,7 @@
 
 ## Learning Curriculum (Paid)
 44-learning-curriculum-architecture
+
+## Validation
+32-beta-testing-and-validation-plan
+45-first-user-test-script
