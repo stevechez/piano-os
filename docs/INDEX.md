@@ -26,6 +26,7 @@
 
 ## Learning Curriculum (Paid)
 44-learning-curriculum-architecture
+46-curriculum-authoring-guide
 
 ## Validation
 32-beta-testing-and-validation-plan
