@@ -15,7 +15,7 @@
 33-launch-content-machine
 ...
 
-## Learning Experience (Module 1 MVP)
+## Onboarding (Free Experience)
 39-lesson-engine
 40-interactive-learning-model
 41-piano-component-spec
@@ -23,3 +23,6 @@
 
 ## Commerce
 43-commerce-and-checkout
+
+## Learning Curriculum (Paid)
+44-learning-curriculum-architecture

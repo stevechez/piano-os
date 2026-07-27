@@ -1,17 +1,22 @@
 import type { Lesson } from "./types";
 
-export const MODULE_ID = "module-1";
+/**
+ * The five free onboarding experiences — not a "Module." See
+ * docs/44-learning-curriculum-architecture.md Decision 001: "Module" is
+ * reserved for the paid Learning Curriculum (src/features/curriculum/modules.ts).
+ */
+export const ONBOARDING_ID = "onboarding";
 
 /**
- * Module 1: Piano Foundations — the first five lessons.
- * See docs/40-interactive-learning-model.md for why these five, in this
- * order, all built around one chord family.
+ * PianoOS Onboarding — the five free lessons. See
+ * docs/40-interactive-learning-model.md for why these five, in this order,
+ * all built around one chord family.
  *
  * Each lesson has exactly one step today. See docs/39-lesson-engine.md —
- * the steps[] shape exists so future modules can add multi-step lessons
+ * the steps[] shape exists so future lessons can add multiple steps
  * without changing LessonStep/LessonPlayer.
  */
-export const LESSONS: Lesson[] = [
+export const ONBOARDING_LESSONS: Lesson[] = [
   {
     id: "welcome-to-pianoos",
     index: 1,
@@ -104,14 +109,14 @@ export const LESSONS: Lesson[] = [
   },
 ];
 
-export function getLesson(lessonId: string): Lesson | undefined {
-  return LESSONS.find((lesson) => lesson.id === lessonId);
+export function getOnboardingLesson(lessonId: string): Lesson | undefined {
+  return ONBOARDING_LESSONS.find((lesson) => lesson.id === lessonId);
 }
 
-export function getNextLesson(lessonId: string): Lesson | undefined {
-  const current = getLesson(lessonId);
+export function getNextOnboardingLesson(lessonId: string): Lesson | undefined {
+  const current = getOnboardingLesson(lessonId);
   if (!current) return undefined;
-  return LESSONS.find((lesson) => lesson.index === current.index + 1);
+  return ONBOARDING_LESSONS.find((lesson) => lesson.index === current.index + 1);
 }
 
-export const TOTAL_LESSONS = LESSONS.length;
+export const TOTAL_ONBOARDING_LESSONS = ONBOARDING_LESSONS.length;

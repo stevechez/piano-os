@@ -6,30 +6,39 @@ import { LessonStep } from "./LessonStep";
 import { LESSON_INTERACTIONS } from "./interactions";
 import { useLessonProgress } from "@/features/curriculum/progress";
 import { saveLessonProgress } from "@/features/curriculum/actions";
-import { MODULE_ID } from "@/features/curriculum/lessons";
 import type { Lesson } from "@/features/curriculum/types";
 
 export interface LessonPlayerProps {
   lesson: Lesson;
+  /** Scopes progress tracking — the onboarding id, or a curriculum module id. */
+  moduleId: string;
+  /** Route prefix this lesson's siblings live under, e.g. "/learn/lessons" or "/learn/module-1". */
+  basePath: string;
   totalLessons: number;
   /** Undefined when this is the last lesson in the module. */
   nextLessonId?: string;
+  /** Where Continue goes after this lesson's last step, if it's the module's last lesson. */
+  finalHref: string;
+  /** Continue button label on the module's last lesson's last step. */
+  finalLabel: string;
 }
 
 /**
  * Sequences a lesson's steps and, once the last step is done, hands off to
- * the next lesson (or /learn/complete). Every Module 1 lesson has exactly
- * one step today, so in practice this plays like the old single-page
- * LessonExperience — but the engine now supports lessons with several
- * steps without any changes here. See docs/39-lesson-engine.md.
+ * the next lesson (or finalHref). One engine for onboarding and every
+ * curriculum module — see docs/44-learning-curriculum-architecture.md.
  */
 export function LessonPlayer({
   lesson,
+  moduleId,
+  basePath,
   totalLessons,
   nextLessonId,
+  finalHref,
+  finalLabel,
 }: LessonPlayerProps) {
   const router = useRouter();
-  const { markComplete } = useLessonProgress();
+  const { markComplete } = useLessonProgress(moduleId);
   const [stepIndex, setStepIndex] = useState(0);
   const [completed, setCompleted] = useState(false);
 
@@ -46,7 +55,7 @@ export function LessonPlayer({
     // done once its final step is. Intermediate steps just advance.
     if (isLastStepInLesson) {
       markComplete(lesson.id);
-      void saveLessonProgress(MODULE_ID, lesson.id);
+      void saveLessonProgress(moduleId, lesson.id);
     }
   }
 
@@ -57,13 +66,13 @@ export function LessonPlayer({
       return;
     }
 
-    router.push(nextLessonId ? `/learn/lessons/${nextLessonId}` : "/learn/complete");
+    router.push(nextLessonId ? `${basePath}/${nextLessonId}` : finalHref);
   }
 
   const continueLabel = !isLastStepInLesson
     ? "Continue"
     : isLastLesson
-      ? "Finish Module"
+      ? finalLabel
       : "Continue";
 
   return (

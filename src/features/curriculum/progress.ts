@@ -1,24 +1,29 @@
 "use client";
 
 /**
- * Local-first progress tracking for Module 1. No account required — see
- * docs/39-lesson-engine.md Decision 002. Stored as a single JSON blob in
- * localStorage.
+ * Local-first progress tracking, shared by onboarding and the paid
+ * curriculum alike — see docs/39-lesson-engine.md Decision 002 (why
+ * localStorage-first) and docs/44-learning-curriculum-architecture.md
+ * (why one hook serves both). Stored as a single JSON blob in localStorage,
+ * keyed per module so onboarding and each curriculum module get independent
+ * local caches.
  */
 
 import { useCallback, useEffect, useState } from "react";
 import type { LessonProgressState } from "./types";
 import { createClient } from "@/lib/supabase/client";
 import { saveLessonProgress } from "./actions";
-import { MODULE_ID } from "./lessons";
+import { ONBOARDING_ID } from "./onboarding";
 
-const STORAGE_KEY = "pianoos:module-1-progress";
+function storageKey(moduleId: string): string {
+  return `pianoos:${moduleId}-progress`;
+}
 
-function readProgress(): LessonProgressState {
+function readProgress(moduleId: string): LessonProgressState {
   if (typeof window === "undefined") return { completedLessonIds: [] };
 
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const raw = window.localStorage.getItem(storageKey(moduleId));
     if (!raw) return { completedLessonIds: [] };
     const parsed: unknown = JSON.parse(raw);
     if (
@@ -34,30 +39,33 @@ function readProgress(): LessonProgressState {
   }
 }
 
-function writeProgress(state: LessonProgressState): void {
+function writeProgress(moduleId: string, state: LessonProgressState): void {
   if (typeof window === "undefined") return;
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  window.localStorage.setItem(storageKey(moduleId), JSON.stringify(state));
 }
 
-export function markLessonComplete(lessonId: string): LessonProgressState {
-  const current = readProgress();
+export function markLessonComplete(
+  moduleId: string,
+  lessonId: string
+): LessonProgressState {
+  const current = readProgress(moduleId);
   if (current.completedLessonIds.includes(lessonId)) return current;
 
   const next: LessonProgressState = {
     completedLessonIds: [...current.completedLessonIds, lessonId],
   };
-  writeProgress(next);
+  writeProgress(moduleId, next);
   return next;
 }
 
 /** React hook wrapping the above for use in client components. */
-export function useLessonProgress(moduleId: string = MODULE_ID) {
+export function useLessonProgress(moduleId: string = ONBOARDING_ID) {
   const [state, setState] = useState<LessonProgressState>({
     completedLessonIds: [],
   });
 
   useEffect(() => {
-    const local = readProgress();
+    const local = readProgress(moduleId);
     // One-time sync from localStorage on mount. This must run client-side
     // only (localStorage isn't available during SSR), so it can't be done
     // via a lazy useState initializer without risking a hydration mismatch.
@@ -101,7 +109,7 @@ export function useLessonProgress(moduleId: string = MODULE_ID) {
         );
         if (merged.length !== local.completedLessonIds.length) {
           const next = { completedLessonIds: merged };
-          writeProgress(next);
+          writeProgress(moduleId, next);
           setState(next);
         }
       } catch {
@@ -112,9 +120,12 @@ export function useLessonProgress(moduleId: string = MODULE_ID) {
     void syncFromSupabase();
   }, [moduleId]);
 
-  const markComplete = useCallback((lessonId: string) => {
-    setState(markLessonComplete(lessonId));
-  }, []);
+  const markComplete = useCallback(
+    (lessonId: string) => {
+      setState(markLessonComplete(moduleId, lessonId));
+    },
+    [moduleId]
+  );
 
   const isComplete = useCallback(
     (lessonId: string) => state.completedLessonIds.includes(lessonId),

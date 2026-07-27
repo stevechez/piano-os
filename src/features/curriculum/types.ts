@@ -1,15 +1,18 @@
 /**
- * Types for Module 1 (Piano Foundations). See docs/39-lesson-engine.md.
+ * Shared content types for both PianoOS Onboarding (onboarding.ts) and the
+ * paid Learning Curriculum (modules.ts). See docs/39-lesson-engine.md and
+ * docs/44-learning-curriculum-architecture.md.
  *
  * A Lesson is a sequence of one or more steps. Every step follows the same
- * four zones: Concept -> Visual -> Interaction -> Discovery. Today, every
- * Module 1 lesson has exactly one step; the shape supports lessons with
- * several steps without a rewrite once later modules need that.
+ * four zones: Concept -> Visual -> Interaction -> Discovery. A Module is a
+ * named, ordered sequence of Lessons — the paid curriculum's unit above a
+ * lesson; onboarding has no Module wrapper, since it isn't part of the
+ * curriculum (see docs/44-learning-curriculum-architecture.md Decision 001).
  *
- * Step *copy and metadata* are data-driven (this file + lessons.ts). A
- * step's Visual/Interaction zone is a bespoke component, registered
- * separately in src/components/lesson/interactions — it isn't modeled here
- * because it's behavior, not content.
+ * Step *copy and metadata* are data-driven (this file + onboarding.ts /
+ * modules.ts). A step's Visual/Interaction zone is a bespoke component,
+ * registered separately in src/components/lesson/interactions — it isn't
+ * modeled here because it's behavior, not content.
  */
 
 export interface LessonCopy {
@@ -27,10 +30,19 @@ export interface LessonStepConfig {
 
 export interface Lesson {
   id: string;
-  /** 1-based position within the module. */
+  /** 1-based position within its module (or within onboarding). */
   index: number;
   title: string;
   steps: LessonStepConfig[];
+}
+
+export interface Module {
+  id: string;
+  /** 1-based position within the Learning Curriculum. */
+  index: number;
+  title: string;
+  subtitle: string;
+  lessons: Lesson[];
 }
 
 export interface LessonProgressState {

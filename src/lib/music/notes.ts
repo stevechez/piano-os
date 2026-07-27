@@ -99,3 +99,26 @@ export function notesOfPitchClass(
 ): string[] {
   return notes.filter((n) => n.pitch === pitch).map((n) => n.id);
 }
+
+/**
+ * Black keys cluster into two repeating shapes per octave: a group of two
+ * (C#, D#) and a group of three (F#, G#, A#). This landmark — not counting
+ * up from C — is how musicians actually find notes on the keyboard; Module
+ * 1's "Keyboard Patterns" lesson teaches it directly.
+ */
+const BLACK_KEY_GROUP_SIZE: Partial<Record<NoteName, 2 | 3>> = {
+  "C#": 2,
+  "D#": 2,
+  "F#": 3,
+  "G#": 3,
+  "A#": 3,
+};
+
+export function notesInBlackKeyGroup(
+  notes: KeyboardNote[],
+  groupSize: 2 | 3
+): string[] {
+  return notes
+    .filter((n) => BLACK_KEY_GROUP_SIZE[n.pitch] === groupSize)
+    .map((n) => n.id);
+}

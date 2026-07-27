@@ -1,9 +1,15 @@
 import { notFound } from "next/navigation";
-import { LESSONS, TOTAL_LESSONS, getLesson, getNextLesson } from "@/features/curriculum/lessons";
+import {
+  ONBOARDING_ID,
+  ONBOARDING_LESSONS,
+  TOTAL_ONBOARDING_LESSONS,
+  getOnboardingLesson,
+  getNextOnboardingLesson,
+} from "@/features/curriculum/onboarding";
 import { LessonPlayer } from "@/components/lesson/LessonPlayer";
 
 export function generateStaticParams() {
-  return LESSONS.map((lesson) => ({ lessonId: lesson.id }));
+  return ONBOARDING_LESSONS.map((lesson) => ({ lessonId: lesson.id }));
 }
 
 export default async function LessonPage({
@@ -12,20 +18,24 @@ export default async function LessonPage({
   params: Promise<{ lessonId: string }>;
 }) {
   const { lessonId } = await params;
-  const lesson = getLesson(lessonId);
+  const lesson = getOnboardingLesson(lessonId);
 
   if (!lesson) {
     notFound();
   }
 
-  const next = getNextLesson(lessonId);
+  const next = getNextOnboardingLesson(lessonId);
 
   return (
     <LessonPlayer
       key={lesson.id}
       lesson={lesson}
-      totalLessons={TOTAL_LESSONS}
+      moduleId={ONBOARDING_ID}
+      basePath="/learn/lessons"
+      totalLessons={TOTAL_ONBOARDING_LESSONS}
       nextLessonId={next?.id}
+      finalHref="/learn/complete"
+      finalLabel="Finish"
     />
   );
 }

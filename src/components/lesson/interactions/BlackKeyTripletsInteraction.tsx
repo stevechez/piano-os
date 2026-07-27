@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { generateNoteRange, notesOfPitchClass } from "@/lib/music/notes";
+import { generateNoteRange, notesInBlackKeyGroup } from "@/lib/music/notes";
 import { FindNotesInteraction } from "./FindNotesInteraction";
 
 const START_OCTAVE = 3;
@@ -11,9 +11,9 @@ export interface LessonInteractionProps {
   onComplete: () => void;
 }
 
-export function PatternMachineInteraction({ onComplete }: LessonInteractionProps) {
+export function BlackKeyTripletsInteraction({ onComplete }: LessonInteractionProps) {
   const targetNotes = useMemo(
-    () => notesOfPitchClass(generateNoteRange(START_OCTAVE, END_OCTAVE), "C"),
+    () => notesInBlackKeyGroup(generateNoteRange(START_OCTAVE, END_OCTAVE), 3),
     []
   );
 
@@ -23,7 +23,7 @@ export function PatternMachineInteraction({ onComplete }: LessonInteractionProps
       startOctave={START_OCTAVE}
       endOctave={END_OCTAVE}
       prompt={(found, total) =>
-        `Every C on the keyboard is the same idea, repeated. Find all ${total} of them (${found} of ${total} found).`
+        `Now find every black key that belongs to a group of three (${found} of ${total} found).`
       }
       onComplete={onComplete}
     />

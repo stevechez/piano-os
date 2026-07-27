@@ -2,26 +2,36 @@
 
 import Link from "next/link";
 import { Check } from "lucide-react";
-import { LESSONS } from "@/features/curriculum/lessons";
 import { useLessonProgress } from "@/features/curriculum/progress";
+import type { Lesson } from "@/features/curriculum/types";
 import { cn } from "@/lib/utils";
 
-export function LessonList() {
-  const { isComplete, completedLessonIds } = useLessonProgress();
-  const allComplete = completedLessonIds.length === LESSONS.length;
-  const nextLesson = LESSONS.find((lesson) => !isComplete(lesson.id));
+export interface LessonListProps {
+  lessons: Lesson[];
+  /** Scopes progress tracking — the onboarding id, or a curriculum module id. */
+  moduleId: string;
+  /** Route prefix each lesson lives under, e.g. "/learn/lessons" or "/learn/module-1". */
+  basePath: string;
+  /** Shown once every listed lesson is complete. Omit to show nothing (e.g. a slice that isn't the whole module yet). */
+  completionCopy?: { heading: string; body: string };
+}
+
+export function LessonList({ lessons, moduleId, basePath, completionCopy }: LessonListProps) {
+  const { isComplete, completedLessonIds } = useLessonProgress(moduleId);
+  const allComplete = completedLessonIds.length === lessons.length;
+  const nextLesson = lessons.find((lesson) => !isComplete(lesson.id));
 
   return (
     <div>
       <div className="space-y-3">
-        {LESSONS.map((lesson) => {
+        {lessons.map((lesson) => {
           const done = isComplete(lesson.id);
           const isNext = !allComplete && lesson.id === nextLesson?.id;
 
           return (
             <Link
               key={lesson.id}
-              href={`/learn/lessons/${lesson.id}`}
+              href={`${basePath}/${lesson.id}`}
               className={cn(
                 "flex items-center gap-4 rounded-2xl border p-5 transition-colors",
                 done
@@ -65,14 +75,10 @@ export function LessonList() {
         })}
       </div>
 
-      {allComplete && (
+      {allComplete && completionCopy && (
         <div className="mt-8 rounded-2xl border border-gold/30 bg-gold/[0.06] p-6 text-center">
-          <p className="font-serif text-lg text-foreground">
-            You&rsquo;ve completed Module 1.
-          </p>
-          <p className="mt-1 text-sm text-muted-foreground">
-            The rest of PianoOS builds on exactly what you just learned.
-          </p>
+          <p className="font-serif text-lg text-foreground">{completionCopy.heading}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{completionCopy.body}</p>
         </div>
       )}
     </div>

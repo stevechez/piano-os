@@ -11,9 +11,9 @@ export interface LessonInteractionProps {
   onComplete: () => void;
 }
 
-export function PatternMachineInteraction({ onComplete }: LessonInteractionProps) {
+export function FindingNotesInteraction({ onComplete }: LessonInteractionProps) {
   const targetNotes = useMemo(
-    () => notesOfPitchClass(generateNoteRange(START_OCTAVE, END_OCTAVE), "C"),
+    () => notesOfPitchClass(generateNoteRange(START_OCTAVE, END_OCTAVE), "F"),
     []
   );
 
@@ -23,7 +23,7 @@ export function PatternMachineInteraction({ onComplete }: LessonInteractionProps
       startOctave={START_OCTAVE}
       endOctave={END_OCTAVE}
       prompt={(found, total) =>
-        `Every C on the keyboard is the same idea, repeated. Find all ${total} of them (${found} of ${total} found).`
+        `F always sits just left of a group of three black keys. Find all ${total} Fs using that landmark (${found} of ${total} found).`
       }
       onComplete={onComplete}
     />
