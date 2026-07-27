@@ -17,6 +17,14 @@ export const CHORDS: Record<string, Chord> = {
   gMajor: { id: "gMajor", name: "G Major", notes: ["G3", "B3", "D4"] },
   aMinor: { id: "aMinor", name: "A Minor", notes: ["A3", "C4", "E4"] },
   fMajor: { id: "fMajor", name: "F Major", notes: ["F3", "A3", "C4"] },
+  // Lessons 6-8 (Building Any Major Chord / Major vs Minor / Every Chord
+  // You Need) — deliberately different roots than the onboarding
+  // progression above, so the student applies the chord formula to keys
+  // they haven't already memorized by rote.
+  aMajor: { id: "aMajor", name: "A Major", notes: ["A3", "C#4", "E4"] },
+  dMajor: { id: "dMajor", name: "D Major", notes: ["D4", "F#4", "A4"] },
+  eMinor: { id: "eMinor", name: "E Minor", notes: ["E4", "G4", "B4"] },
+  cMinor: { id: "cMinor", name: "C Minor", notes: ["C4", "D#4", "G4"] },
 };
 
 export interface Progression {

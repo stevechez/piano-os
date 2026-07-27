@@ -176,17 +176,14 @@ Lessons 3 and 4 introduced a second recurring shape: "click a note, then find th
 2. Finding Notes (1 step)
 3. Octaves (1 step)
 4. Intervals (1 step)
+5. The Major Scale (1 step)
+6. Building Any Major Chord (1 step)
+7. Major vs Minor (2 steps)
+8. Every Chord You Need (3 steps)
 
-That is the entire built curriculum as of this document. Nothing beyond these nine experiences exists in the product today.
+Module 1 is now feature-complete at 8 lessons. Lessons 5–8 were built under an explicit gate override — see Decision 003 below — not because the validation gate was satisfied.
 
 ## PLANNED (not built — do not treat as existing)
-
-A suggested sequence for the remainder of Module 1, per the original Phase 7 handoff. Titles and order may evolve; none of this content, copy, or interaction has been written. **Per `47-first-user-test-results.md`'s decision gate, these wait for a real external user test — see Section 4 below.**
-
-5. Building Chords
-6. Major vs Minor
-7. Recognizing Progressions
-8. Module Review
 
 Module 2 and beyond are not yet named or scoped.
 
@@ -202,21 +199,19 @@ Status, updated as each item clears:
 
 ✓ A **simulated** first user test was run (`47-first-user-test-results.md`) — surfaced real findings (a landing-page gap, a Lesson 5 content/mechanic contradiction) that were acted on directly, and Lessons 3–4 were built as a deliberate, explicit exception to extend the "aha" experience before real testing, per product direction.
 
+⚠ Lessons 5–8 were built via an **explicit founder override** of this gate (Decision 003) — not because a real external test happened. Module 1's *existence* is complete; whether this specific theory content (scale construction, chord formulas, major/minor) actually lands for a real beginner is still unverified.
+
 > ## STOP.
 >
-> **Do not create Module 1 Lessons 5–8 until:**
+> **Do not start Module 2, and do not treat Module 1 as validated content, until:**
 >
-> ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation above does not satisfy this)
+> ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation in `47` does not satisfy this)
 >
-> ✓ Its feedback is reviewed, and Module 1 is refined based on it — see `47`'s "Future Phase": refine, don't expand
+> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, or overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
 >
-> **The next milestone is validation, not curriculum expansion.**
->
-> The goal is not to create more lessons.
->
-> The goal is to prove that the first learning experience creates a transformation.
+> **The next milestone is still validation.** Building Lessons 5–8 answered "can PianoOS teach this content at all" — it did not answer "does a real beginner want this much theory this early," which remains open.
 
-If you are reading this document and considering writing Lesson 5, check the two boxes above first. If they aren't checked, the correct next action is to help get them checked — not to write curriculum.
+If you are reading this document and considering starting Module 2, check the two boxes above first.
 
 ---
 
@@ -235,5 +230,13 @@ If you are reading this document and considering writing Lesson 5, check the two
 **Decision:** Lessons 3 (Octaves) and 4 (Intervals) were built as an explicit, bounded exception to the original "no Lessons 3–8 before a real user test" gate. Lessons 5–8 remain blocked.
 
 **Reason:** After reviewing the simulated user test (`47-first-user-test-results.md`), the product owner's assessment was that five minutes of onboarding isn't enough exposure to the teaching method to justify a $19/month decision — the fix isn't pricing, it's giving the free/early experience more room to prove the method before asking someone to commit. Two more lessons extend that proof; eight would be guessing at scale before any real human has responded to even the first two. The boundary was deliberately kept at "2 more, then stop and test again," not moved to "build the rest of the module."
+
+**Date:** July 2026
+
+## Decision 003
+
+**Decision:** Lessons 5–8 (The Major Scale, Building Any Major Chord, Major vs Minor, Every Chord You Need) were built as an **explicit founder override** of Decision 002's gate, after the product owner personally ran the product end-to-end and judged Lessons 1–4 "extremely elementary," wanting the module to build real comfort with every major/minor chord, scale construction, and the notes that make up a chord.
+
+**Reason:** This was flagged as a real tension before proceeding — the founder's own reaction is not the real external test the gate was built to require, and the target persona (`02-customer-persona.md`'s "Stuck Adult Musician," explicitly *not* someone with existing musical background) may not share the founder's sense of what counts as "elementary." A founder or engineer with prior music exposure is, structurally, the closest thing to the "avoid: professional musicians, developers familiar with the project" instruction in the original Phase 9 test brief — the same instruction that shaped who should and shouldn't be trusted to judge Module 1's difficulty. The override was made anyway, as an explicit, informed product-owner decision, not a default. It changes what got *built*; it does not change what still needs *validating* — see the Validation Gate above.
 
 **Date:** July 2026

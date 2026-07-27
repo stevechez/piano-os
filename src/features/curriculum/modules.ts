@@ -9,18 +9,27 @@ import type { Module } from "./types";
 export const MODULE_1_ID = "module-1";
 
 /**
- * Module 1: Piano Foundations. Lessons 1-4 exist; per
- * docs/47-first-user-test-results.md's decision gate, Lessons 5-8 wait for
- * a real external user test before being written. Lesson 1 deliberately has
- * two steps (unlike every onboarding lesson, which has one) to exercise
- * that part of the engine for real.
+ * Module 1: Piano Foundations. All 8 lessons exist — Lessons 5-8 were built
+ * under an explicit founder override of the validation gate; see
+ * docs/46-curriculum-authoring-guide.md Decision 003. Lesson 1 deliberately
+ * has two steps (unlike every onboarding lesson, which has one) to
+ * exercise that part of the engine for real; Lessons 7 and 8 also use
+ * multiple steps for the same reason each step needs.
  *
- * Lessons 1-2 build directly on onboarding's "pattern-machine" lesson
- * (every C looks the same) by teaching the landmark musicians use to
- * navigate the keyboard: the two repeating black-key shapes. Lessons 3-4
- * build on that landmark again — octaves and intervals are both "click a
- * note, then find the related note" applications of the same
- * pattern-over-counting skill, not new unrelated theory.
+ * The whole module is one continuous chain of reuse, not eight unrelated
+ * topics:
+ * - Lessons 1-2 teach the black-key landmark for finding any note without
+ *   counting.
+ * - Lessons 3-4 apply that same "note relationship, not position" idea to
+ *   octaves and intervals.
+ * - Lesson 5 names the interval pattern that makes a major scale (which
+ *   also explains *why* Lesson 1's black-key groups fall where they do).
+ * - Lesson 6 shows a chord is just scale degrees 1-3-5, generalized past
+ *   the one chord (C Major) taught in onboarding.
+ * - Lesson 7 shows the entire major/minor distinction is one note, lowered
+ *   a half step.
+ * - Lesson 8 is pure application: build three chords in keys never seen
+ *   before, using only the formulas from 5-7.
  */
 export const MODULE_1: Module = {
   id: MODULE_1_ID,
@@ -107,6 +116,111 @@ export const MODULE_1: Module = {
           discovery: {
             heading: "Chords are built from distances like this.",
             body: "A fifth is one of the building blocks every chord you've played is made from. Once you can hear and find an interval, you're most of the way to building a chord from scratch.",
+          },
+        },
+      ],
+    },
+    {
+      id: "major-scale",
+      index: 5,
+      title: "The Major Scale",
+      steps: [
+        {
+          id: "major-scale",
+          concept: {
+            heading: "One pattern, not seven notes to memorize.",
+            body: "A major scale isn't seven random notes — it's one repeating pattern of steps: whole, whole, half, whole, whole, whole, half. The half-steps happen exactly where there's no black key between two white keys — the same landmark from Lesson 1. Play through the pattern starting on C.",
+          },
+          discovery: {
+            heading: "Same pattern, any starting note.",
+            body: "You just played a major scale by following a step pattern, not by memorizing 'C-D-E-F-G-A-B-C.' That exact whole-whole-half-whole-whole-whole-half pattern works starting from any note on the keyboard — that's what makes it a major scale, everywhere.",
+          },
+        },
+      ],
+    },
+    {
+      id: "building-major-chord",
+      index: 6,
+      title: "Building Any Major Chord",
+      steps: [
+        {
+          id: "building-major-chord",
+          concept: {
+            heading: "You already know this chord's formula.",
+            body: "C Major is the 1st, 3rd, and 5th note of the C major scale you just played. That's the whole formula: root, third, fifth. Let's build a major chord you haven't played yet — G Major — the exact same way, starting from G.",
+          },
+          discovery: {
+            heading: "One formula. Every major chord.",
+            body: "Root, then the note a major third up, then the note a fifth up from the root — that's every major chord that exists, in any key. You didn't need to be taught 'G Major' specifically. You built it.",
+          },
+        },
+      ],
+    },
+    {
+      id: "major-vs-minor",
+      index: 7,
+      title: "Major vs Minor",
+      steps: [
+        {
+          id: "major-vs-minor-major",
+          concept: {
+            heading: "Build A Major first.",
+            body: "Same formula as G Major, new root: root, third, fifth, starting on A.",
+          },
+          discovery: {
+            heading: "That's A Major — bright, resolved.",
+            body: "Hold that sound in your ear. One small change is about to turn it into something else entirely.",
+          },
+        },
+        {
+          id: "major-vs-minor-minor",
+          concept: {
+            heading: "Now lower just one note.",
+            body: "Take that same A Major chord and lower only the third by a single half step. Everything else stays exactly the same. Play the result: A Minor.",
+          },
+          discovery: {
+            heading: "That's the entire difference.",
+            body: "Major and minor aren't two unrelated chord types to memorize separately — every minor chord is its major twin with the third lowered a half step. You just heard why A minor (from your first song) sounds different from A major.",
+          },
+        },
+      ],
+    },
+    {
+      id: "every-chord-you-need",
+      index: 8,
+      title: "Every Chord You Need",
+      steps: [
+        {
+          id: "practice-d-major",
+          concept: {
+            heading: "Prove it to yourself.",
+            body: "You now know both formulas: major is root-third-fifth from the scale; minor lowers that third a half step. Build D Major — a key you haven't touched yet.",
+          },
+          discovery: {
+            heading: "Built, not looked up.",
+            body: "Nobody showed you D Major's notes directly. You derived them from the formula.",
+          },
+        },
+        {
+          id: "practice-e-minor",
+          concept: {
+            heading: "Now a minor chord, new key.",
+            body: "Build E Minor: root, lowered third, fifth.",
+          },
+          discovery: {
+            heading: "Same move, different root.",
+            body: "Lower the third a half step from E Major's shape, and you're already there.",
+          },
+        },
+        {
+          id: "practice-c-minor",
+          concept: {
+            heading: "One more, for confidence.",
+            body: "Build C Minor: root, lowered third, fifth.",
+          },
+          discovery: {
+            heading: "You can build any major or minor chord that exists.",
+            body: "Two formulas, applied to any root note on the keyboard: root-third-fifth for major, and the same shape with the third lowered a half step for minor. That's every chord — not memorized one at a time, but understood once.",
           },
         },
       ],

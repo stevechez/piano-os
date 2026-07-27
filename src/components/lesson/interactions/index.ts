@@ -10,6 +10,13 @@ import { BlackKeyTripletsInteraction } from "./BlackKeyTripletsInteraction";
 import { FindingNotesInteraction } from "./FindingNotesInteraction";
 import { OctavePairInteraction } from "./OctavePairInteraction";
 import { FifthPairInteraction } from "./FifthPairInteraction";
+import { MajorScaleInteraction } from "./MajorScaleInteraction";
+import { BuildGMajorInteraction } from "./BuildGMajorInteraction";
+import { BuildAMajorInteraction } from "./BuildAMajorInteraction";
+import { BuildAMinorInteraction } from "./BuildAMinorInteraction";
+import { PracticeDMajorInteraction } from "./PracticeDMajorInteraction";
+import { PracticeEMinorInteraction } from "./PracticeEMinorInteraction";
+import { PracticeCMinorInteraction } from "./PracticeCMinorInteraction";
 
 export type { LessonInteractionProps };
 
@@ -30,4 +37,11 @@ export const LESSON_INTERACTIONS: Record<
   "finding-notes": FindingNotesInteraction,
   octaves: OctavePairInteraction,
   intervals: FifthPairInteraction,
+  "major-scale": MajorScaleInteraction,
+  "building-major-chord": BuildGMajorInteraction,
+  "major-vs-minor-major": BuildAMajorInteraction,
+  "major-vs-minor-minor": BuildAMinorInteraction,
+  "practice-d-major": PracticeDMajorInteraction,
+  "practice-e-minor": PracticeEMinorInteraction,
+  "practice-c-minor": PracticeCMinorInteraction,
 };
