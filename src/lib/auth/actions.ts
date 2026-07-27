@@ -12,7 +12,7 @@ export interface AuthActionState {
 /**
  * There is no free password signup — see docs/43-commerce-and-checkout.md.
  * Accounts are created passwordlessly, either right after a Stripe
- * purchase (/api/checkout/complete) or via this magic-link flow for a
+ * purchase (/checkout/confirm) or via this magic-link flow for a
  * returning customer signing in on a new device/session.
  *
  * Note: this relies on the Supabase "Magic Link" email template pointing

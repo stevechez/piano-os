@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
               : session.customer?.id;
 
           if (email && customerId) {
-            // Idempotent — /api/checkout/complete may have already done
+            // Idempotent — /checkout/confirm may have already done
             // this via the success-page redirect racing this webhook.
             await ensureAccountForCustomer({ email, stripeCustomerId: customerId });
 

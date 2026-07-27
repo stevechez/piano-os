@@ -9,9 +9,13 @@ export interface AppShellProps {
 }
 
 /**
- * Minimal persistent chrome for /learn. Works identically for anonymous and
- * signed-in visitors — /learn itself is intentionally not gated. See
- * docs/39-lesson-engine.md and docs/42-mvp-user-flow.md.
+ * Minimal persistent chrome shared by /learn, /learn/module-1, and /account.
+ * The same shell serves anonymous and signed-in visitors — /learn itself is
+ * intentionally not gated, see docs/39-lesson-engine.md and
+ * docs/42-mvp-user-flow.md — with an Account link added only once signed in.
+ * Deliberately not a full nav rack (Home/Learn/Practice/Profile/Settings):
+ * most of those have nothing behind them yet, and this product never shows
+ * an empty screen.
  */
 export function AppShell({ isAuthenticated, children }: AppShellProps) {
   return (
@@ -29,14 +33,22 @@ export function AppShell({ isAuthenticated, children }: AppShellProps) {
           </Link>
 
           {isAuthenticated ? (
-            <form action={signOut}>
-              <button
-                type="submit"
+            <div className="flex items-center gap-5">
+              <Link
+                href="/account"
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
-                Sign out
-              </button>
-            </form>
+                Account
+              </Link>
+              <form action={signOut}>
+                <button
+                  type="submit"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Sign out
+                </button>
+              </form>
+            </div>
           ) : (
             <Link
               href="/learn/complete"

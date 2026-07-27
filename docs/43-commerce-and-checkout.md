@@ -43,24 +43,26 @@ Defined centrally in `src/lib/stripe/pricing.ts` — the only place plan names, 
       ↓ "Unlock PianoOS" (plan already selected: monthly or annual)
 Stripe Checkout (hosted, mode: subscription)
       ↓ payment succeeds
-GET /api/checkout/complete?session_id=...
+/checkout/confirm?session_id=...  (page; loading.tsx shown while this runs)
       ↓
 ensureAccountForCustomer()  — create Supabase user + profile if needed
       ↓
-generateLink(magiclink) → /auth/confirm?token_hash=...&type=magiclink
+generateLink(magiclink) → /auth/confirm?token_hash=...&type=magiclink&next=/learn?welcome=1
       ↓
 verifyOtp() establishes a real cookie session
       ↓
-/learn  (now authenticated; local progress syncs up automatically)
+/learn?welcome=1  (now authenticated; local progress syncs up automatically)
 ```
 
 In parallel, Stripe delivers webhook events to `/api/webhooks/stripe` for the same checkout. The two code paths race on purpose — whichever runs first does the provisioning, and the other one's calls are safe no-ops. Nothing in this flow depends on which one wins.
+
+The `?welcome=1` on the final redirect tells `/learn` this is the moment right after a purchase, not a routine return visit — see `44-learning-curriculum-architecture.md`.
 
 ---
 
 # Checkout
 
-`src/lib/stripe/actions.ts` — `createCheckoutSession(planId)` is a server action that creates a Stripe Checkout Session in `mode: "subscription"` for the selected plan's price, then redirects the browser to Stripe's hosted page. `success_url` points at `/api/checkout/complete`; `cancel_url` returns to `/learn/complete` so an abandoned checkout just lands back on the unlock panel.
+`src/lib/stripe/actions.ts` — `createCheckoutSession(planId)` is a server action that creates a Stripe Checkout Session in `mode: "subscription"` for the selected plan's price, then redirects the browser to Stripe's hosted page. `success_url` points at `/checkout/confirm`; `cancel_url` returns to `/learn/complete` so an abandoned checkout just lands back on the unlock panel.
 
 `src/components/commerce/UnlockPanel.tsx` renders the two plans as selectable cards (annual selected by default) and calls `createCheckoutSession` directly from a client transition — no `<form>`, since plan selection is local UI state.
 
@@ -72,7 +74,7 @@ The passwordless, race-safe account creation lives in `src/lib/stripe/provisioni
 
 **`ensureAccountForCustomer({ email, stripeCustomerId })`** — looks for an existing profile first by `stripe_customer_id`, then by `email`, so a returning customer resubscribing never gets a duplicate account. If neither match exists, it creates a new Supabase auth user via `admin.auth.admin.createUser()` (`email_confirm: true`, no password set) and upserts a `profiles` row with the Stripe customer id attached.
 
-**Sign-in** happens without the customer ever seeing a password: `/api/checkout/complete` calls `admin.auth.admin.generateLink({ type: "magiclink", email })` and redirects to `/auth/confirm?token_hash=...&type=magiclink`, which calls `supabase.auth.verifyOtp()` server-side to establish a real cookie session before redirecting into `/learn`.
+**Sign-in** happens without the customer ever seeing a password: `/checkout/confirm` calls `admin.auth.admin.generateLink({ type: "magiclink", email })` and redirects to `/auth/confirm?token_hash=...&type=magiclink`, which calls `supabase.auth.verifyOtp()` server-side to establish a real cookie session before redirecting into `/learn`.
 
 **Returning customers** who need to sign back in later (new device, cleared cookies) use the magic-link option on `/login` — the same `signInWithOtp` mechanism, just re-entered through the login form instead of the post-checkout redirect. This depends on a one-time Supabase Dashboard change to the "Magic Link" email template (pointing it at `/auth/confirm?token_hash={{ .TokenHash }}&type=email` instead of Supabase's default hosted verify page); until that's configured, magic-link *login* (as opposed to the post-checkout auto-sign-in, which doesn't use email delivery at all) won't complete correctly.
 
@@ -146,5 +148,13 @@ These can layer on top of this foundation later without restructuring it — pri
 **Decision:** Stripe's hosted Billing Portal handles all subscription management (cancel, switch plan, update card) — PianoOS builds no custom billing UI beyond a summary view and a link into the portal.
 
 **Reason:** Payment method handling and plan-change proration logic are exactly the kind of code an early-stage product shouldn't own. The portal is fully hosted and PCI scope stays entirely with Stripe.
+
+**Date:** July 2026
+
+## Decision 004
+
+**Decision:** The checkout success handler was moved from a route handler (`/api/checkout/complete`) to a page (`/checkout/confirm`) with a sibling `loading.tsx`.
+
+**Reason:** This step runs several sequential Stripe/Supabase calls (retrieve session, provision account, upsert subscription, generate a magic link) before it can redirect on to `/auth/confirm`. A route handler has no rendering phase, so the browser showed nothing at all during that wait — a real gap in an otherwise-polished purchase flow. As a page, Next's `loading.tsx` convention renders instantly and stays up for the whole await chain, giving the customer a branded "Setting up your account…" moment instead of a blank pause. Purely a presentation change — the provisioning logic itself is unchanged.
 
 **Date:** July 2026

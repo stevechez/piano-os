@@ -75,6 +75,16 @@ export function LessonPlayer({
       ? finalLabel
       : "Continue";
 
+  // How much weight this completion deserves: a plain step just advances,
+  // finishing a lesson's last step is a small milestone, and finishing the
+  // last lesson currently available is the moment worth the most polish —
+  // see docs/44-learning-curriculum-architecture.md.
+  const moment: "step" | "lesson" | "final" = !isLastStepInLesson
+    ? "step"
+    : isLastLesson
+      ? "final"
+      : "lesson";
+
   return (
     <LessonStep
       lesson={lesson}
@@ -83,6 +93,7 @@ export function LessonPlayer({
       stepNumber={stepIndex + 1}
       totalStepsInLesson={lesson.steps.length}
       completed={completed}
+      moment={moment}
       continueLabel={continueLabel}
       onContinue={handleContinue}
     >

@@ -13,7 +13,7 @@ function appUrl(): string {
  * Starts a Stripe Checkout session for a subscription. No account is
  * required to reach this — per docs/43-commerce-and-checkout.md, payment
  * happens before the account exists. The account is created by
- * /api/checkout/complete once payment succeeds.
+ * /checkout/confirm once payment succeeds.
  */
 export async function createCheckoutSession(planId: PlanId): Promise<void> {
   const priceId = getStripePriceId(planId);
@@ -21,7 +21,7 @@ export async function createCheckoutSession(planId: PlanId): Promise<void> {
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",
     line_items: [{ price: priceId, quantity: 1 }],
-    success_url: `${appUrl()}/api/checkout/complete?session_id={CHECKOUT_SESSION_ID}`,
+    success_url: `${appUrl()}/checkout/confirm?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${appUrl()}/learn/complete`,
   });
 

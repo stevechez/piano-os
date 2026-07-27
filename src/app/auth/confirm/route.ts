@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 
 /**
  * Standard Supabase email-OTP confirm route. Verifies a token_hash
- * (generated either by /api/checkout/complete's magic link, or by a
+ * (generated either by /checkout/confirm's magic link, or by a
  * user-initiated magic-link sign-in from /login) and, on success,
  * establishes a real cookie-based session before redirecting to `next`.
  */

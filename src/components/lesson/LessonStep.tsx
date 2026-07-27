@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { Check } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 import type { Lesson, LessonStepConfig } from "@/features/curriculum/types";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +14,13 @@ export interface LessonStepProps {
   totalStepsInLesson: number;
   /** Whether this step's interaction goal has been met yet. */
   completed: boolean;
+  /**
+   * How much weight this completion deserves — computed by LessonPlayer.
+   * "step": a plain intermediate step, unchanged treatment. "lesson":
+   * finished a lesson's last step. "final": finished the last lesson
+   * currently available — the biggest moment in the sequence.
+   */
+  moment: "step" | "lesson" | "final";
   /** Label for the continue button — computed by LessonPlayer. */
   continueLabel: string;
   onContinue: () => void;
@@ -27,6 +34,12 @@ export interface LessonStepProps {
  * multiple steps and lessons is LessonPlayer's job. See
  * docs/39-lesson-engine.md.
  */
+const MOMENT_EYEBROW: Record<LessonStepProps["moment"], string | null> = {
+  step: null,
+  lesson: "Lesson complete",
+  final: "Milestone",
+};
+
 export function LessonStep({
   lesson,
   step,
@@ -34,10 +47,14 @@ export function LessonStep({
   stepNumber,
   totalStepsInLesson,
   completed,
+  moment,
   continueLabel,
   onContinue,
   children,
 }: LessonStepProps) {
+  const eyebrow = MOMENT_EYEBROW[moment];
+  const MomentIcon = moment === "final" ? Sparkles : Check;
+
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-14 sm:px-6 md:py-20">
       {/* Progress */}
@@ -88,9 +105,20 @@ export function LessonStep({
         aria-hidden={!completed}
       >
         <div className="p-7 sm:p-8">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gold/15 text-gold">
-            <Check className="h-4 w-4" strokeWidth={2.25} />
+          <span
+            className={cn(
+              "inline-flex h-8 w-8 items-center justify-center rounded-full bg-gold/15 text-gold",
+              completed && moment !== "step" && "animate-moment-settle"
+            )}
+          >
+            <MomentIcon className="h-4 w-4" strokeWidth={2.25} />
           </span>
+
+          {eyebrow && (
+            <p className="mt-3 text-xs font-medium tracking-[0.14em] text-gold uppercase">
+              {eyebrow}
+            </p>
+          )}
 
           <h2 className="mt-4 font-serif text-2xl leading-[1.2] text-foreground">
             {step.discovery.heading}

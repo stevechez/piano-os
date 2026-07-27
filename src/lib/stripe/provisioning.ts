@@ -4,7 +4,7 @@ import type { PlanId } from "./pricing";
 
 /**
  * Shared, idempotent account/subscription provisioning. Called from both
- * the Stripe webhook handler and /api/checkout/complete (the success-page
+ * the Stripe webhook handler and /checkout/confirm (the success-page
  * redirect), since either one might "win the race" to process a given
  * checkout first. Every operation here is safe to run more than once.
  * See docs/43-commerce-and-checkout.md.
