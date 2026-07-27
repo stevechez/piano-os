@@ -31,3 +31,4 @@
 ## Validation
 32-beta-testing-and-validation-plan
 45-first-user-test-script
+47-first-user-test-results (simulated dry run — see disclaimer)
