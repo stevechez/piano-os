@@ -91,6 +91,14 @@ import { VerseIntoBridgeInteraction } from "./VerseIntoBridgeInteraction";
 import { LandingSomewhereUnexpectedInteraction } from "./LandingSomewhereUnexpectedInteraction";
 import { PerformingWithIntentionInteraction } from "./PerformingWithIntentionInteraction";
 import { CompletePerformanceInteraction } from "./CompletePerformanceInteraction";
+import { WhichIntervalIsItInteraction } from "./WhichIntervalIsItInteraction";
+import { WiderIntervalsInteraction } from "./WiderIntervalsInteraction";
+import { TriadOrSuspendedInteraction } from "./TriadOrSuspendedInteraction";
+import { BorrowedOrDiatonicInteraction } from "./BorrowedOrDiatonicInteraction";
+import { MajorOrMixolydianInteraction } from "./MajorOrMixolydianInteraction";
+import { SteadyOrSyncopatedInteraction } from "./SteadyOrSyncopatedInteraction";
+import { YourOwnChordByEarInteraction } from "./YourOwnChordByEarInteraction";
+import { YouCanHearItNowInteraction } from "./YouCanHearItNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -202,4 +210,13 @@ export const LESSON_INTERACTIONS: Record<
   "landing-somewhere-unexpected": LandingSomewhereUnexpectedInteraction,
   "performing-with-intention": PerformingWithIntentionInteraction,
   "complete-performance": CompletePerformanceInteraction,
+  // Module 11: Training Your Ear
+  "which-interval-is-it": WhichIntervalIsItInteraction,
+  "wider-intervals": WiderIntervalsInteraction,
+  "triad-or-suspended": TriadOrSuspendedInteraction,
+  "borrowed-or-diatonic": BorrowedOrDiatonicInteraction,
+  "major-or-mixolydian": MajorOrMixolydianInteraction,
+  "steady-or-syncopated": SteadyOrSyncopatedInteraction,
+  "your-own-chord-by-ear": YourOwnChordByEarInteraction,
+  "you-can-hear-it-now": YouCanHearItNowInteraction,
 };

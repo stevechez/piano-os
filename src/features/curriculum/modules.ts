@@ -1811,7 +1811,187 @@ export const MODULE_10: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10];
+export const MODULE_11_ID = "module-11";
+
+/**
+ * Module 11: Training Your Ear. Another deliberate pullback, like Module
+ * 10 -- not new theory, but a practical-skill module that makes
+ * everything already taught more usable: recognizing intervals, chord
+ * qualities, borrowed chords, the Mixolydian mode, rhythm, and the
+ * student's own song chords by ear alone, without notation or visual
+ * cues. Built without a Phase handoff, per docs/46 Decision 013.
+ *
+ * Introduces `EarTrainingInteraction`, a new primitive that generalizes
+ * the "listen, then guess from a fixed set of options, wrong answers
+ * retry" shape Module 3's bespoke `MajorOrMinorEarInteraction` already
+ * used once -- Module 11 needs that shape eight times, past the
+ * genuine-second-repetition threshold this codebase extracts shared
+ * primitives at. `MajorOrMinorEarInteraction` itself is deliberately
+ * left untouched rather than refactored onto the new primitive: it
+ * already works, and refactoring already-shipped, already-verified
+ * curriculum wasn't asked for.
+ *
+ * Every lesson tests recognition of content from an earlier module
+ * (Module 1's intervals, Module 4's suspended chords, Module 8's
+ * borrowed chords, Module 9's Mixolydian mode, Module 6's rhythm,
+ * Module 7's own song) rather than introducing new harmonic vocabulary
+ * -- a direct response to the Validation Gate's concern that Modules
+ * 8-9 pushed too far past the "adult beginner" persona.
+ */
+export const MODULE_11: Module = {
+  id: MODULE_11_ID,
+  index: 11,
+  title: "Training Your Ear",
+  subtitle: "Recognizing What You Hear",
+  lessons: [
+    {
+      id: "which-interval-is-it",
+      index: 1,
+      title: "Which Interval Is It?",
+      steps: [
+        {
+          id: "which-interval-is-it",
+          concept: {
+            heading: "You've built these intervals before.",
+            body: "Now recognize them by ear alone — no keyboard hints, just listening.",
+          },
+          discovery: {
+            heading: "That's ear training.",
+            body: "The gap between building an interval and recognizing it by ear is real — and you just closed it.",
+          },
+        },
+      ],
+    },
+    {
+      id: "wider-intervals",
+      index: 2,
+      title: "Wider Intervals",
+      steps: [
+        {
+          id: "wider-intervals",
+          concept: {
+            heading: "Two wider intervals.",
+            body: "Listen for the difference between a fifth and a full octave.",
+          },
+          discovery: {
+            heading: "The space between notes has its own sound.",
+            body: "A fifth and an octave feel different in your ear the same way they feel different under your hand.",
+          },
+        },
+      ],
+    },
+    {
+      id: "triad-or-suspended",
+      index: 3,
+      title: "Triad or Suspended?",
+      steps: [
+        {
+          id: "triad-or-suspended",
+          concept: {
+            heading: "Two chords, one root.",
+            body: "Can you hear the difference between a plain triad and a suspended chord?",
+          },
+          discovery: {
+            heading: "That tension has a sound of its own.",
+            body: "A suspended chord's unresolved feeling isn't just a concept from Module 4 anymore — you can hear it now.",
+          },
+        },
+      ],
+    },
+    {
+      id: "borrowed-or-diatonic",
+      index: 4,
+      title: "Borrowed or Diatonic?",
+      steps: [
+        {
+          id: "borrowed-or-diatonic",
+          concept: {
+            heading: "You built these chords in Module 8.",
+            body: "Now recognize them without seeing which is which.",
+          },
+          discovery: {
+            heading: "The color you learned to borrow has its own sound.",
+            body: "You don't need to see the chord name to hear that something's been borrowed from outside the key.",
+          },
+        },
+      ],
+    },
+    {
+      id: "major-scale-or-mixolydian",
+      index: 5,
+      title: "Major Scale or Mixolydian?",
+      steps: [
+        {
+          id: "major-or-mixolydian",
+          concept: {
+            heading: "The one-note difference from Module 9.",
+            body: "Now tested by ear.",
+          },
+          discovery: {
+            heading: "One flattened note, and you can hear it now.",
+            body: "That's the whole test — the same single difference that defines the mode, recognized without seeing a single key.",
+          },
+        },
+      ],
+    },
+    {
+      id: "steady-or-syncopated",
+      index: 6,
+      title: "Steady or Syncopated?",
+      steps: [
+        {
+          id: "steady-or-syncopated",
+          concept: {
+            heading: "Same note, four times.",
+            body: "Is the rhythm steady, or syncopated?",
+          },
+          discovery: {
+            heading: "Rhythm has a sound too, not just a feel.",
+            body: "You've played both from Module 6 — now you can name which one you're hearing, without playing along.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-own-chord-by-ear",
+      index: 7,
+      title: "Your Own Chord, By Ear",
+      steps: [
+        {
+          id: "your-own-chord-by-ear",
+          concept: {
+            heading: "One of the four chords from your own song is playing.",
+            body: "Which one?",
+          },
+          discovery: {
+            heading: "You know your own song by ear now.",
+            body: "Not because you memorized where your fingers go — because you recognize how each chord actually sounds.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-hear-it-now",
+      index: 8,
+      title: "You Can Hear It Now",
+      steps: [
+        {
+          id: "you-can-hear-it-now",
+          concept: {
+            heading: "One more round of each.",
+            body: "An interval, a chord, a scale. Everything you've trained your ear on.",
+          },
+          discovery: {
+            heading: "You can hear it now.",
+            body: "Every one of these used to require seeing a keyboard. None of them do anymore.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

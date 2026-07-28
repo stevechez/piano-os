@@ -300,9 +300,22 @@ Built immediately following Module 8, on the same "proceed without a checkpoint"
 
 Built immediately following Module 9, on the same "proceed without a checkpoint" instruction — see Decision 012 below. Unlike Modules 8 and 9, this one is a deliberate course-correction rather than more new theory: the Validation Gate had directly flagged Modules 8 and 9 as the curriculum's deepest departure yet from its "adult beginner" persona, so Module 10 teaches exactly one new structural idea (a bridge — the vi-IV-I-V shape) and otherwise synthesizes skills the student already has (Module 7's song, Module 6's improvisation, Module 8's borrowed chords, Module 2's dynamics) into one complete, performable piece. Drawn from `11-roadmap.md`'s Phase 9 "Composition" and "Performance" rather than continuing into "Advanced harmony" or "Modal playing." Needs zero new chords and zero new interaction primitives — the sixth module (after 4, 5, 7, 8, and 9) needing none, reusing `ChoiceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` exclusively. Three new progressions (`myBridge`, `myVerseIntoBridge`, `myCompletePiece`) are all built from chords already in `chords.ts`. Onboarding, pricing, and the paywall remain untouched.
 
+**Module 11: Training Your Ear** (paid — `src/features/curriculum/modules.ts`):
+
+1. Which Interval Is It? (1 step)
+2. Wider Intervals (1 step)
+3. Triad or Suspended? (1 step)
+4. Borrowed or Diatonic? (1 step)
+5. Major Scale or Mixolydian? (1 step)
+6. Steady or Syncopated? (1 step)
+7. Your Own Chord, By Ear (1 step)
+8. You Can Hear It Now (1 step)
+
+Built immediately following Module 10, on the same "proceed without a checkpoint" instruction — see Decision 013 below. A second consecutive pullback, in the same spirit as Module 10: rather than more new harmonic vocabulary, every lesson tests recognition-by-ear of content from an earlier module (Module 1's intervals, Module 4's suspended chords, Module 8's borrowed chords, Module 9's Mixolydian mode, Module 6's rhythm, Module 7's own song). Introduces `EarTrainingInteraction`, a new primitive generalizing the "listen, guess from fixed options, wrong answers retry" shape Module 3's bespoke `MajorOrMinorEarInteraction` already used once — reused across all 8 lessons in this module, the most concentrated reuse of a single new primitive across an entire module so far. `MajorOrMinorEarInteraction` itself is deliberately left untouched rather than refactored onto the new primitive, since it already works and wasn't asked to change. Onboarding, pricing, and the paywall remain untouched.
+
 ## PLANNED (not built — do not treat as existing)
 
-Module 11 and beyond are not yet named or scoped.
+Module 12 and beyond are not yet named or scoped.
 
 ---
 
@@ -336,19 +349,21 @@ Status, updated as each item clears:
 
 ⚠ Module 10 was built via a tenth explicit override (Decision 012) — the risk was raised directly again before starting, and the product owner again chose to proceed. Unlike Modules 8 and 9, Module 10 itself is a deliberate pullback from advancing theory further — a synthesis/performance capstone rather than new territory — chosen specifically in response to this gate's own concern about Modules 8-9 drifting from the beginner persona. Same exclusions apply regardless.
 
+⚠ Module 11 was built via an eleventh explicit override (Decision 013) — the risk was raised directly again before starting, and the product owner again chose to proceed. Module 11 continues Module 10's pullback: a second consecutive practical-skill module (ear training) rather than new theory. Same exclusions apply regardless.
+
 > ## STOP.
 >
-> **Do not start Module 11, and do not treat Modules 1–10 as validated content, until:**
+> **Do not start Module 12, and do not treat Modules 1–11 as validated content, until:**
 >
 > ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation in `47` does not satisfy this)
 >
-> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, whether Module 8's borrowed-chord content (modal mixture) is simply too advanced for a persona defined as "adult beginners," whether Module 9's introduction of a full mode (Mixolydian) compounds that same risk further, whether Module 10's synthesis capstone actually feels like a satisfying culmination or like ten modules is already more curriculum than a genuine beginner has earned the right to skip past validating, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
+> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, whether Module 8's borrowed-chord content (modal mixture) is simply too advanced for a persona defined as "adult beginners," whether Module 9's introduction of a full mode (Mixolydian) compounds that same risk further, whether Module 10's synthesis capstone actually feels like a satisfying culmination or like ten modules is already more curriculum than a genuine beginner has earned the right to skip past validating, whether Module 11's ear-training content actually lands as a practical skill or as an additional 8 lessons stacked onto an already-long, unvalidated sequence, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
 >
 > ✓ Per the Phase 11 handoff: if testing surfaces philosophy-level changes, apply them starting with the most recent module, and backport into earlier modules where appropriate
 >
-> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Ten modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted five times in a row (Modules 6 through 10); asking again before Module 11 remains the standing expectation, not a one-time courtesy. Ten full modules now exist, unvalidated, for a product whose own founding principle is "adult beginners only" — that gap between what's built and what's confirmed to work is no longer a footnote.
+> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Eleven modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted six times in a row (Modules 6 through 11); asking again before Module 12 remains the standing expectation, not a one-time courtesy. Eleven full modules now exist, unvalidated, for a product whose own founding principle is "adult beginners only." Two consecutive pullback modules (10 and 11) show good judgment about what to build, but neither substitutes for actually finding out whether any of it works for a real beginner.
 
-If you are reading this document and considering starting Module 11, check the boxes above first.
+If you are reading this document and considering starting Module 12, check the boxes above first.
 
 ---
 
@@ -470,5 +485,15 @@ Module 9 introduces the Mixolydian mode as one flattened 7th away from a major s
 **Reason:** This is the tenth consecutive override, and the fifth in a row made with the risk explicitly named rather than silently continued. The validation gate's requirement is unchanged and, per the strengthened note below, is now treated as urgent rather than routine: ten full modules exist with zero real user feedback, for a product whose entire premise depends on fitting a specific persona. The choice to make Module 10 a synthesis capstone rather than more new theory is itself a response to risk the gate had already surfaced — it doesn't reduce the validation debt, but it avoids compounding the specific "too advanced" risk Modules 8-9 raised.
 
 Module 10 teaches exactly one new concept — a bridge, the vi-IV-I-V progression a large share of real songs use — and otherwise combines Module 7's song, Module 6's improvisation (a solo section), Module 8's borrowed chords (color for the bridge), and Module 2's dynamics (performing with intention) into one complete piece. It needed zero new chords and zero new interaction primitives — the sixth module (after 4, 5, 7, 8, and 9) to need none, reusing `ChoiceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` exclusively.
+
+**Date:** July 2026
+
+## Decision 013
+
+**Decision:** Module 11 ("Training Your Ear") was built immediately following Module 10. No Phase handoff document existed for it. Consistent with the standing expectation, the risk was surfaced directly to the product owner a sixth time before starting, and the product owner again chose to proceed. Module 11 continues Module 10's pullback rather than reverting to advancing theory: a second consecutive practical-skill module, this time ear training, rather than new harmonic vocabulary.
+
+**Reason:** This is the eleventh consecutive override, and the sixth in a row made with the risk explicitly named rather than silently continued. The validation gate's requirement is unchanged. Eleven full modules now exist with zero real user feedback — the gate note below states directly that good judgment about *what* to build (two consecutive pullback modules) does not substitute for actually validating *whether* any of it works for a real beginner.
+
+Module 11 introduces `EarTrainingInteraction`, generalizing the "listen, guess from fixed options, wrong answers retry" shape Module 3's bespoke `MajorOrMinorEarInteraction` already used once into a reusable primitive — past the genuine-second-repetition threshold this codebase extracts shared primitives at, and reused across all 8 of this module's lessons, the most concentrated reuse of a single new primitive across an entire module so far. `MajorOrMinorEarInteraction` was deliberately left as-is rather than refactored onto the new primitive: it already works, and refactoring already-shipped, already-verified curriculum wasn't asked for. Every lesson tests recognition-by-ear of content from an earlier module (Modules 1, 4, 6, 7, 8, and 9) rather than introducing new theory, directly continuing Module 10's response to the Validation Gate's "too advanced" concern.
 
 **Date:** July 2026
