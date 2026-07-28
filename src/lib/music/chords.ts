@@ -175,6 +175,25 @@ export const PROGRESSIONS: Record<string, Progression> = {
     label: "Am → Dm → E → Am",
     chordIds: ["aMinor", "dMinor", "eMajor", "aMinor"],
   },
+  // Module 14: a second original song, this one centered on A minor --
+  // a different order than Module 13's cadence, giving this song its own
+  // identity. Every chord (aMinor, fMajor, dMinor, eMajor) already
+  // existed; no new chords needed.
+  myMinorVerse: {
+    id: "myMinorVerse",
+    label: "Am → F → Dm → E",
+    chordIds: ["aMinor", "fMajor", "dMinor", "eMajor"],
+  },
+  myMinorChorus: {
+    id: "myMinorChorus",
+    label: "Dm → E → Am",
+    chordIds: ["dMinor", "eMajor", "aMinor"],
+  },
+  myMinorSong: {
+    id: "myMinorSong",
+    label: "Your Minor Verse → Your Minor Chorus",
+    chordIds: ["aMinor", "fMajor", "dMinor", "eMajor", "dMinor", "eMajor", "aMinor"],
+  },
 };
 
 export function getChord(chordId: string): Chord {

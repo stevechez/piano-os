@@ -115,6 +115,14 @@ import { StrongerPullInteraction } from "./StrongerPullInteraction";
 import { SoloInMinorKeyInteraction } from "./SoloInMinorKeyInteraction";
 import { ChoosingYourHomeInteraction } from "./ChoosingYourHomeInteraction";
 import { TwoHomesNowInteraction } from "./TwoHomesNowInteraction";
+import { ChoosingMinorChordsInteraction } from "./ChoosingMinorChordsInteraction";
+import { MinorVerseInteraction } from "./MinorVerseInteraction";
+import { MinorChorusInteraction } from "./MinorChorusInteraction";
+import { MelodyInMinorInteraction } from "./MelodyInMinorInteraction";
+import { MinorEndingInteraction } from "./MinorEndingInteraction";
+import { VerseIntoMinorChorusInteraction } from "./VerseIntoMinorChorusInteraction";
+import { NamingMinorSoundInteraction } from "./NamingMinorSoundInteraction";
+import { WroteSecondSongInteraction } from "./WroteSecondSongInteraction";
 
 export type { LessonInteractionProps };
 
@@ -253,4 +261,13 @@ export const LESSON_INTERACTIONS: Record<
   "solo-in-minor-key": SoloInMinorKeyInteraction,
   "choosing-your-home": ChoosingYourHomeInteraction,
   "two-homes-now": TwoHomesNowInteraction,
+  // Module 14: Writing a Minor Key Song
+  "choosing-minor-chords": ChoosingMinorChordsInteraction,
+  "minor-verse": MinorVerseInteraction,
+  "minor-chorus": MinorChorusInteraction,
+  "melody-in-minor": MelodyInMinorInteraction,
+  "minor-ending": MinorEndingInteraction,
+  "verse-into-minor-chorus": VerseIntoMinorChorusInteraction,
+  "naming-minor-sound": NamingMinorSoundInteraction,
+  "wrote-second-song": WroteSecondSongInteraction,
 };

@@ -2337,7 +2337,179 @@ export const MODULE_13: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13];
+export const MODULE_14_ID = "module-14";
+
+/**
+ * Module 14: Writing a Minor Key Song. A synthesis module tying Module
+ * 7's songwriting capstone together with Module 13's minor-key reframing
+ * -- the student writes a second original song, structurally identical
+ * in shape to Module 7's (choose chords, verse, chorus, melody, ending,
+ * arrangement, capstone) but genuinely different in mood, since it's
+ * centered on A minor. Built without a Phase handoff, per docs/46
+ * Decision 016.
+ *
+ * Needs zero new chords -- aMinor, fMajor, dMinor, and eMajor all
+ * already exist in `chords.ts` -- only three new progressions
+ * (`myMinorVerse`, `myMinorChorus`, `myMinorSong`), deliberately a
+ * different chord order than Module 13's cadence so this song has its
+ * own identity. Reuses `ChoiceInteraction`, `PlayProgressionInteraction`,
+ * and `FreePlayInteraction` exclusively -- the tenth module (after 4, 5,
+ * 7, 8, 9, 10, 11, 12, and 13) needing zero new interaction primitives.
+ */
+export const MODULE_14: Module = {
+  id: MODULE_14_ID,
+  index: 14,
+  title: "Writing a Minor Key Song",
+  subtitle: "A Second Song, A Different Mood",
+  lessons: [
+    {
+      id: "choosing-your-minor-chords",
+      index: 1,
+      title: "Choosing Your Minor Chords",
+      steps: [
+        {
+          id: "choosing-minor-chords",
+          concept: {
+            heading: "Four chords for a different mood this time.",
+            body: "Am, F, Dm, and E. Try each one.",
+          },
+          discovery: {
+            heading: "That's your palette for a song that lives in minor.",
+            body: "Same idea as Module 7 — choosing, not just following — a different mood entirely.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-minor-verse",
+      index: 2,
+      title: "Your Minor Verse",
+      steps: [
+        {
+          id: "minor-verse",
+          concept: {
+            heading: "Put those chords in an order — your minor verse.",
+            body: "Play each chord yourself, in order: Am, F, Dm, E.",
+          },
+          discovery: {
+            heading: "That's a verse with a genuinely different center of gravity.",
+            body: "Same skill as Module 7. A completely different feeling.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-minor-chorus",
+      index: 3,
+      title: "Your Minor Chorus",
+      steps: [
+        {
+          id: "minor-chorus",
+          concept: {
+            heading: "A chorus needs its own identity here too.",
+            body: "Play this shorter order yourself: Dm, E, Am.",
+          },
+          discovery: {
+            heading: "Resolving to Am, not a major chord.",
+            body: "That's the sound this whole song lives in.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-melody-in-minor",
+      index: 4,
+      title: "A Melody In Minor",
+      steps: [
+        {
+          id: "melody-in-minor",
+          concept: {
+            heading: "Your minor verse is looping underneath.",
+            body: "Play a melody over it, freely.",
+          },
+          discovery: {
+            heading: "That's the same improvising instinct from Module 6.",
+            body: "Now shaping a minor mood instead of a major one.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-minor-ending",
+      index: 5,
+      title: "A Minor Ending",
+      steps: [
+        {
+          id: "minor-ending",
+          concept: {
+            heading: "Every song needs an ending, in any key.",
+            body: "Compare fading out to a strong final chord.",
+          },
+          discovery: {
+            heading: "A minor ending can resolve just as firmly as a major one.",
+            body: "The finality is a choice you make — not something the key decides for you.",
+          },
+        },
+      ],
+    },
+    {
+      id: "verse-into-minor-chorus",
+      index: 6,
+      title: "Verse Into Minor Chorus",
+      steps: [
+        {
+          id: "verse-into-minor-chorus",
+          concept: {
+            heading: "Compare looping your verse to letting it move into your chorus.",
+            body: "Same structure. A minor mood.",
+          },
+          discovery: {
+            heading: "That structural lift works the same way it did in Module 7.",
+            body: "Song form isn't tied to major or minor — it's a shape you can build in either one.",
+          },
+        },
+      ],
+    },
+    {
+      id: "naming-your-minor-sound",
+      index: 7,
+      title: "Naming Your Minor Sound",
+      steps: [
+        {
+          id: "naming-minor-sound",
+          concept: {
+            heading: "The same song, played two ways.",
+            body: "Compare a simple arrangement to a fuller one.",
+          },
+          discovery: {
+            heading: "Arrangement choices matter here just as much as in major.",
+            body: "Maybe more — since the mood is already doing so much of the work.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-wrote-a-second-song",
+      index: 8,
+      title: "You Wrote a Second Song",
+      steps: [
+        {
+          id: "wrote-second-song",
+          concept: {
+            heading: "Play it start to finish.",
+            body: "Your minor verse, into your minor chorus.",
+          },
+          discovery: {
+            heading: "You've written two songs now, in two different moods.",
+            body: "That's not luck. That's understanding, applied twice.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);
