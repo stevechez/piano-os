@@ -8,6 +8,8 @@ export interface TempoTapInteractionProps {
   bpm: number;
   tapsRequired: number;
   prompt: string;
+  /** Beats per measure, for the downbeat accent and dot indicator. Defaults to 4 (common time). */
+  beatsPerMeasure?: number;
   onComplete: () => void;
 }
 
@@ -16,16 +18,25 @@ const TOLERANCE_MS = 180;
 /**
  * Generalizes the exact mechanic Module 2's bespoke RhythmTapInteraction
  * already used once at a fixed 80 BPM / 6 taps: a metronome (with a soft
- * downbeat accent every 4 beats) plays on a fixed interval, and the
- * student taps along -- only taps landing within a tolerance window of
- * the nearest beat count, with no penalty for a miss. Module 17 needs
- * this shape at several different tempos and tap counts, past the
- * genuine-second-repetition threshold this codebase extracts a shared
- * primitive at. RhythmTapInteraction itself is left untouched rather
- * than refactored onto this primitive -- it already works, and wasn't
- * asked to change. See docs/46-curriculum-authoring-guide.md.
+ * downbeat accent every `beatsPerMeasure` beats) plays on a fixed
+ * interval, and the student taps along -- only taps landing within a
+ * tolerance window of the nearest beat count, with no penalty for a
+ * miss. Module 17 needs this shape at several different tempos and tap
+ * counts, past the genuine-second-repetition threshold this codebase
+ * extracts a shared primitive at. `beatsPerMeasure` was added later, for
+ * Module 19's 3/4 waltz time -- additive and backward compatible, since
+ * it defaults to 4 and every Module 17 lesson that doesn't pass it keeps
+ * its exact prior behavior. RhythmTapInteraction itself is left
+ * untouched rather than refactored onto this primitive -- it already
+ * works, and wasn't asked to change. See docs/46-curriculum-authoring-guide.md.
  */
-export function TempoTapInteraction({ bpm, tapsRequired, prompt, onComplete }: TempoTapInteractionProps) {
+export function TempoTapInteraction({
+  bpm,
+  tapsRequired,
+  prompt,
+  beatsPerMeasure = 4,
+  onComplete,
+}: TempoTapInteractionProps) {
   const beatMs = 60000 / bpm;
   const [hits, setHits] = useState(0);
   const [pulsing, setPulsing] = useState(false);
@@ -40,12 +51,12 @@ export function TempoTapInteraction({ bpm, tapsRequired, prompt, onComplete }: T
     let beatCount = 0;
 
     intervalRef.current = window.setInterval(() => {
-      const isDownbeat = beatCount % 4 === 0;
+      const isDownbeat = beatCount % beatsPerMeasure === 0;
       playNote(isDownbeat ? "A5" : "E5", {
         duration: 0.12,
         velocity: isDownbeat ? 0.3 : 0.18,
       });
-      setBeatInMeasure(beatCount % 4);
+      setBeatInMeasure(beatCount % beatsPerMeasure);
       setPulsing(true);
       window.setTimeout(() => setPulsing(false), 140);
       beatCount += 1;
@@ -55,7 +66,7 @@ export function TempoTapInteraction({ bpm, tapsRequired, prompt, onComplete }: T
       if (intervalRef.current !== null) window.clearInterval(intervalRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [beatMs]);
+  }, [beatMs, beatsPerMeasure]);
 
   const handleTap = () => {
     if (doneRef.current || startRef.current === null) return;
@@ -84,7 +95,7 @@ export function TempoTapInteraction({ bpm, tapsRequired, prompt, onComplete }: T
 
       <div className="flex flex-col items-center gap-6 rounded-3xl border border-border/80 bg-secondary/20 py-10">
         <div className="flex gap-3">
-          {[0, 1, 2, 3].map((i) => (
+          {Array.from({ length: beatsPerMeasure }, (_, i) => i).map((i) => (
             <span
               key={i}
               className={cn(

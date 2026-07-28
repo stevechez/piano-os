@@ -3203,7 +3203,178 @@ export const MODULE_18: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18];
+export const MODULE_19_ID = "module-19";
+
+/**
+ * Module 19: Waltz Time: Playing in 3. A genuinely new concept -- meter
+ * -- everything so far implicitly counted in groups of four; this
+ * module introduces 3/4 time (a waltz feel) and the classic "oom-pah-pah"
+ * bass pattern that goes with it. Built without a Phase handoff, per
+ * docs/46 Decision 021.
+ *
+ * Adds an additive, backward-compatible `beatsPerMeasure` prop to
+ * Module 17's `TempoTapInteraction` (default 4, so every Module 17
+ * lesson that doesn't pass it is unaffected) rather than introducing a
+ * new primitive. Needs zero new chords or progressions -- reuses
+ * chords already in `chords.ts` and callbacks to the student's own
+ * Module 7 and Module 14 songs. Reuses `TempoTapInteraction`,
+ * `NoteSequenceInteraction`, `ChoiceInteraction`, and
+ * `EarTrainingInteraction` exclusively.
+ */
+export const MODULE_19: Module = {
+  id: MODULE_19_ID,
+  index: 19,
+  title: "Waltz Time: Playing in 3",
+  subtitle: "When Songs Count in Three, Not Four",
+  lessons: [
+    {
+      id: "counting-to-three",
+      index: 1,
+      title: "Counting to Three",
+      steps: [
+        {
+          id: "counting-to-three",
+          concept: {
+            heading: "Most of what you've played counts in groups of four.",
+            body: "Try counting in groups of three instead.",
+          },
+          discovery: {
+            heading: "That's 3/4 time — a waltz feel.",
+            body: "ONE-two-three, ONE-two-three.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-waltz-bass-pattern",
+      index: 2,
+      title: "A Waltz Bass Pattern",
+      steps: [
+        {
+          id: "waltz-bass-pattern",
+          concept: {
+            heading: "Build the classic 'oom-pah-pah' waltz bass pattern.",
+            body: "Bass, then two chord hits, twice.",
+          },
+          discovery: {
+            heading: "That pattern practically invented the waltz.",
+            body: "Bass on beat one, chord on beats two and three — simple, and everywhere once you notice it.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-own-song-in-waltz-time",
+      index: 3,
+      title: "Your Own Song, In Waltz Time",
+      steps: [
+        {
+          id: "own-song-waltz-time",
+          concept: {
+            heading: "Your own chorus from Module 7.",
+            body: "In two different meters.",
+          },
+          discovery: {
+            heading: "Same chords. A completely different feel.",
+            body: "The meter shapes a song as much as the chords do.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-full-waltz-measure",
+      index: 4,
+      title: "A Full Waltz Measure",
+      steps: [
+        {
+          id: "full-waltz-measure",
+          concept: {
+            heading: "Two full measures of three.",
+            body: "Tap along.",
+          },
+          discovery: {
+            heading: "You're locking into 3/4 now, not just tolerating it.",
+            body: "The count is starting to feel like home.",
+          },
+        },
+      ],
+    },
+    {
+      id: "3-4-or-4-4",
+      index: 5,
+      title: "3/4 or 4/4?",
+      steps: [
+        {
+          id: "three-or-four",
+          concept: {
+            heading: "Listen to the accents.",
+            body: "Is this counted in three, or in four?",
+          },
+          discovery: {
+            heading: "That's meter.",
+            body: "Recognizing whether the strong beat comes every three counts or every four.",
+          },
+        },
+      ],
+    },
+    {
+      id: "waltzing-through-a-minor-key",
+      index: 6,
+      title: "Waltzing Through a Minor Key",
+      steps: [
+        {
+          id: "waltzing-minor-key",
+          concept: {
+            heading: "Your minor progression from Module 14.",
+            body: "Straight, then waltzed.",
+          },
+          discovery: {
+            heading: "Meter doesn't care whether you're in major or minor.",
+            body: "It's an independent layer, on top of whatever key or mood you've already chosen.",
+          },
+        },
+      ],
+    },
+    {
+      id: "building-a-longer-waltz-pattern",
+      index: 7,
+      title: "Building a Longer Waltz Pattern",
+      steps: [
+        {
+          id: "longer-waltz-pattern",
+          concept: {
+            heading: "Same pattern, a different chord.",
+            body: "Build it on G Major this time.",
+          },
+          discovery: {
+            heading: "The waltz bass generalizes to any key.",
+            body: "It's a shape, not a one-time trick tied to a single chord.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-play-in-three-now",
+      index: 8,
+      title: "You Can Play in Three Now",
+      steps: [
+        {
+          id: "play-in-three-now",
+          concept: {
+            heading: "Three full measures, all the way through.",
+            body: "The longest count yet, in three.",
+          },
+          discovery: {
+            heading: "You can play in three now.",
+            body: "Not every song counts in four — and you're no longer thrown by the ones that don't.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

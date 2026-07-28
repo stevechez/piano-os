@@ -155,6 +155,14 @@ import { BluesShuffleInteraction } from "./BluesShuffleInteraction";
 import { SoloingOverBluesInteraction } from "./SoloingOverBluesInteraction";
 import { TheFullFormInteraction } from "./TheFullFormInteraction";
 import { PlayTheBluesNowInteraction } from "./PlayTheBluesNowInteraction";
+import { CountingToThreeInteraction } from "./CountingToThreeInteraction";
+import { WaltzBassPatternInteraction } from "./WaltzBassPatternInteraction";
+import { OwnSongWaltzTimeInteraction } from "./OwnSongWaltzTimeInteraction";
+import { FullWaltzMeasureInteraction } from "./FullWaltzMeasureInteraction";
+import { ThreeOrFourInteraction } from "./ThreeOrFourInteraction";
+import { WaltzingMinorKeyInteraction } from "./WaltzingMinorKeyInteraction";
+import { LongerWaltzPatternInteraction } from "./LongerWaltzPatternInteraction";
+import { PlayInThreeNowInteraction } from "./PlayInThreeNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -338,4 +346,13 @@ export const LESSON_INTERACTIONS: Record<
   "soloing-over-blues": SoloingOverBluesInteraction,
   "the-full-form": TheFullFormInteraction,
   "play-the-blues-now": PlayTheBluesNowInteraction,
+  // Module 19: Waltz Time: Playing in 3
+  "counting-to-three": CountingToThreeInteraction,
+  "waltz-bass-pattern": WaltzBassPatternInteraction,
+  "own-song-waltz-time": OwnSongWaltzTimeInteraction,
+  "full-waltz-measure": FullWaltzMeasureInteraction,
+  "three-or-four": ThreeOrFourInteraction,
+  "waltzing-minor-key": WaltzingMinorKeyInteraction,
+  "longer-waltz-pattern": LongerWaltzPatternInteraction,
+  "play-in-three-now": PlayInThreeNowInteraction,
 };
