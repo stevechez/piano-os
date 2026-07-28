@@ -2,7 +2,8 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { LessonList } from "@/components/lesson/LessonList";
 import { ONBOARDING_ID, ONBOARDING_LESSONS } from "@/features/curriculum/onboarding";
-import { MODULE_1, MODULE_1_ID } from "@/features/curriculum/modules";
+import { MODULES } from "@/features/curriculum/modules";
+import type { Lesson, Module } from "@/features/curriculum/types";
 
 export default async function LearnPage({
   searchParams,
@@ -18,8 +19,9 @@ export default async function LearnPage({
   } = await supabase.auth.getUser();
 
   let displayName: string | null = null;
-  let nextLesson: (typeof MODULE_1.lessons)[number] | undefined;
-  let completedCount = 0;
+  let activeModule: Module | undefined;
+  let nextLesson: Lesson | undefined;
+  let activeCompletedCount = 0;
 
   if (user) {
     const [{ data: profile }, { data: progressRows }] = await Promise.all([
@@ -30,17 +32,44 @@ export default async function LearnPage({
         .maybeSingle(),
       supabase
         .from("learning_progress")
-        .select("lesson_id")
+        .select("module_id, lesson_id")
         .eq("user_id", user.id)
-        .eq("module_id", MODULE_1_ID)
+        .in("module_id", MODULES.map((m) => m.id))
         .eq("completed", true),
     ]);
 
     displayName = profile?.display_name ?? null;
 
-    const completedIds = new Set((progressRows ?? []).map((row) => row.lesson_id));
-    completedCount = completedIds.size;
-    nextLesson = MODULE_1.lessons.find((lesson) => !completedIds.has(lesson.id));
+    // Group completed lesson ids by module, then walk the modules in order
+    // and surface the first one that isn't fully done yet -- this is what
+    // makes /learn "just work" once a student finishes Module 1 and moves
+    // into Module 2, with no special-casing per module.
+    const completedByModule = new Map<string, Set<string>>();
+    for (const row of progressRows ?? []) {
+      const set = completedByModule.get(row.module_id) ?? new Set<string>();
+      set.add(row.lesson_id);
+      completedByModule.set(row.module_id, set);
+    }
+
+    for (const module of MODULES) {
+      const completedIds = completedByModule.get(module.id) ?? new Set<string>();
+      const firstIncomplete = module.lessons.find(
+        (lesson) => !completedIds.has(lesson.id)
+      );
+      if (firstIncomplete) {
+        activeModule = module;
+        nextLesson = firstIncomplete;
+        activeCompletedCount = completedIds.size;
+        break;
+      }
+    }
+
+    if (!activeModule) {
+      // Every module is fully complete -- fall back to the last one, in
+      // review mode, rather than showing nothing.
+      activeModule = MODULES[MODULES.length - 1];
+      activeCompletedCount = activeModule.lessons.length;
+    }
   }
 
   const allComplete = !!user && !nextLesson;
@@ -58,36 +87,40 @@ export default async function LearnPage({
         {justPurchased ? "Welcome to PianoOS." : "Your PianoOS Journey"}
       </h1>
 
-      {user && (
+      {user && activeModule && (
         <div className="mt-10 rounded-3xl border border-gold/30 bg-gold/[0.05] p-7 sm:p-8">
           <span className="text-xs font-medium tracking-[0.14em] text-gold uppercase">
-            Module 1
+            Module {activeModule.index}
           </span>
           <h2 className="mt-2 font-serif text-2xl leading-[1.2] text-foreground">
-            {MODULE_1.title}
+            {activeModule.title}
           </h2>
           <p className="mt-1 text-muted-foreground">
             {justPurchased
               ? "Your first lesson is ready when you are."
               : allComplete
                 ? "You're caught up — more lessons are on the way."
-                : `Lesson ${nextLesson!.index} of ${MODULE_1.lessons.length}: ${nextLesson!.title}`}
+                : `Lesson ${nextLesson!.index} of ${activeModule.lessons.length}: ${nextLesson!.title}`}
           </p>
 
           <Link
-            href={allComplete ? "/learn/module-1" : `/learn/module-1/${nextLesson!.id}`}
+            href={
+              allComplete
+                ? `/learn/${activeModule.id}`
+                : `/learn/${activeModule.id}/${nextLesson!.id}`
+            }
             className="mt-6 inline-block rounded-full bg-gold px-6 py-3 text-sm font-medium text-gold-foreground transition-transform hover:scale-[1.02]"
           >
             {allComplete
-              ? "Review Module 1 →"
+              ? `Review Module ${activeModule.index} →`
               : justPurchased
-                ? "Begin Module 1 →"
+                ? `Begin Module ${activeModule.index} →`
                 : "Continue Learning →"}
           </Link>
 
-          {!justPurchased && completedCount > 0 && (
+          {!justPurchased && activeCompletedCount > 0 && (
             <p className="mt-4 text-xs text-muted-foreground">
-              {completedCount} of {MODULE_1.lessons.length} lessons complete
+              {activeCompletedCount} of {activeModule.lessons.length} lessons complete
             </p>
           )}
         </div>

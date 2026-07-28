@@ -1,8 +1,9 @@
 /**
- * Chord and progression data used across Module 1's lessons. Kept small and
- * explicit rather than generated, since the whole module deliberately
- * revolves around a single, well-known chord family (C Major and its
- * relatives in the classic C-G-Am-F progression).
+ * Chord and progression data used across onboarding, Module 1, and Module
+ * 2's lessons. Kept small and explicit rather than generated. Module 2
+ * deliberately introduces a second, distinct progression (classicRock)
+ * rather than reusing onboarding's classicPop progression a third time —
+ * see docs/46-curriculum-authoring-guide.md.
  */
 
 export interface Chord {
@@ -25,6 +26,12 @@ export const CHORDS: Record<string, Chord> = {
   dMajor: { id: "dMajor", name: "D Major", notes: ["D4", "F#4", "A4"] },
   eMinor: { id: "eMinor", name: "E Minor", notes: ["E4", "G4", "B4"] },
   cMinor: { id: "cMinor", name: "C Minor", notes: ["C4", "D#4", "G4"] },
+  // Module 4: beyond plain major/minor triads. G7 and Csus4 are voiced as
+  // simple 3-4 note additions to chords already in this file (G Major +
+  // a minor 7th; C Major with the third swapped for a fourth).
+  g7: { id: "g7", name: "G7", notes: ["G3", "B3", "D4", "F4"] },
+  cSus4: { id: "cSus4", name: "Csus4", notes: ["C4", "F4", "G4"] },
+  dMinor: { id: "dMinor", name: "D Minor", notes: ["D4", "F4", "A4"] },
 };
 
 export interface Progression {
@@ -41,6 +48,22 @@ export const PROGRESSIONS: Record<string, Progression> = {
     label: "C → G → Am → F",
     chordIds: ["cMajor", "gMajor", "aMinor", "fMajor"],
     songReference: { title: "Let It Be", artist: "The Beatles" },
+  },
+  // Module 2: a second, equally common progression (I-IV-V) so the module
+  // has its own musical identity instead of replaying onboarding's C-G-Am-F.
+  classicRock: {
+    id: "classicRock",
+    label: "C → F → G",
+    chordIds: ["cMajor", "fMajor", "gMajor"],
+    songReference: { title: "Twist and Shout", artist: "The Beatles" },
+  },
+  // Module 4: the ii-V-I -- harmony's most common move, across genres.
+  // No songReference: it's ubiquitous enough not to need one example, and
+  // guessing a specific attribution here wasn't a claim worth making.
+  twoFiveOne: {
+    id: "twoFiveOne",
+    label: "Dm → G7 → C",
+    chordIds: ["dMinor", "g7", "cMajor"],
   },
 };
 

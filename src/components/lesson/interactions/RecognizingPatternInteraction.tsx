@@ -6,12 +6,10 @@ export interface LessonInteractionProps {
   onComplete: () => void;
 }
 
-export function ChordsCreateSongsInteraction({
-  onComplete,
-}: LessonInteractionProps) {
+export function RecognizingPatternInteraction({ onComplete }: LessonInteractionProps) {
   return (
     <ChordProgressionInteraction
-      progressionId="classicPop"
+      progressionId="classicRock"
       onComplete={onComplete}
     />
   );

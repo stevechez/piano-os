@@ -70,12 +70,14 @@ export interface PlayChordOptions {
   duration?: number;
   /** Milliseconds between each note's start, for a light "strum" feel. */
   strumMs?: number;
+  /** Peak gain, 0-1. Defaults to playNote's own default. */
+  velocity?: number;
 }
 
 export function playChord(notes: string[], options: PlayChordOptions = {}): void {
-  const { duration = 1.4, strumMs = 18 } = options;
+  const { duration = 1.4, strumMs = 18, velocity } = options;
   notes.forEach((note, i) => {
-    playNote(note, { duration, when: (i * strumMs) / 1000 });
+    playNote(note, { duration, when: (i * strumMs) / 1000, velocity });
   });
 }
 

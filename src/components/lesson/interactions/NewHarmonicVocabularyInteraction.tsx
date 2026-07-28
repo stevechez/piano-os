@@ -6,10 +6,10 @@ export interface LessonInteractionProps {
   onComplete: () => void;
 }
 
-export function FirstSongInteraction({ onComplete }: LessonInteractionProps) {
+export function NewHarmonicVocabularyInteraction({ onComplete }: LessonInteractionProps) {
   return (
     <PlayProgressionInteraction
-      progressionId="classicPop"
+      progressionId="twoFiveOne"
       onComplete={onComplete}
     />
   );

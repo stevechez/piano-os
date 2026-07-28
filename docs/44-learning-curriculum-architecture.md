@@ -125,3 +125,11 @@ No new system. `learning_progress` (`user_id`, `module_id`, `lesson_id`, `comple
 **Reason:** Both components were hardcoded to onboarding's module id and its `/learn/lessons` → `/learn/complete` path. Module 1 needed the same sequencing and progress-tracking behavior at a different path with a different destination. Parameterizing the four already-varying values was enough — no new abstraction layer, no config-driven lesson builder.
 
 **Date:** July 2026
+
+## Decision 005
+
+**Decision:** Module 2 ("Playing Real Music") was added as `src/app/learn/module-2/` — a direct mirror of `module-1/`'s two route files, each pointing at `MODULE_2`/`MODULE_2_ID` instead. `MODULES` is now `[MODULE_1, MODULE_2]`.
+
+**Reason:** This is the first real test of whether "Module → Lesson → Step" actually generalized past one example. It did: `LessonPlayer`, `LessonStep`, `PianoKeyboard`, and the progress system needed zero changes. The only genuine multi-module gap was `/learn`'s "Continue Learning" card, which had Module 1 hardcoded — it's now a loop over `MODULES` that surfaces whichever module the student hasn't finished yet, falling back to the last module in review mode once all are complete. See `46-curriculum-authoring-guide.md` Decision 004 for the content decisions behind Module 2 itself.
+
+**Date:** July 2026

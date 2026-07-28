@@ -3,10 +3,16 @@ import { NextResponse, type NextRequest } from "next/server";
 
 // PianoOS philosophy: the product sells a transformation, not an account.
 // /learn itself is intentionally public — onboarding must be experienceable
-// with zero friction. /learn/module-1 is the paid Learning Curriculum
-// (see docs/44-learning-curriculum-architecture.md) and /account is
-// genuinely account-only — both require a signed-in user.
-const PROTECTED_PREFIXES: string[] = ["/account", "/learn/module-1"];
+// with zero friction. Every /learn/module-* route is the paid Learning
+// Curriculum (see docs/44-learning-curriculum-architecture.md) and
+// /account is genuinely account-only — all require a signed-in user.
+const PROTECTED_PREFIXES: string[] = [
+  "/account",
+  "/learn/module-1",
+  "/learn/module-2",
+  "/learn/module-3",
+  "/learn/module-4",
+];
 const AUTH_PREFIXES = ["/login", "/signup"];
 
 /**

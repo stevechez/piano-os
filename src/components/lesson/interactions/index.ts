@@ -17,6 +17,32 @@ import { BuildAMinorInteraction } from "./BuildAMinorInteraction";
 import { PracticeDMajorInteraction } from "./PracticeDMajorInteraction";
 import { PracticeEMinorInteraction } from "./PracticeEMinorInteraction";
 import { PracticeCMinorInteraction } from "./PracticeCMinorInteraction";
+import { SmoothChangeCMajorInteraction } from "./SmoothChangeCMajorInteraction";
+import { SmoothChangeAMinorInteraction } from "./SmoothChangeAMinorInteraction";
+import { RhythmTapInteraction } from "./RhythmTapInteraction";
+import { RecognizingPatternInteraction } from "./RecognizingPatternInteraction";
+import { TwoHandsInteraction } from "./TwoHandsInteraction";
+import { DynamicsInteraction } from "./DynamicsInteraction";
+import { FirstCompleteSongInteraction } from "./FirstCompleteSongInteraction";
+import { LandmarkRecallInteraction } from "./LandmarkRecallInteraction";
+import { ModuleReviewInteraction } from "./ModuleReviewInteraction";
+import { ChordInversionsInteraction } from "./ChordInversionsInteraction";
+import { AddingAFillInteraction } from "./AddingAFillInteraction";
+import { CreateYourIntroInteraction } from "./CreateYourIntroInteraction";
+import { ChooseYourRhythmInteraction } from "./ChooseYourRhythmInteraction";
+import { MajorOrMinorEarInteraction } from "./MajorOrMinorEarInteraction";
+import { PlayByEarInteraction } from "./PlayByEarInteraction";
+import { ArrangeItYourWayInteraction } from "./ArrangeItYourWayInteraction";
+import { YourMusicalVoiceInteraction } from "./YourMusicalVoiceInteraction";
+import { BuildG7Interaction } from "./BuildG7Interaction";
+import { ResolveToCMajorInteraction } from "./ResolveToCMajorInteraction";
+import { BuildCSus4Interaction } from "./BuildCSus4Interaction";
+import { DiatonicChordsInteraction } from "./DiatonicChordsInteraction";
+import { TwoFiveOneInteraction } from "./TwoFiveOneInteraction";
+import { SeventhInversionsInteraction } from "./SeventhInversionsInteraction";
+import { ViChordInteraction } from "./ViChordInteraction";
+import { RicherArrangementInteraction } from "./RicherArrangementInteraction";
+import { NewHarmonicVocabularyInteraction } from "./NewHarmonicVocabularyInteraction";
 
 export type { LessonInteractionProps };
 
@@ -44,4 +70,34 @@ export const LESSON_INTERACTIONS: Record<
   "practice-d-major": PracticeDMajorInteraction,
   "practice-e-minor": PracticeEMinorInteraction,
   "practice-c-minor": PracticeCMinorInteraction,
+  // Module 2: Playing Real Music
+  "smooth-change-cmajor": SmoothChangeCMajorInteraction,
+  "smooth-change-aminor": SmoothChangeAMinorInteraction,
+  "rhythm-tap": RhythmTapInteraction,
+  "recognizing-pattern": RecognizingPatternInteraction,
+  "two-hands": TwoHandsInteraction,
+  dynamics: DynamicsInteraction,
+  "first-complete-song": FirstCompleteSongInteraction,
+  "landmark-recall": LandmarkRecallInteraction,
+  "module-review": ModuleReviewInteraction,
+  // Module 3: Expressing Yourself
+  "chord-inversions": ChordInversionsInteraction,
+  "adding-a-fill": AddingAFillInteraction,
+  "create-your-intro": CreateYourIntroInteraction,
+  "choose-your-rhythm": ChooseYourRhythmInteraction,
+  "major-or-minor-ear": MajorOrMinorEarInteraction,
+  "play-by-ear": PlayByEarInteraction,
+  "arrange-it-your-way": ArrangeItYourWayInteraction,
+  "your-musical-voice": YourMusicalVoiceInteraction,
+  // Module 4: Beyond Major and Minor
+  "seventh-chord-build": BuildG7Interaction,
+  "seventh-chord-resolve": ResolveToCMajorInteraction,
+  "suspended-chord-build": BuildCSus4Interaction,
+  "suspended-chord-resolve": ResolveToCMajorInteraction,
+  "diatonic-chords": DiatonicChordsInteraction,
+  "two-five-one": TwoFiveOneInteraction,
+  "seventh-inversions": SeventhInversionsInteraction,
+  "vi-chord": ViChordInteraction,
+  "richer-arrangement": RicherArrangementInteraction,
+  "new-harmonic-vocabulary": NewHarmonicVocabularyInteraction,
 };

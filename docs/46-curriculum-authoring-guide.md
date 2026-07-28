@@ -183,9 +183,48 @@ Lessons 3 and 4 introduced a second recurring shape: "click a note, then find th
 
 Module 1 is now feature-complete at 8 lessons. Lessons 5–8 were built under an explicit gate override — see Decision 003 below — not because the validation gate was satisfied.
 
+**Module 2: Playing Real Music** (paid — `src/features/curriculum/modules.ts`):
+
+1. Smooth Chord Changes (2 steps)
+2. Rhythm Creates Music (1 step)
+3. The Most Common Song Pattern (1 step)
+4. Playing With Both Hands (1 step)
+5. Dynamics (1 step)
+6. Your First Complete Song (1 step)
+7. Playing Without Looking (1 step)
+8. Celebration (1 step)
+
+Built in parallel with real user testing, under explicit product direction — see Decision 004 below. Onboarding, pricing, and the paywall were not touched.
+
+**Module 3: Expressing Yourself** (paid — `src/features/curriculum/modules.ts`):
+
+1. Chord Inversions (1 step)
+2. Adding a Simple Fill (1 step)
+3. Creating Your Own Introduction (1 step)
+4. Choosing Your Own Rhythm (1 step)
+5. Ear Training: Major or Minor? (1 step)
+6. Playing By Ear (1 step)
+7. Arranging It Your Way (1 step)
+8. Your Musical Voice (1 step)
+
+Built immediately following Module 2, on direct instruction to proceed without a pre-build confirmation checkpoint — see Decision 005 below. No Phase handoff document existed for this one; the theme was derived from this document's own Long-Term Vision and CLAUDE.md's "Creativity Is A Core Skill" principle. Onboarding, pricing, and the paywall remain untouched.
+
+**Module 4: Beyond Major and Minor** (paid — `src/features/curriculum/modules.ts`):
+
+1. Seventh Chords (2 steps)
+2. Suspended Chords (2 steps)
+3. Where Chords Come From (1 step)
+4. The ii-V-I (1 step)
+5. Sevenths Have Shapes Too (1 step)
+6. The vi Chord, Explained (1 step)
+7. A Richer Arrangement (1 step)
+8. Your New Harmonic Vocabulary (1 step)
+
+Built immediately following Module 3, continuing the same "proceed without a checkpoint" instruction — see Decision 006 below. No Phase handoff document existed for this one either; the theme (7th chords, suspended chords, diatonic harmony) comes from `11-roadmap.md`'s "Chord Language" phase, the part of it Module 1 hadn't covered yet. Notably, every lesson reuses an existing interaction primitive — the first module needing zero new interaction types. Onboarding, pricing, and the paywall remain untouched.
+
 ## PLANNED (not built — do not treat as existing)
 
-Module 2 and beyond are not yet named or scoped.
+Module 5 and beyond are not yet named or scoped.
 
 ---
 
@@ -201,17 +240,25 @@ Status, updated as each item clears:
 
 ⚠ Lessons 5–8 were built via an **explicit founder override** of this gate (Decision 003) — not because a real external test happened. Module 1's *existence* is complete; whether this specific theory content (scale construction, chord formulas, major/minor) actually lands for a real beginner is still unverified.
 
+⚠ Module 2 was also built ahead of real testing, via a second explicit override (Decision 004) — this time to run in parallel with testing being organized, not to replace it. Onboarding, pricing, and the paywall were explicitly excluded from this override and remain untouched.
+
+⚠ Module 3 was built via a third explicit override (Decision 005), immediately after Module 2, with no pre-build confirmation checkpoint. Same exclusions apply: onboarding, pricing, and the paywall untouched.
+
+⚠ Module 4 was built via a fourth explicit override (Decision 006), continuing directly from Module 3 on the same "proceed without a checkpoint" instruction. Same exclusions apply.
+
 > ## STOP.
 >
-> **Do not start Module 2, and do not treat Module 1 as validated content, until:**
+> **Do not start Module 5, and do not treat Modules 1–4 as validated content, until:**
 >
 > ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation in `47` does not satisfy this)
 >
-> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, or overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
+> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
 >
-> **The next milestone is still validation.** Building Lessons 5–8 answered "can PianoOS teach this content at all" — it did not answer "does a real beginner want this much theory this early," which remains open.
+> ✓ Per the Phase 11 handoff: if testing surfaces philosophy-level changes, apply them starting with the most recent module, and backport into earlier modules where appropriate
+>
+> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Four modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine.
 
-If you are reading this document and considering starting Module 2, check the two boxes above first.
+If you are reading this document and considering starting Module 4, check the boxes above first.
 
 ---
 
@@ -238,5 +285,40 @@ If you are reading this document and considering starting Module 2, check the tw
 **Decision:** Lessons 5–8 (The Major Scale, Building Any Major Chord, Major vs Minor, Every Chord You Need) were built as an **explicit founder override** of Decision 002's gate, after the product owner personally ran the product end-to-end and judged Lessons 1–4 "extremely elementary," wanting the module to build real comfort with every major/minor chord, scale construction, and the notes that make up a chord.
 
 **Reason:** This was flagged as a real tension before proceeding — the founder's own reaction is not the real external test the gate was built to require, and the target persona (`02-customer-persona.md`'s "Stuck Adult Musician," explicitly *not* someone with existing musical background) may not share the founder's sense of what counts as "elementary." A founder or engineer with prior music exposure is, structurally, the closest thing to the "avoid: professional musicians, developers familiar with the project" instruction in the original Phase 9 test brief — the same instruction that shaped who should and shouldn't be trusted to judge Module 1's difficulty. The override was made anyway, as an explicit, informed product-owner decision, not a default. It changes what got *built*; it does not change what still needs *validating* — see the Validation Gate above.
+
+**Date:** July 2026
+
+## Decision 004
+
+**Decision:** Module 2 ("Playing Real Music") was built in parallel with real user testing being organized, per explicit product direction (the Phase 11 handoff) — rather than waiting for Module 1's real-test feedback first. Onboarding, pricing, and the paywall were explicitly kept off-limits for this work; only new curriculum was added.
+
+**Reason:** New curriculum expansion and changes to the already-shipped funnel (onboarding/pricing/paywall) carry different risk — the former adds to what a subscriber gets, the latter changes what a prospect experiences before paying. Gating the first on real-world evidence while still requiring it for the second was the product owner's explicit call, not an inconsistency: it's evidence-gating the decisions where being wrong is expensive (turning away prospects) while allowing forward progress on the decisions where being wrong is cheap (a lesson that needs later revision).
+
+Four content/interaction decisions in Module 2 required real interpretive judgment, not just reuse, and are recorded here so a future reader knows they were deliberate:
+
+- **Lesson 2 (Rhythm)** needed a genuinely new mechanic — no timing/metronome system existed. Built as a simple visual+audible beat with tap-along tolerance, not full rhythmic notation.
+- **Lesson 3 (Most Common Song Pattern)** could not reuse onboarding's C-G-Am-F progression without repeating already-taught content, so it introduces a second, equally common progression (I-IV-V, "Twist and Shout") instead — giving Module 2 its own musical identity.
+- **Lesson 5 (Dynamics)** cannot capture real touch velocity from a mouse click. Built as an honest A/B comparison (the same chord at two explicit gain levels) rather than fabricating expressive capture — deliberately avoiding the exact "claims you played it expressively, but the mechanic didn't require it" mistake already caught and fixed once in onboarding (see `47-first-user-test-results.md`).
+- **Lesson 7 (Playing Without Looking)** cannot be literal in a web UI — a student is always looking at the screen. Reinterpreted as landmark recall: the same "find every F" task from Module 1, with the highlight and labels turned off, genuinely testing whether the landmark was internalized rather than followed visually.
+
+**Date:** July 2026
+
+## Decision 005
+
+**Decision:** Module 3 ("Expressing Yourself") was built immediately following Module 2, on direct instruction to proceed without a pre-build confirmation checkpoint. No Phase handoff document existed for it — the theme and lesson sequence were derived from `46`'s own "Long-Term Vision" ("Module 3: I can begin expressing myself through music") and CLAUDE.md's "Creativity Is A Core Skill" principle, which names the exact territory: chord inversions, fills, introductions, rhythm choices.
+
+**Reason:** This is the third consecutive explicit override of the validation gate (after Decisions 003 and 004), now extended to cover Module 3 as well as Module 2. The pattern established in those two decisions holds here too: onboarding, pricing, and the paywall remain untouched; only new curriculum was added; and the gate itself was not deleted, only moved forward — see the updated Validation Gate below, which now covers Module 4.
+
+Module 3's lessons deliberately favor a genuinely new mechanic — "try each of several musical options, then discover there's no wrong choice" (`ChoiceInteraction`) — over quiz-style right/wrong interactions, since the module's whole premise (creative choice) has no single correct answer. The one lesson that does have a correct answer, ear training (major vs. minor by listening), is framed as a gentle retry, not a graded test, consistent with "no dark patterns" and "confidence should feel earned."
+
+**Date:** July 2026
+
+## Decision 006
+
+**Decision:** Module 4 ("Beyond Major and Minor") was built immediately following Module 3, continuing the same "proceed without a checkpoint" instruction. No Phase handoff document existed for it — the theme (7th chords, suspended chords, diatonic harmony) was derived from `11-roadmap.md`'s "Chord Language" phase, specifically the parts of it Module 1 didn't cover (Module 1 only reached major/minor triads and inversions).
+
+**Reason:** This is the fourth consecutive override, and it's recorded here with a direct flag rather than routine phrasing: four modules now exist with zero real user feedback on any of them. That's a materially different risk profile than the first override was. Nothing about this decision changes the validation gate's requirement — it remains exactly as urgent as Decision 003 first stated it, just deferred four times now instead of once.
+
+Unlike Modules 2 and 3, Module 4 required no new interaction primitives — every lesson reuses `NoteSequenceInteraction`, `ChoiceInteraction`, or `PlayProgressionInteraction`, all already built. This is worth noting as a genuine (if incidental) validation of the interaction vocabulary's reusability, separate from the unvalidated question of whether the content itself is right for the persona.
 
 **Date:** July 2026

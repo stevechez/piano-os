@@ -10,6 +10,12 @@ export interface FindNotesInteractionProps {
   prompt: (found: number, total: number) => string;
   startOctave?: number;
   endOctave?: number;
+  /**
+   * Set false to hide the highlight glow and note-name labels — turns this
+   * from "find the glowing key" into a landmark-recall test, since there's
+   * no visual cue to fall back on. Default true.
+   */
+  showTargetHints?: boolean;
   onComplete: () => void;
 }
 
@@ -27,6 +33,7 @@ export function FindNotesInteraction({
   prompt,
   startOctave = 3,
   endOctave = 6,
+  showTargetHints = true,
   onComplete,
 }: FindNotesInteractionProps) {
   const [found, setFound] = useState<Set<string>>(new Set());
@@ -54,10 +61,10 @@ export function FindNotesInteraction({
       <PianoKeyboard
         startOctave={startOctave}
         endOctave={endOctave}
-        highlightedNotes={remaining}
+        highlightedNotes={showTargetHints ? remaining : []}
         activeNotes={Array.from(found)}
         onNotePlay={handleNotePlay}
-        showLabels
+        showLabels={showTargetHints}
         labelFilter={(note) => targetNotes.includes(note)}
         size="lg"
       />
