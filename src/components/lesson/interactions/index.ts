@@ -179,6 +179,14 @@ import { BorrowedOnCircleInteraction } from "./BorrowedOnCircleInteraction";
 import { FindingYourWayHomeInteraction } from "./FindingYourWayHomeInteraction";
 import { ChartingTheCircleInteraction } from "./ChartingTheCircleInteraction";
 import { SeeTheMapNowInteraction } from "./SeeTheMapNowInteraction";
+import { MajorMinorTwinsInteraction } from "./MajorMinorTwinsInteraction";
+import { GMajorMinorTwinInteraction } from "./GMajorMinorTwinInteraction";
+import { DMajorMinorTwinInteraction } from "./DMajorMinorTwinInteraction";
+import { BuildingBMinorInteraction } from "./BuildingBMinorInteraction";
+import { WalkingInnerRingInteraction } from "./WalkingInnerRingInteraction";
+import { MajorHomeOrMinorHomeInteraction } from "./MajorHomeOrMinorHomeInteraction";
+import { ReadingInnerRingInteraction } from "./ReadingInnerRingInteraction";
+import { KnowWholeCircleNowInteraction } from "./KnowWholeCircleNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -389,4 +397,13 @@ export const LESSON_INTERACTIONS: Record<
   "finding-your-way-home": FindingYourWayHomeInteraction,
   "charting-the-circle": ChartingTheCircleInteraction,
   "see-the-map-now": SeeTheMapNowInteraction,
+  // Module 22: The Circle's Minor Side
+  "major-minor-twins": MajorMinorTwinsInteraction,
+  "g-major-minor-twin": GMajorMinorTwinInteraction,
+  "d-major-minor-twin": DMajorMinorTwinInteraction,
+  "building-b-minor": BuildingBMinorInteraction,
+  "walking-inner-ring": WalkingInnerRingInteraction,
+  "major-home-or-minor-home": MajorHomeOrMinorHomeInteraction,
+  "reading-inner-ring": ReadingInnerRingInteraction,
+  "know-whole-circle-now": KnowWholeCircleNowInteraction,
 };

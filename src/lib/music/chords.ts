@@ -53,6 +53,9 @@ export const CHORDS: Record<string, Chord> = {
   // completing the I7-IV7-V7 set alongside Module 4's g7 (the blues' V7).
   c7: { id: "c7", name: "C7", notes: ["C4", "E4", "G4", "A#4"] },
   f7: { id: "f7", name: "F7", notes: ["F3", "A3", "C4", "D#4"] },
+  // Module 22: D major's relative minor -- a third circle-of-fifths
+  // major/minor pairing, alongside C/Am and G/Em.
+  bMinor: { id: "bMinor", name: "B Minor", notes: ["B3", "D4", "F#4"] },
 };
 
 export interface Progression {

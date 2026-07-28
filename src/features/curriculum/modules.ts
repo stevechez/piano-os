@@ -3720,7 +3720,179 @@ export const MODULE_21: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21];
+export const MODULE_22_ID = "module-22";
+
+/**
+ * Module 22: The Circle's Minor Side. The natural part 2 of Module 21 --
+ * every major key on the circle has a relative minor twin sitting at
+ * the same position (an inner ring), and this module completes the
+ * map by showing three such pairings: C/Am (Module 13), G/Em (Module
+ * 12's key), and a new one, D/Bm. Built without a Phase handoff, per
+ * docs/46 Decision 024.
+ *
+ * Needs exactly one new chord (`bMinor` -- D major's relative minor,
+ * completing a third circle pairing) and zero new progressions,
+ * reusing Module 13's `myMinorHomeProgression` and `myMinorCadence`
+ * directly. Reuses `ChoiceInteraction`, `NoteSequenceInteraction`,
+ * `PlayProgressionInteraction`, `EarTrainingInteraction`, and
+ * `ChordChartInteraction` exclusively -- the fourteenth module (after
+ * 4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 18, 20, and 21) needing zero new
+ * interaction primitives.
+ */
+export const MODULE_22: Module = {
+  id: MODULE_22_ID,
+  index: 22,
+  title: "The Circle's Minor Side",
+  subtitle: "Every Major Key Has a Minor Twin",
+  lessons: [
+    {
+      id: "every-major-key-has-a-minor-twin",
+      index: 1,
+      title: "Every Major Key Has a Minor Twin",
+      steps: [
+        {
+          id: "major-minor-twins",
+          concept: {
+            heading: "C Major and A Minor share every single note in their scales.",
+            body: "That's not a coincidence.",
+          },
+          discovery: {
+            heading: "They're relative keys.",
+            body: "The same spot on the circle — major on the outside, minor on the inside.",
+          },
+        },
+      ],
+    },
+    {
+      id: "g-majors-minor-twin",
+      index: 2,
+      title: "G Major's Minor Twin",
+      steps: [
+        {
+          id: "g-major-minor-twin",
+          concept: {
+            heading: "G major's inner-ring twin is E minor.",
+            body: "Compare them.",
+          },
+          discovery: {
+            heading: "Same relationship, one step around the circle.",
+            body: "Every major key has this same minor shadow.",
+          },
+        },
+      ],
+    },
+    {
+      id: "d-majors-minor-twin",
+      index: 3,
+      title: "D Major's Minor Twin",
+      steps: [
+        {
+          id: "d-major-minor-twin",
+          concept: {
+            heading: "One more pair.",
+            body: "D major's inner-ring twin is B minor.",
+          },
+          discovery: {
+            heading: "You're not memorizing new pairs one at a time anymore.",
+            body: "You're recognizing a pattern that holds for every key on the circle.",
+          },
+        },
+      ],
+    },
+    {
+      id: "building-b-minor",
+      index: 4,
+      title: "Building B Minor",
+      steps: [
+        {
+          id: "building-b-minor",
+          concept: {
+            heading: "Build B Minor yourself.",
+            body: "Root to fifth.",
+          },
+          discovery: {
+            heading: "Same minor-triad formula as always.",
+            body: "Just starting on B this time.",
+          },
+        },
+      ],
+    },
+    {
+      id: "walking-the-inner-ring",
+      index: 5,
+      title: "Walking the Inner Ring",
+      steps: [
+        {
+          id: "walking-inner-ring",
+          concept: {
+            heading: "Play your Module 13 progression again.",
+            body: "This time, hear it as walking the inner ring around A minor's spot.",
+          },
+          discovery: {
+            heading: "That's the minor ring in motion.",
+            body: "The same chords, understood now as a place on the map, not just a sound.",
+          },
+        },
+      ],
+    },
+    {
+      id: "major-home-or-minor-home",
+      index: 6,
+      title: "Major Home or Minor Home?",
+      steps: [
+        {
+          id: "major-home-or-minor-home",
+          concept: {
+            heading: "Same F and G leading in.",
+            body: "Listen to where it lands — major home, or minor home?",
+          },
+          discovery: {
+            heading: "You can hear which twin a progression is heading toward.",
+            body: "Before it even arrives.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-the-inner-ring",
+      index: 7,
+      title: "Reading the Inner Ring",
+      steps: [
+        {
+          id: "reading-inner-ring",
+          concept: {
+            heading: "Read a chart with two major/minor twin pairs in it.",
+            body: "G, Em, D, Bm.",
+          },
+          discovery: {
+            heading: "Reading the inner ring is exactly like reading the outer one.",
+            body: "The chart never has to explain which ring a chord belongs to.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-know-the-whole-circle-now",
+      index: 8,
+      title: "You Know the Whole Circle Now",
+      steps: [
+        {
+          id: "know-whole-circle-now",
+          concept: {
+            heading: "Play the classic minor-key cadence one more time.",
+            body: "Am, Dm, E, back to Am.",
+          },
+          discovery: {
+            heading: "You know the whole circle now.",
+            body: "Both rings, major and minor, and how they sit together — not as separate facts, but as one map.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);
