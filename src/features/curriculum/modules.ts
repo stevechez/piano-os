@@ -1991,7 +1991,179 @@ export const MODULE_11: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11];
+export const MODULE_12_ID = "module-12";
+
+/**
+ * Module 12: Playing In Any Key. A genuinely new, practical theme --
+ * transposition -- introduced not as more harmonic vocabulary but as
+ * proof that everything already learned (chord formulas, the student's
+ * own song, borrowed chords, improvisation) is a set of *relationships*,
+ * portable to any starting note, not a fixed set of memorized positions.
+ * Built without a Phase handoff, per docs/46 Decision 014.
+ *
+ * The student's Module 7 song (C-Am-F-G verse, F-G-C chorus) is
+ * transposed into G major (G-Em-C-D verse, C-D-G chorus) -- every chord
+ * involved (gMajor, eMinor, cMajor, dMajor, cMinor) already exists in
+ * `chords.ts`; only three new progressions were needed. Reuses
+ * `ChoiceInteraction`, `NoteSequenceInteraction`,
+ * `PlayProgressionInteraction`, `EarTrainingInteraction`, and
+ * `FreePlayInteraction` exclusively -- the eighth module (after 4, 5, 7,
+ * 8, 9, 10, and 11) needing zero new interaction primitives.
+ */
+export const MODULE_12: Module = {
+  id: MODULE_12_ID,
+  index: 12,
+  title: "Playing In Any Key",
+  subtitle: "Same Patterns, Different Starting Point",
+  lessons: [
+    {
+      id: "the-same-shape-a-new-starting-point",
+      index: 1,
+      title: "The Same Shape, A New Starting Point",
+      steps: [
+        {
+          id: "same-shape-new-starting-point",
+          concept: {
+            heading: "A major chord is always built the same way.",
+            body: "Root, third, fifth. Compare C Major to G Major.",
+          },
+          discovery: {
+            heading: "Same formula, different starting point.",
+            body: "That's the whole idea behind playing in a new key.",
+          },
+        },
+      ],
+    },
+    {
+      id: "building-in-g-major",
+      index: 2,
+      title: "Building In G Major",
+      steps: [
+        {
+          id: "building-in-g-major",
+          concept: {
+            heading: "Build G Major yourself.",
+            body: "The same way you've built every other major chord.",
+          },
+          discovery: {
+            heading: "Root, third, fifth — it never changes.",
+            body: "No matter which key you're in, the formula holds.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-progression-moved",
+      index: 3,
+      title: "Your Progression, Moved",
+      steps: [
+        {
+          id: "progression-moved",
+          concept: {
+            heading: "The exact progression from your own song, moved to a new key.",
+            body: "C, Am, F, G becomes G, Em, C, D. Play it yourself.",
+          },
+          discovery: {
+            heading: "Same relationships. Same feeling. Just higher.",
+            body: "Every interval between the chords stayed exactly the same — only the starting point changed.",
+          },
+        },
+      ],
+    },
+    {
+      id: "which-key-fits-your-voice",
+      index: 4,
+      title: "Which Key Fits Your Voice?",
+      steps: [
+        {
+          id: "which-key-fits-your-voice",
+          concept: {
+            heading: "The same song, in two different keys.",
+            body: "Compare how each one feels.",
+          },
+          discovery: {
+            heading: "There's no 'correct' key.",
+            body: "Only the one that fits your voice or your mood best. That's why musicians transpose.",
+          },
+        },
+      ],
+    },
+    {
+      id: "same-pattern-new-key",
+      index: 5,
+      title: "Same Pattern, New Key?",
+      steps: [
+        {
+          id: "same-pattern-new-key",
+          concept: {
+            heading: "Same pattern moved to a new key, or a genuinely different pattern?",
+            body: "Listen and decide.",
+          },
+          discovery: {
+            heading: "A moved pattern still sounds like itself.",
+            body: "Your ear can tell the difference between a transposed relationship and an actually different one — that's real recognition, not memorization.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-borrowed-chord-transposed",
+      index: 6,
+      title: "A Borrowed Chord, Transposed",
+      steps: [
+        {
+          id: "borrowed-chord-transposed",
+          concept: {
+            heading: "The borrowed-chord trick from Module 8 works in any key.",
+            body: "Compare the diatonic IV in G to its borrowed minor twin.",
+          },
+          discovery: {
+            heading: "Same technique, new key.",
+            body: "Understanding a relationship means you can use it anywhere — not just in the one key you first learned it in.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-song-in-a-new-key",
+      index: 7,
+      title: "Your Song, In A New Key",
+      steps: [
+        {
+          id: "song-in-new-key",
+          concept: {
+            heading: "Play your whole song — verse and chorus — in this new key.",
+            body: "Play every chord yourself, start to finish.",
+          },
+          discovery: {
+            heading: "That's the same song you wrote in Module 7.",
+            body: "Same relationships, same structure, entirely transposable.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-play-anywhere-now",
+      index: 8,
+      title: "You Can Play Anywhere Now",
+      steps: [
+        {
+          id: "play-anywhere-now",
+          concept: {
+            heading: "Improvise over your progression again.",
+            body: "This time, in G.",
+          },
+          discovery: {
+            heading: "The safety net moved with the key.",
+            body: "Everything you've learned is portable — that's what understanding a pattern really means.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

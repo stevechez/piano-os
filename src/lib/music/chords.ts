@@ -136,6 +136,26 @@ export const PROGRESSIONS: Record<string, Progression> = {
       "fMajor", "gMajor", "cMajor",
     ],
   },
+  // Module 12: the student's Module 7 song, transposed into G major.
+  // I-vi-IV-V in C (C-Am-F-G) becomes I-vi-IV-V in G (G-Em-C-D); the
+  // chorus's IV-V-I (F-G-C) becomes C-D-G. Every chord already exists in
+  // this file -- transposition needs no new vocabulary, only a new
+  // starting point.
+  myVerseInG: {
+    id: "myVerseInG",
+    label: "G → Em → C → D",
+    chordIds: ["gMajor", "eMinor", "cMajor", "dMajor"],
+  },
+  myChorusInG: {
+    id: "myChorusInG",
+    label: "C → D → G",
+    chordIds: ["cMajor", "dMajor", "gMajor"],
+  },
+  myFullSongInG: {
+    id: "myFullSongInG",
+    label: "Your Verse → Your Chorus (In G)",
+    chordIds: ["gMajor", "eMinor", "cMajor", "dMajor", "cMajor", "dMajor", "gMajor"],
+  },
 };
 
 export function getChord(chordId: string): Chord {

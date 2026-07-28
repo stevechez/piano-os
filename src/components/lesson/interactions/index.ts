@@ -99,6 +99,14 @@ import { MajorOrMixolydianInteraction } from "./MajorOrMixolydianInteraction";
 import { SteadyOrSyncopatedInteraction } from "./SteadyOrSyncopatedInteraction";
 import { YourOwnChordByEarInteraction } from "./YourOwnChordByEarInteraction";
 import { YouCanHearItNowInteraction } from "./YouCanHearItNowInteraction";
+import { SameShapeNewStartingPointInteraction } from "./SameShapeNewStartingPointInteraction";
+import { BuildingInGMajorInteraction } from "./BuildingInGMajorInteraction";
+import { ProgressionMovedInteraction } from "./ProgressionMovedInteraction";
+import { WhichKeyFitsYourVoiceInteraction } from "./WhichKeyFitsYourVoiceInteraction";
+import { SamePatternNewKeyInteraction } from "./SamePatternNewKeyInteraction";
+import { BorrowedChordTransposedInteraction } from "./BorrowedChordTransposedInteraction";
+import { SongInNewKeyInteraction } from "./SongInNewKeyInteraction";
+import { PlayAnywhereNowInteraction } from "./PlayAnywhereNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -219,4 +227,13 @@ export const LESSON_INTERACTIONS: Record<
   "steady-or-syncopated": SteadyOrSyncopatedInteraction,
   "your-own-chord-by-ear": YourOwnChordByEarInteraction,
   "you-can-hear-it-now": YouCanHearItNowInteraction,
+  // Module 12: Playing In Any Key
+  "same-shape-new-starting-point": SameShapeNewStartingPointInteraction,
+  "building-in-g-major": BuildingInGMajorInteraction,
+  "progression-moved": ProgressionMovedInteraction,
+  "which-key-fits-your-voice": WhichKeyFitsYourVoiceInteraction,
+  "same-pattern-new-key": SamePatternNewKeyInteraction,
+  "borrowed-chord-transposed": BorrowedChordTransposedInteraction,
+  "song-in-new-key": SongInNewKeyInteraction,
+  "play-anywhere-now": PlayAnywhereNowInteraction,
 };
