@@ -104,6 +104,15 @@ export const PROGRESSIONS: Record<string, Progression> = {
     label: "C → Fm → B♭ → C",
     chordIds: ["cMajor", "fMinor", "bFlatMajor", "cMajor"],
   },
+  // Module 9: the I-bVII vamp that defines the Mixolydian mode's sound --
+  // built from chords already in this file (cMajor, bFlatMajor from
+  // Module 8). Deliberately ends on bVII, left unresolved, so Lesson 7
+  // can contrast that against resolving back to the I chord.
+  mixolydianVamp: {
+    id: "mixolydianVamp",
+    label: "C → B♭ → C → B♭",
+    chordIds: ["cMajor", "bFlatMajor", "cMajor", "bFlatMajor"],
+  },
 };
 
 export function getChord(chordId: string): Chord {

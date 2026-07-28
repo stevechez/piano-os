@@ -1461,7 +1461,180 @@ export const MODULE_8: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8];
+export const MODULE_9_ID = "module-9";
+
+/**
+ * Module 9: A New Color: Playing in Mixolydian. The curriculum's first
+ * modal content -- a single mode (Mixolydian: a major scale with a
+ * flattened 7th) introduced as one different note away from something
+ * the student already knows, rather than a wall of new modal theory.
+ * Built without a Phase handoff, per docs/46 Decision 011 -- derived
+ * from `11-roadmap.md`'s Phase 9 "Advanced Musicianship" ("Modal
+ * playing"), continuing Module 8's exploration of that phase.
+ *
+ * Deliberately reuses Module 6's `FreePlayInteraction` "safety net"
+ * framing with a new note set, and Module 8's `bFlatMajor` chord (the
+ * bVII of C major, which is also Mixolydian's defining color chord) --
+ * no new chords needed, only a new progression (`mixolydianVamp`) built
+ * from chords that already existed. Reuses ChoiceInteraction,
+ * NoteSequenceInteraction, PlayProgressionInteraction, and
+ * FreePlayInteraction exclusively -- the fifth module (after 4, 5, 7,
+ * and 8) needing zero new interaction primitives.
+ */
+export const MODULE_9: Module = {
+  id: MODULE_9_ID,
+  index: 9,
+  title: "A New Color: Playing in Mixolydian",
+  subtitle: "One Different Note, A Whole New Mood",
+  lessons: [
+    {
+      id: "one-note-changes-everything",
+      index: 1,
+      title: "One Note Changes Everything",
+      steps: [
+        {
+          id: "one-note-changes-everything",
+          concept: {
+            heading: "Scales aren't just major or minor.",
+            body: "Compare a major scale to a Mixolydian scale — listen for what's different.",
+          },
+          discovery: {
+            heading: "One flattened 7th. That's the entire difference.",
+            body: "A single half-step change to one note is the whole distance between major and Mixolydian — and it changes the whole character.",
+          },
+        },
+      ],
+    },
+    {
+      id: "building-the-mixolydian-scale",
+      index: 2,
+      title: "Building the Mixolydian Scale",
+      steps: [
+        {
+          id: "building-mixolydian-scale",
+          concept: {
+            heading: "Build it yourself, one note at a time.",
+            body: "Root to octave, the Mixolydian way.",
+          },
+          discovery: {
+            heading: "Same shape as a major scale.",
+            body: "Except the 7th step is a half-step lower. You already knew the shape — this is just one note moved.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-mixolydian-vamp",
+      index: 3,
+      title: "The Mixolydian Vamp",
+      steps: [
+        {
+          id: "mixolydian-vamp",
+          concept: {
+            heading: "This scale has its own natural chord move.",
+            body: "Play it yourself: C, B♭, C, B♭.",
+          },
+          discovery: {
+            heading: "That's the Mixolydian mode, in motion.",
+            body: "I to ♭VII and back is a sound you've heard in dozens of songs — now you know why it works.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-new-safety-net",
+      index: 4,
+      title: "A New Safety Net",
+      steps: [
+        {
+          id: "new-safety-net",
+          concept: {
+            heading: "Every note in this scale sounds good over this vamp.",
+            body: "Play freely — the Mixolydian scale is looping underneath.",
+          },
+          discovery: {
+            heading: "That's your new safety net.",
+            body: "A different color from Module 6's, but the same permission to experiment.",
+          },
+        },
+      ],
+    },
+    {
+      id: "same-chords-different-mood",
+      index: 5,
+      title: "Same Chords, Different Mood",
+      steps: [
+        {
+          id: "same-chords-different-mood",
+          concept: {
+            heading: "The chord underneath doesn't change.",
+            body: "Compare a melody built from your original safety net to one built from this new one.",
+          },
+          discovery: {
+            heading: "Same harmony, different color.",
+            body: "The scale you choose to improvise with shapes the mood as much as the chords do.",
+          },
+        },
+      ],
+    },
+    {
+      id: "grooving-in-mixolydian",
+      index: 6,
+      title: "Grooving in Mixolydian",
+      steps: [
+        {
+          id: "grooving-in-mixolydian",
+          concept: {
+            heading: "Rhythm still matters here too.",
+            body: "Compare a steady groove to a syncopated one under the vamp.",
+          },
+          discovery: {
+            heading: "The mode gives you the notes. Rhythm is still yours to shape.",
+            body: "A new scale doesn't replace everything else you've learned about rhythm — it adds to it.",
+          },
+        },
+      ],
+    },
+    {
+      id: "ending-on-the-root",
+      index: 7,
+      title: "Ending on the Root",
+      steps: [
+        {
+          id: "ending-on-the-root",
+          concept: {
+            heading: "Compare two ways to end the same vamp.",
+            body: "Ending on the B♭ chord versus resolving back to C.",
+          },
+          discovery: {
+            heading: "Modal music can hang in the air on purpose.",
+            body: "But choosing when to resolve, and when not to, is still your call — the mode doesn't decide that for you.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-hear-in-more-than-one-color-now",
+      index: 8,
+      title: "You Can Hear in More Than One Color Now",
+      steps: [
+        {
+          id: "hear-in-more-than-one-color",
+          concept: {
+            heading: "One more time — freely, in this new color.",
+            body: "The Mixolydian vamp is looping underneath. Play however you like.",
+          },
+          discovery: {
+            heading: "You have more than one way to hear the same key now.",
+            body: "The safety net scale, borrowed chords, and now a whole different mode. That's not memorization anymore. That's musicianship.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

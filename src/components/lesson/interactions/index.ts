@@ -75,6 +75,14 @@ import { BorrowingInProgressionInteraction } from "./BorrowingInProgressionInter
 import { ReharmonizingYourEndingInteraction } from "./ReharmonizingYourEndingInteraction";
 import { WhenToBorrowInteraction } from "./WhenToBorrowInteraction";
 import { HearOutsideKeyNowInteraction } from "./HearOutsideKeyNowInteraction";
+import { OneNoteChangesEverythingInteraction } from "./OneNoteChangesEverythingInteraction";
+import { BuildingMixolydianScaleInteraction } from "./BuildingMixolydianScaleInteraction";
+import { MixolydianVampInteraction } from "./MixolydianVampInteraction";
+import { NewSafetyNetInteraction } from "./NewSafetyNetInteraction";
+import { SameChordsDifferentMoodInteraction } from "./SameChordsDifferentMoodInteraction";
+import { GroovingInMixolydianInteraction } from "./GroovingInMixolydianInteraction";
+import { EndingOnTheRootInteraction } from "./EndingOnTheRootInteraction";
+import { HearInMoreThanOneColorInteraction } from "./HearInMoreThanOneColorInteraction";
 
 export type { LessonInteractionProps };
 
@@ -168,4 +176,13 @@ export const LESSON_INTERACTIONS: Record<
   "reharmonizing-your-ending": ReharmonizingYourEndingInteraction,
   "when-to-borrow": WhenToBorrowInteraction,
   "hear-outside-key-now": HearOutsideKeyNowInteraction,
+  // Module 9: A New Color: Playing in Mixolydian
+  "one-note-changes-everything": OneNoteChangesEverythingInteraction,
+  "building-mixolydian-scale": BuildingMixolydianScaleInteraction,
+  "mixolydian-vamp": MixolydianVampInteraction,
+  "new-safety-net": NewSafetyNetInteraction,
+  "same-chords-different-mood": SameChordsDifferentMoodInteraction,
+  "grooving-in-mixolydian": GroovingInMixolydianInteraction,
+  "ending-on-the-root": EndingOnTheRootInteraction,
+  "hear-in-more-than-one-color": HearInMoreThanOneColorInteraction,
 };
