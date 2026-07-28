@@ -65,6 +65,26 @@ export const PROGRESSIONS: Record<string, Progression> = {
     label: "Dm → G7 → C",
     chordIds: ["dMinor", "g7", "cMajor"],
   },
+  // Module 7: the student's own song, built from four chords they already
+  // know but in an order that belongs to no specific existing song --
+  // deliberately no songReference, since the whole point is that this one
+  // is theirs.
+  myVerse: {
+    id: "myVerse",
+    label: "C → Am → F → G",
+    chordIds: ["cMajor", "aMinor", "fMajor", "gMajor"],
+  },
+  myChorus: {
+    id: "myChorus",
+    label: "F → G → C",
+    chordIds: ["fMajor", "gMajor", "cMajor"],
+  },
+  // The verse and chorus above, played back to back -- the finished song.
+  mySong: {
+    id: "mySong",
+    label: "Your Verse → Your Chorus",
+    chordIds: ["cMajor", "aMinor", "fMajor", "gMajor", "fMajor", "gMajor", "cMajor"],
+  },
 };
 
 export function getChord(chordId: string): Chord {

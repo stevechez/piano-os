@@ -59,6 +59,14 @@ import { AddingAnOrnamentInteraction } from "./AddingAnOrnamentInteraction";
 import { ImprovisingOverProgressionInteraction } from "./ImprovisingOverProgressionInteraction";
 import { TwoIdeasBackToBackInteraction } from "./TwoIdeasBackToBackInteraction";
 import { YouAreAlreadyImprovisingInteraction } from "./YouAreAlreadyImprovisingInteraction";
+import { ChoosingYourChordsInteraction } from "./ChoosingYourChordsInteraction";
+import { YourVerseInteraction } from "./YourVerseInteraction";
+import { YourChorusInteraction } from "./YourChorusInteraction";
+import { AddingAMelodyInteraction } from "./AddingAMelodyInteraction";
+import { ASimpleEndingInteraction } from "./ASimpleEndingInteraction";
+import { VerseIntoChorusInteraction } from "./VerseIntoChorusInteraction";
+import { NamingYourSoundInteraction } from "./NamingYourSoundInteraction";
+import { YouWroteASongInteraction } from "./YouWroteASongInteraction";
 
 export type { LessonInteractionProps };
 
@@ -134,4 +142,13 @@ export const LESSON_INTERACTIONS: Record<
   "improvising-over-progression": ImprovisingOverProgressionInteraction,
   "two-ideas-back-to-back": TwoIdeasBackToBackInteraction,
   "you-are-already-improvising": YouAreAlreadyImprovisingInteraction,
+  // Module 7: Writing Your Own Song
+  "choosing-your-chords": ChoosingYourChordsInteraction,
+  "your-verse": YourVerseInteraction,
+  "your-chorus": YourChorusInteraction,
+  "adding-a-melody": AddingAMelodyInteraction,
+  "a-simple-ending": ASimpleEndingInteraction,
+  "verse-into-chorus": VerseIntoChorusInteraction,
+  "naming-your-sound": NamingYourSoundInteraction,
+  "you-wrote-a-song": YouWroteASongInteraction,
 };

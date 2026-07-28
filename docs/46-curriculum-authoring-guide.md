@@ -248,9 +248,22 @@ Built immediately following Module 4, continuing the same "proceed without a che
 
 Built immediately following Module 5, continuing the same "proceed without a checkpoint" instruction — see Decision 008 below. No Phase handoff document existed for this one either; the theme comes from `11-roadmap.md`'s Phase 8 "Musical Creativity" (improvisation, harmonic variation), the part of that phase Module 3 hadn't covered. Introduces `FreePlayInteraction` — the first genuinely new interaction primitive since Module 3's `ChoiceInteraction` — for open-ended play within a "safety net" note set, reused across 4 of the 8 lessons; the remaining lessons reuse `NoteSequenceInteraction` and `ChoiceInteraction`. Onboarding, pricing, and the paywall remain untouched.
 
+**Module 7: Writing Your Own Song** (paid — `src/features/curriculum/modules.ts`):
+
+1. Choosing Your Chords (1 step)
+2. Your Verse (1 step)
+3. Your Chorus (1 step)
+4. Adding a Melody (1 step)
+5. A Simple Ending (1 step)
+6. Verse Into Chorus (1 step)
+7. Naming Your Sound (1 step)
+8. You Wrote a Song (1 step)
+
+Built immediately following Module 6, on the same "proceed without a checkpoint" instruction — see Decision 009 below. No Phase handoff document existed for this one either; the theme (songwriting basics) comes from `11-roadmap.md`'s Phase 8 "Musical Creativity," the last piece of that phase not yet covered by Modules 3 and 6. A capstone: the student assembles their own verse-into-chorus song from chords they already know, adds an improvised melody, and chooses an ending and an arrangement style — every choice is theirs, culminating in a real play-through of the whole piece. Requires three new progressions in `src/lib/music/chords.ts` (`myVerse`, `myChorus`, `mySong`), deliberately with no `songReference` since the point is that this one belongs to the student. Zero new interaction primitives — the third module (after 4 and 5) needing none, reusing `ChoiceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` only. Onboarding, pricing, and the paywall remain untouched.
+
 ## PLANNED (not built — do not treat as existing)
 
-Module 7 and beyond are not yet named or scoped.
+Module 8 and beyond are not yet named or scoped.
 
 ---
 
@@ -276,19 +289,21 @@ Status, updated as each item clears:
 
 ⚠ Module 6 was built via a sixth explicit override (Decision 008) — this time after the risk was raised directly with the product owner first (per this document's own note that a sixth module should be a point to push back, not just override again) and the product owner chose to proceed anyway. Same exclusions apply.
 
+⚠ Module 7 was built via a seventh explicit override (Decision 009) — the risk was raised directly again before starting, consistent with Decision 008's note, and the product owner again chose to proceed. Same exclusions apply.
+
 > ## STOP.
 >
-> **Do not start Module 7, and do not treat Modules 1–6 as validated content, until:**
+> **Do not start Module 8, and do not treat Modules 1–7 as validated content, until:**
 >
 > ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation in `47` does not satisfy this)
 >
-> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
+> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
 >
 > ✓ Per the Phase 11 handoff: if testing surfaces philosophy-level changes, apply them starting with the most recent module, and backport into earlier modules where appropriate
 >
-> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Six modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk was surfaced directly before Module 6 was built and the override was chosen deliberately; the next module should not assume the same choice will be made again without asking.
+> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Seven modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted twice in a row (Modules 6 and 7); asking again before Module 8 remains the standing expectation, not a one-time courtesy.
 
-If you are reading this document and considering starting Module 7, check the boxes above first.
+If you are reading this document and considering starting Module 8, check the boxes above first.
 
 ---
 
@@ -370,5 +385,15 @@ Like Module 4, Module 5 required no new interaction primitives — every lesson 
 **Reason:** This is the sixth consecutive override. The framing is the same as Decisions 006 and 007 — six modules now exist with zero real user feedback on any of them, and that risk has not been reduced by asking first, only made a deliberate and informed choice rather than a routine one. The validation gate's requirement is unchanged.
 
 Module 6 introduces `FreePlayInteraction`, the first genuinely new interaction primitive since Module 3's `ChoiceInteraction` — open-ended play within a "safety net" set of notes over a looping backing chord, with no fixed order and no discrete pre-defined options. It is reused across 4 of the module's 8 lessons (Safety Net Scale, Question and Answer, Improvising Over a Progression, You Are Already Improvising); the remaining lessons reuse `NoteSequenceInteraction` and `ChoiceInteraction`. This module's core premise — there is no "wrong" improvised idea — mirrors Module 3's "no wrong choice" framing, now applied to genuinely open-ended play rather than a small set of options.
+
+**Date:** July 2026
+
+## Decision 009
+
+**Decision:** Module 7 ("Writing Your Own Song") was built immediately following Module 6. No Phase handoff document existed for it — the theme (songwriting basics) was derived from `11-roadmap.md`'s Phase 8 "Musical Creativity," the last piece of that phase not yet covered after Modules 3 and 6. Consistent with Decision 008's note that the next module shouldn't assume the override would be granted again without asking, the risk was surfaced directly to the product owner a second time before starting, and the product owner again chose to proceed.
+
+**Reason:** This is the seventh consecutive override. Two overrides in a row have now been made with the risk explicitly named and knowingly accepted rather than silently continued — that's a meaningfully different posture than Decisions 003–007, even though the underlying risk (unvalidated content compounding) is unchanged. The validation gate's requirement stands exactly as it did at Decision 003.
+
+Module 7 is a deliberate capstone rather than new theoretical territory: it asks the student to assemble their own verse-into-chorus song from chords, an accompaniment style, and an improvised melody they already have from Modules 1, 5, and 6, then choose their own ending and arrangement. It required zero new interaction primitives — the third module (after 4 and 5) to need none, reusing `ChoiceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` exclusively. It did require three new progressions in `chords.ts` (`myVerse`, `myChorus`, `mySong`), deliberately without a `songReference`, since the point of this module is that the song belongs to the student rather than citing an existing one.
 
 **Date:** July 2026

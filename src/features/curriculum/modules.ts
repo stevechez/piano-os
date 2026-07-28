@@ -1116,7 +1116,178 @@ export const MODULE_6: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6];
+export const MODULE_7_ID = "module-7";
+
+/**
+ * Module 7: Writing Your Own Song. The capstone that everything since
+ * Module 2 has been building toward -- chords, progressions,
+ * accompaniment, and improvised melody, combined into one original
+ * verse-into-chorus piece the student assembles themselves. Built
+ * without a Phase handoff, per docs/46 Decision 009 -- derived from
+ * `11-roadmap.md`'s Phase 8 "Musical Creativity" ("Songwriting basics"),
+ * the one piece of that phase Module 6 hadn't covered.
+ *
+ * Deliberately reuses ChoiceInteraction, PlayProgressionInteraction, and
+ * FreePlayInteraction only -- zero new interaction primitives, the third
+ * module (after 4 and 5) to need none. `myVerse`/`myChorus`/`mySong` in
+ * chords.ts are new progressions built from chords the student already
+ * knows, with no songReference: the whole point is that this one belongs
+ * to them, not to an existing song.
+ */
+export const MODULE_7: Module = {
+  id: MODULE_7_ID,
+  index: 7,
+  title: "Writing Your Own Song",
+  subtitle: "From Ideas To A Finished Piece",
+  lessons: [
+    {
+      id: "choosing-your-chords",
+      index: 1,
+      title: "Choosing Your Chords",
+      steps: [
+        {
+          id: "choosing-your-chords",
+          concept: {
+            heading: "Every song starts with a handful of chords.",
+            body: "Four chords you already know. Try each one — these are what you'll build your song from.",
+          },
+          discovery: {
+            heading: "That's your palette.",
+            body: "C, Am, F, and G — nothing new here. What's new is that you're choosing them, not just following a lesson's order.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-verse",
+      index: 2,
+      title: "Your Verse",
+      steps: [
+        {
+          id: "your-verse",
+          concept: {
+            heading: "Put those chords in an order — your verse.",
+            body: "Play each chord yourself, in order: C, Am, F, G.",
+          },
+          discovery: {
+            heading: "That's a verse.",
+            body: "Same four chords as always, but this particular order is the one you're using — the first section of your song.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-chorus",
+      index: 3,
+      title: "Your Chorus",
+      steps: [
+        {
+          id: "your-chorus",
+          concept: {
+            heading: "A chorus needs its own identity.",
+            body: "Play this shorter, punchier order yourself: F, G, C.",
+          },
+          discovery: {
+            heading: "That's the lift a chorus needs.",
+            body: "Fewer chords, a stronger resolution back to C — that contrast with your verse is exactly what makes a chorus feel like a chorus.",
+          },
+        },
+      ],
+    },
+    {
+      id: "adding-a-melody",
+      index: 4,
+      title: "Adding a Melody",
+      steps: [
+        {
+          id: "adding-a-melody",
+          concept: {
+            heading: "Your verse needs a melody on top.",
+            body: "Your verse is looping underneath. Play a melody over it, freely, using the safety net notes.",
+          },
+          discovery: {
+            heading: "That melody is part of your song now.",
+            body: "You didn't just accompany a progression — you wrote a melodic line over your own verse, from Module 6's improvisation instinct.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-simple-ending",
+      index: 5,
+      title: "A Simple Ending",
+      steps: [
+        {
+          id: "a-simple-ending",
+          concept: {
+            heading: "Every song needs an ending.",
+            body: "Compare fading out to landing on one strong final chord.",
+          },
+          discovery: {
+            heading: "Endings are a choice, not an afterthought.",
+            body: "A fade feels unresolved and dreamy. A strong final chord feels finished. Neither is more correct — but your song needs one of them, deliberately.",
+          },
+        },
+      ],
+    },
+    {
+      id: "verse-into-chorus",
+      index: 6,
+      title: "Verse Into Chorus",
+      steps: [
+        {
+          id: "verse-into-chorus",
+          concept: {
+            heading: "A verse on its own can feel like it's missing something.",
+            body: "Compare looping the verse by itself to letting it move into the chorus.",
+          },
+          discovery: {
+            heading: "That movement is song form.",
+            body: "The verse alone just repeats. The verse moving into the chorus tells a story — tension, then release. That's structure, not decoration.",
+          },
+        },
+      ],
+    },
+    {
+      id: "naming-your-sound",
+      index: 7,
+      title: "Naming Your Sound",
+      steps: [
+        {
+          id: "naming-your-sound",
+          concept: {
+            heading: "The same song, played two ways.",
+            body: "Compare a simple arrangement of your song to a fuller one with a bass note under every chord.",
+          },
+          discovery: {
+            heading: "That choice is your sound.",
+            body: "The chords never changed. How you chose to play them — plain or full — is a real musical decision, and it's yours to make every time.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-wrote-a-song",
+      index: 8,
+      title: "You Wrote a Song",
+      steps: [
+        {
+          id: "you-wrote-a-song",
+          concept: {
+            heading: "Play it start to finish.",
+            body: "Your verse, into your chorus, to a real ending. Play every chord yourself.",
+          },
+          discovery: {
+            heading: "You wrote a song.",
+            body: "Every chord, every section, and the melody on top were choices you made. That's not an exercise anymore — that's a piece of music that's genuinely yours.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);
