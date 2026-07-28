@@ -43,6 +43,14 @@ import { SeventhInversionsInteraction } from "./SeventhInversionsInteraction";
 import { ViChordInteraction } from "./ViChordInteraction";
 import { RicherArrangementInteraction } from "./RicherArrangementInteraction";
 import { NewHarmonicVocabularyInteraction } from "./NewHarmonicVocabularyInteraction";
+import { BrokenChordsInteraction } from "./BrokenChordsInteraction";
+import { AlternatingBassInteraction } from "./AlternatingBassInteraction";
+import { VerseAndChorusInteraction } from "./VerseAndChorusInteraction";
+import { HarmonizingMelodyInteraction } from "./HarmonizingMelodyInteraction";
+import { OomPahPatternInteraction } from "./OomPahPatternInteraction";
+import { FillingTheSpaceInteraction } from "./FillingTheSpaceInteraction";
+import { FullArrangementInteraction } from "./FullArrangementInteraction";
+import { AccompanyAnyoneInteraction } from "./AccompanyAnyoneInteraction";
 
 export type { LessonInteractionProps };
 
@@ -100,4 +108,13 @@ export const LESSON_INTERACTIONS: Record<
   "vi-chord": ViChordInteraction,
   "richer-arrangement": RicherArrangementInteraction,
   "new-harmonic-vocabulary": NewHarmonicVocabularyInteraction,
+  // Module 5: Accompanying a Song
+  "broken-chords": BrokenChordsInteraction,
+  "alternating-bass": AlternatingBassInteraction,
+  "verse-and-chorus": VerseAndChorusInteraction,
+  "harmonizing-melody": HarmonizingMelodyInteraction,
+  "oom-pah-pattern": OomPahPatternInteraction,
+  "filling-the-space": FillingTheSpaceInteraction,
+  "full-arrangement": FullArrangementInteraction,
+  "accompany-anyone": AccompanyAnyoneInteraction,
 };

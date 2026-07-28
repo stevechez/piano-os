@@ -772,7 +772,178 @@ export const MODULE_4: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4];
+export const MODULE_5_ID = "module-5";
+
+/**
+ * Module 5: Accompanying a Song. Everything so far has been about the
+ * notes and chords themselves -- this module is about the *role* those
+ * chords play when supporting a melody or a singer: broken chords,
+ * alternating bass, the classic "oom-pah" pattern, song form (verse vs.
+ * chorus), and filling space between phrases. Built without a Phase
+ * handoff, per docs/46 Decision 007 -- derived from `11-roadmap.md`'s
+ * Song Learning Engine and Accompaniment territory.
+ *
+ * Deliberately does not simulate following a real singer or live tempo
+ * changes -- there's no audio input in this product yet (that's
+ * MIDI/practice-intelligence territory, explicitly future work per
+ * CLAUDE.md). Every lesson here reuses ChoiceInteraction,
+ * NoteSequenceInteraction, or PlayProgressionInteraction -- no new
+ * mechanics were needed, same as Module 4.
+ */
+export const MODULE_5: Module = {
+  id: MODULE_5_ID,
+  index: 5,
+  title: "Accompanying a Song",
+  subtitle: "From Chords To Real Support",
+  lessons: [
+    {
+      id: "broken-chords",
+      index: 1,
+      title: "Broken Chords",
+      steps: [
+        {
+          id: "broken-chords",
+          concept: {
+            heading: "A chord doesn't have to arrive all at once.",
+            body: "Compare C Major played as a block, then played one note at a time.",
+          },
+          discovery: {
+            heading: "Same notes. A completely different feel.",
+            body: "That's a broken chord — the exact same notes, spread across time instead of stacked together. It's one of the simplest ways to make an accompaniment feel like it's flowing.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-alternating-bass",
+      index: 2,
+      title: "The Alternating Bass",
+      steps: [
+        {
+          id: "alternating-bass",
+          concept: {
+            heading: "The left hand has its own pattern.",
+            body: "Alternate between a chord's root and its fifth — the same relationship from Module 1's interval lesson, now used as a bassline.",
+          },
+          discovery: {
+            heading: "That's a real accompaniment technique.",
+            body: "Root, fifth, root, fifth is the backbone of countless piano parts — simple, steady, and it never competes with the melody.",
+          },
+        },
+      ],
+    },
+    {
+      id: "verse-and-chorus",
+      index: 3,
+      title: "Verse and Chorus",
+      steps: [
+        {
+          id: "verse-and-chorus",
+          concept: {
+            heading: "Songs don't use one progression the whole way through.",
+            body: "You know two progressions already. Compare them side by side — one built for a verse's feel, one for a chorus.",
+          },
+          discovery: {
+            heading: "That contrast is song structure.",
+            body: "A verse and a chorus often share a key but use different progressions, so the chorus lifts. You already had both halves of that contrast — you just hadn't heard them as roles yet.",
+          },
+        },
+      ],
+    },
+    {
+      id: "harmonizing-a-melody",
+      index: 4,
+      title: "Harmonizing a Melody",
+      steps: [
+        {
+          id: "harmonizing-melody",
+          concept: {
+            heading: "One melody note, more than one right answer.",
+            body: "The note E belongs to both C Major and A Minor. Harmonize it both ways.",
+          },
+          discovery: {
+            heading: "The melody didn't change. The feeling did.",
+            body: "Choosing which chord supports a melody note is a real musical decision, not a lookup — the same note can belong to a bright chord or a darker one.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-oom-pah-pattern",
+      index: 5,
+      title: "The Oom-Pah Pattern",
+      steps: [
+        {
+          id: "oom-pah-pattern",
+          concept: {
+            heading: "Put the bass and the chord together.",
+            body: "Bass note, then chord, then bass note, then chord — the alternating bass from Lesson 2, now with a chord riding on top of it.",
+          },
+          discovery: {
+            heading: "That's the sound behind more songs than you'd guess.",
+            body: "This exact bass-then-chord pattern is one of the most-used accompaniment shapes in piano music, across genres. You just built it from two skills you already had.",
+          },
+        },
+      ],
+    },
+    {
+      id: "filling-the-space",
+      index: 6,
+      title: "Filling the Space",
+      steps: [
+        {
+          id: "filling-the-space",
+          concept: {
+            heading: "A pause doesn't have to be empty.",
+            body: "Compare holding a chord through a pause versus adding a small fill in the gap.",
+          },
+          discovery: {
+            heading: "That's what an accompanist does between phrases.",
+            body: "When a singer takes a breath, that space is yours. A small fill — not a big one — keeps the music moving without stepping on the melody.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-full-arrangement",
+      index: 7,
+      title: "A Full Arrangement",
+      steps: [
+        {
+          id: "full-arrangement",
+          concept: {
+            heading: "Put the whole toolkit together.",
+            body: "The progression from your very first song, played plainly, then with the bass-and-chord pattern from this module.",
+          },
+          discovery: {
+            heading: "Same chords. A real arrangement.",
+            body: "Nothing about the harmony changed — only how you chose to play it. That choice is the difference between reciting chords and accompanying a song.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-accompany-anyone",
+      index: 8,
+      title: "You Can Accompany Anyone",
+      steps: [
+        {
+          id: "accompany-anyone",
+          concept: {
+            heading: "Play it through, one more time.",
+            body: "Broken chords. Alternating bass. Verse and chorus. Harmonizing a melody. The oom-pah pattern. Filling space. Play through the progression that started it all.",
+          },
+          discovery: {
+            heading: "You're not just playing chords anymore. You're accompanying.",
+            body: "Every technique in this module exists to support someone else's melody or voice — that's a different skill than playing alone, and you now have it.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

@@ -222,9 +222,22 @@ Built immediately following Module 2, on direct instruction to proceed without a
 
 Built immediately following Module 3, continuing the same "proceed without a checkpoint" instruction — see Decision 006 below. No Phase handoff document existed for this one either; the theme (7th chords, suspended chords, diatonic harmony) comes from `11-roadmap.md`'s "Chord Language" phase, the part of it Module 1 hadn't covered yet. Notably, every lesson reuses an existing interaction primitive — the first module needing zero new interaction types. Onboarding, pricing, and the paywall remain untouched.
 
+**Module 5: Accompanying a Song** (paid — `src/features/curriculum/modules.ts`):
+
+1. Broken Chords (1 step)
+2. The Alternating Bass (1 step)
+3. Verse and Chorus (1 step)
+4. Harmonizing a Melody (1 step)
+5. The Oom-Pah Pattern (1 step)
+6. Filling the Space (1 step)
+7. A Full Arrangement (1 step)
+8. You Can Accompany Anyone (1 step)
+
+Built immediately following Module 4, continuing the same "proceed without a checkpoint" instruction — see Decision 007 below. No Phase handoff document existed for this one either; the theme (broken chords, alternating bass, verse/chorus contrast, harmonizing a melody, the oom-pah pattern, filling space, full arrangement) comes from `11-roadmap.md`'s Song Learning Engine and Accompaniment territory. Deliberately excludes anything requiring live audio input (e.g. following a real singer's tempo) since the product has no MIDI/audio-analysis capability yet. Like Module 4, every lesson reuses an existing interaction primitive (`ChoiceInteraction`, `NoteSequenceInteraction`, or `PlayProgressionInteraction`) — the second consecutive module needing zero new interaction types. Onboarding, pricing, and the paywall remain untouched.
+
 ## PLANNED (not built — do not treat as existing)
 
-Module 5 and beyond are not yet named or scoped.
+Module 6 and beyond are not yet named or scoped.
 
 ---
 
@@ -246,19 +259,21 @@ Status, updated as each item clears:
 
 ⚠ Module 4 was built via a fourth explicit override (Decision 006), continuing directly from Module 3 on the same "proceed without a checkpoint" instruction. Same exclusions apply.
 
+⚠ Module 5 was built via a fifth explicit override (Decision 007), continuing directly from Module 4 on the same "proceed without a checkpoint" instruction. Same exclusions apply.
+
 > ## STOP.
 >
-> **Do not start Module 5, and do not treat Modules 1–4 as validated content, until:**
+> **Do not start Module 6, and do not treat Modules 1–5 as validated content, until:**
 >
 > ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation in `47` does not satisfy this)
 >
-> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
+> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
 >
 > ✓ Per the Phase 11 handoff: if testing surfaces philosophy-level changes, apply them starting with the most recent module, and backport into earlier modules where appropriate
 >
-> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Four modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine.
+> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Five modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. If a real test hasn't happened before a sixth module is considered, that is the point to push back rather than override again.
 
-If you are reading this document and considering starting Module 4, check the boxes above first.
+If you are reading this document and considering starting Module 6, check the boxes above first.
 
 ---
 
@@ -320,5 +335,15 @@ Module 3's lessons deliberately favor a genuinely new mechanic — "try each of 
 **Reason:** This is the fourth consecutive override, and it's recorded here with a direct flag rather than routine phrasing: four modules now exist with zero real user feedback on any of them. That's a materially different risk profile than the first override was. Nothing about this decision changes the validation gate's requirement — it remains exactly as urgent as Decision 003 first stated it, just deferred four times now instead of once.
 
 Unlike Modules 2 and 3, Module 4 required no new interaction primitives — every lesson reuses `NoteSequenceInteraction`, `ChoiceInteraction`, or `PlayProgressionInteraction`, all already built. This is worth noting as a genuine (if incidental) validation of the interaction vocabulary's reusability, separate from the unvalidated question of whether the content itself is right for the persona.
+
+**Date:** July 2026
+
+## Decision 007
+
+**Decision:** Module 5 ("Accompanying a Song") was built immediately following Module 4, continuing the same "proceed without a checkpoint" instruction. No Phase handoff document existed for it — the theme (broken chords, alternating bass, verse/chorus contrast, harmonizing a melody, the oom-pah pattern, filling space between phrases, full arrangement) was derived from `11-roadmap.md`'s Song Learning Engine and Accompaniment territory. It deliberately does not simulate following a real singer's tempo or live audio input, since the product has no MIDI or audio-analysis capability yet (explicitly future work per CLAUDE.md) — every mechanic instead uses scheduled/sequenced audio to represent a real accompaniment technique honestly.
+
+**Reason:** This is the fifth consecutive override, and the risk framing from Decision 006 is repeated rather than softened: five modules now exist with zero real user feedback on any of them. The validation gate's urgency has not changed and should not be read as routine just because it keeps being deferred — see the strengthened Validation Gate note below.
+
+Like Module 4, Module 5 required no new interaction primitives — every lesson reuses `ChoiceInteraction`, `NoteSequenceInteraction`, or `PlayProgressionInteraction`. This is the second consecutive module validating the maturity of the existing interaction vocabulary, independent of whether the content itself is right for the persona.
 
 **Date:** July 2026
