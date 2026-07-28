@@ -171,6 +171,14 @@ import { ReadingMixolydianVampInteraction } from "./ReadingMixolydianVampInterac
 import { ReadingSecondSongInteraction } from "./ReadingSecondSongInteraction";
 import { ReadingMinorCadenceInteraction } from "./ReadingMinorCadenceInteraction";
 import { ReadAnythingStillInteraction } from "./ReadAnythingStillInteraction";
+import { OneStepAwayInteraction } from "./OneStepAwayInteraction";
+import { FirstFewStepsInteraction } from "./FirstFewStepsInteraction";
+import { TwoStepsAwayInteraction } from "./TwoStepsAwayInteraction";
+import { GettingFurtherAwayInteraction } from "./GettingFurtherAwayInteraction";
+import { BorrowedOnCircleInteraction } from "./BorrowedOnCircleInteraction";
+import { FindingYourWayHomeInteraction } from "./FindingYourWayHomeInteraction";
+import { ChartingTheCircleInteraction } from "./ChartingTheCircleInteraction";
+import { SeeTheMapNowInteraction } from "./SeeTheMapNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -372,4 +380,13 @@ export const LESSON_INTERACTIONS: Record<
   "reading-second-song": ReadingSecondSongInteraction,
   "reading-minor-cadence": ReadingMinorCadenceInteraction,
   "read-anything-still": ReadAnythingStillInteraction,
+  // Module 21: The Circle of Fifths
+  "one-step-away": OneStepAwayInteraction,
+  "first-few-steps": FirstFewStepsInteraction,
+  "two-steps-away": TwoStepsAwayInteraction,
+  "getting-further-away": GettingFurtherAwayInteraction,
+  "borrowed-on-circle": BorrowedOnCircleInteraction,
+  "finding-your-way-home": FindingYourWayHomeInteraction,
+  "charting-the-circle": ChartingTheCircleInteraction,
+  "see-the-map-now": SeeTheMapNowInteraction,
 };

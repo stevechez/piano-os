@@ -3545,7 +3545,182 @@ export const MODULE_20: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20];
+export const MODULE_21_ID = "module-21";
+
+/**
+ * Module 21: The Circle of Fifths. A genuinely understanding-focused
+ * module, squarely in CLAUDE.md's "teach understanding before
+ * memorization" mandate -- it gives the student the unifying
+ * conceptual map behind things they've already experienced piecemeal:
+ * why transposing to G (Module 12) felt natural, why the ii-V-I
+ * (Module 4) resolves so satisfyingly (it's a walk back toward home
+ * along the circle), and why borrowed chords (Module 8) work (a short
+ * trip to a neighboring spot). Built without a Phase handoff, per
+ * docs/46 Decision 023.
+ *
+ * Needs zero new chords or progressions -- every lesson reuses chords
+ * already in `chords.ts` (including a comparison, Lesson 5, that pairs
+ * two chords -- G Major and F Minor -- never directly compared against
+ * each other before) plus the existing `twoFiveOne` and `classicPop`
+ * progressions. Reuses `ChoiceInteraction`, `NoteSequenceInteraction`,
+ * `PlayProgressionInteraction`, and `ChordChartInteraction` exclusively
+ * -- the thirteenth module (after 4, 5, 7, 8, 9, 10, 12, 13, 14, 16,
+ * 18, and 20) needing zero new interaction primitives.
+ */
+export const MODULE_21: Module = {
+  id: MODULE_21_ID,
+  index: 21,
+  title: "The Circle of Fifths",
+  subtitle: "The Map Behind Everything You've Played",
+  lessons: [
+    {
+      id: "one-step-away",
+      index: 1,
+      title: "One Step Away",
+      steps: [
+        {
+          id: "one-step-away",
+          concept: {
+            heading: "G major is one step from C on the circle of fifths.",
+            body: "You already transposed your song there, in Module 12.",
+          },
+          discovery: {
+            heading: "That's why it felt so natural.",
+            body: "Neighboring keys on the circle share almost every note.",
+          },
+        },
+      ],
+    },
+    {
+      id: "building-the-first-few-steps",
+      index: 2,
+      title: "Building the First Few Steps",
+      steps: [
+        {
+          id: "first-few-steps",
+          concept: {
+            heading: "The circle of fifths is built by counting up a fifth, again and again.",
+            body: "Play the first three roots.",
+          },
+          discovery: {
+            heading: "C, G, D — each one a fifth above the last.",
+            body: "That's the whole circle, one step at a time.",
+          },
+        },
+      ],
+    },
+    {
+      id: "two-steps-away",
+      index: 3,
+      title: "Two Steps Away",
+      steps: [
+        {
+          id: "two-steps-away",
+          concept: {
+            heading: "Compare a one-step neighbor to a two-step neighbor.",
+            body: "C to G, then C to D.",
+          },
+          discovery: {
+            heading: "The farther around the circle, the fewer notes two keys share.",
+            body: "And the more different they sound.",
+          },
+        },
+      ],
+    },
+    {
+      id: "getting-further-away",
+      index: 4,
+      title: "Getting Further Away",
+      steps: [
+        {
+          id: "getting-further-away",
+          concept: {
+            heading: "Now compare C's close neighbor to one much further around the circle.",
+            body: "C to G, then C to A.",
+          },
+          discovery: {
+            heading: "That's a much bigger trip.",
+            body: "Almost nothing in common — which is exactly why it sounds so different.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-borrowed-chords-on-the-circle",
+      index: 5,
+      title: "Your Borrowed Chords, On the Circle",
+      steps: [
+        {
+          id: "borrowed-on-circle",
+          concept: {
+            heading: "Remember Module 8's borrowed chords?",
+            body: "Compare a step on the major side of the circle to a step on the borrowed minor side.",
+          },
+          discovery: {
+            heading: "Every borrowed chord you've used has been a short trip.",
+            body: "To a nearby spot on the circle, not a random detour.",
+          },
+        },
+      ],
+    },
+    {
+      id: "finding-your-way-home",
+      index: 6,
+      title: "Finding Your Way Home",
+      steps: [
+        {
+          id: "finding-your-way-home",
+          concept: {
+            heading: "Play the ii-V-I again.",
+            body: "This time, notice it's a walk back toward home on the circle.",
+          },
+          discovery: {
+            heading: "D to G to C is two steps back toward home, one at a time.",
+            body: "That's why it resolves so satisfyingly — you're literally walking home.",
+          },
+        },
+      ],
+    },
+    {
+      id: "charting-the-circle",
+      index: 7,
+      title: "Charting the Circle",
+      steps: [
+        {
+          id: "charting-the-circle",
+          concept: {
+            heading: "Read a chart that walks three steps around the circle.",
+            body: "C, G, D.",
+          },
+          discovery: {
+            heading: "Reading the circle is no different from reading any other chart.",
+            body: "It's just names, in an order that now means something to you.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-see-the-map-now",
+      index: 8,
+      title: "You Can See the Map Now",
+      steps: [
+        {
+          id: "see-the-map-now",
+          concept: {
+            heading: "Play the very first progression you ever learned, one more time.",
+            body: "C, G, Am, F.",
+          },
+          discovery: {
+            heading: "Home, one step forward, the relative minor, one step back.",
+            body: "You couldn't see the map before. Now you can.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);
