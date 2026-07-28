@@ -49,6 +49,10 @@ export const CHORDS: Record<string, Chord> = {
   cMajorSpread: { id: "cMajorSpread", name: "C Major (Spread)", notes: ["C3", "E4", "G4"] },
   fMajorSpread: { id: "fMajorSpread", name: "F Major (Spread)", notes: ["F3", "A3", "C5"] },
   gMajorSpread: { id: "gMajorSpread", name: "G Major (Spread)", notes: ["G3", "D4", "B4"] },
+  // Module 18: the blues' I7 and IV7 -- dominant sevenths on C and F,
+  // completing the I7-IV7-V7 set alongside Module 4's g7 (the blues' V7).
+  c7: { id: "c7", name: "C7", notes: ["C4", "E4", "G4", "A#4"] },
+  f7: { id: "f7", name: "F7", notes: ["F3", "A3", "C4", "D#4"] },
 };
 
 export interface Progression {
@@ -207,6 +211,23 @@ export const PROGRESSIONS: Record<string, Progression> = {
     id: "spreadCadence",
     label: "F (spread) → G (spread) → C (spread)",
     chordIds: ["fMajorSpread", "gMajorSpread", "cMajorSpread"],
+  },
+  // Module 18: the 12-bar blues, in three pieces -- the quick-change
+  // opening (bars 1-4), the middle (bars 5-9), and the full form.
+  bluesOpening: {
+    id: "bluesOpening",
+    label: "C7 → F7 → C7 → C7",
+    chordIds: ["c7", "f7", "c7", "c7"],
+  },
+  bluesMiddle: {
+    id: "bluesMiddle",
+    label: "F7 → F7 → C7 → C7 → G7",
+    chordIds: ["f7", "f7", "c7", "c7", "g7"],
+  },
+  twelveBarBlues: {
+    id: "twelveBarBlues",
+    label: "The 12-Bar Blues",
+    chordIds: ["c7", "f7", "c7", "c7", "f7", "f7", "c7", "c7", "g7", "f7", "c7", "g7"],
   },
 };
 

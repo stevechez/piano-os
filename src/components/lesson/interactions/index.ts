@@ -147,6 +147,14 @@ import { PracticingSlowInteraction } from "./PracticingSlowInteraction";
 import { YourTempoYourChoiceInteraction } from "./YourTempoYourChoiceInteraction";
 import { KeepingTimeOwnSongInteraction } from "./KeepingTimeOwnSongInteraction";
 import { CanKeepTimeNowInteraction } from "./CanKeepTimeNowInteraction";
+import { BluesThreeChordsInteraction } from "./BluesThreeChordsInteraction";
+import { BuildingDominantSeventhInteraction } from "./BuildingDominantSeventhInteraction";
+import { FirstFourBarsInteraction } from "./FirstFourBarsInteraction";
+import { TheTurnaroundInteraction } from "./TheTurnaroundInteraction";
+import { BluesShuffleInteraction } from "./BluesShuffleInteraction";
+import { SoloingOverBluesInteraction } from "./SoloingOverBluesInteraction";
+import { TheFullFormInteraction } from "./TheFullFormInteraction";
+import { PlayTheBluesNowInteraction } from "./PlayTheBluesNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -321,4 +329,13 @@ export const LESSON_INTERACTIONS: Record<
   "your-tempo-your-choice": YourTempoYourChoiceInteraction,
   "keeping-time-own-song": KeepingTimeOwnSongInteraction,
   "can-keep-time-now": CanKeepTimeNowInteraction,
+  // Module 18: Introduction to the Blues
+  "blues-three-chords": BluesThreeChordsInteraction,
+  "building-dominant-seventh": BuildingDominantSeventhInteraction,
+  "first-four-bars": FirstFourBarsInteraction,
+  "the-turnaround": TheTurnaroundInteraction,
+  "blues-shuffle": BluesShuffleInteraction,
+  "soloing-over-blues": SoloingOverBluesInteraction,
+  "the-full-form": TheFullFormInteraction,
+  "play-the-blues-now": PlayTheBluesNowInteraction,
 };

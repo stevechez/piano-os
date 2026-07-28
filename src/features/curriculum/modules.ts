@@ -3029,7 +3029,181 @@ export const MODULE_17: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17];
+export const MODULE_18_ID = "module-18";
+
+/**
+ * Module 18: Introduction to the Blues. A fresh, highly motivating
+ * angle: not a new chord type or key relationship, but a real,
+ * widely-recognized musical FORM -- the 12-bar blues -- built from
+ * dominant seventh versions of chords the student already knows. Built
+ * without a Phase handoff, per docs/46 Decision 020.
+ *
+ * Needs two new chords (`c7`, `f7` -- the blues' I7 and IV7, completing
+ * the I7-IV7-V7 set alongside Module 4's `g7`) and three new
+ * progressions (`bluesOpening`, `bluesMiddle`, `twelveBarBlues`). The
+ * capstone lesson plays the real, complete 12-bar form (with its actual
+ * repeated bars) rather than a compressed stand-in, since the whole
+ * point is that the student has played the authentic structure.
+ * Reuses `ChoiceInteraction`, `NoteSequenceInteraction`,
+ * `PlayProgressionInteraction`, `EarTrainingInteraction`, and
+ * `FreePlayInteraction` exclusively -- the eleventh module (after 4, 5,
+ * 7, 8, 9, 10, 12, 13, 14, and 16) needing zero new interaction
+ * primitives.
+ */
+export const MODULE_18: Module = {
+  id: MODULE_18_ID,
+  index: 18,
+  title: "Introduction to the Blues",
+  subtitle: "The Most Recognizable Form in Music",
+  lessons: [
+    {
+      id: "the-blues-three-chords",
+      index: 1,
+      title: "The Blues' Three Chords",
+      steps: [
+        {
+          id: "blues-three-chords",
+          concept: {
+            heading: "The blues is built from three chords you already know.",
+            body: "Dominant seventh versions of C, F, and G. Try each one.",
+          },
+          discovery: {
+            heading: "That's the entire harmonic vocabulary of the blues.",
+            body: "Three dominant 7th chords, endlessly rearranged.",
+          },
+        },
+      ],
+    },
+    {
+      id: "building-a-dominant-seventh",
+      index: 2,
+      title: "Building a Dominant Seventh",
+      steps: [
+        {
+          id: "building-dominant-seventh",
+          concept: {
+            heading: "Build C7 yourself.",
+            body: "A major triad, plus one more note.",
+          },
+          discovery: {
+            heading: "That flattened seventh is the sound of the blues.",
+            body: "The same 'tension wants to resolve' feeling from Module 4's G7 — just now the home chord itself.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-first-four-bars",
+      index: 3,
+      title: "The First Four Bars",
+      steps: [
+        {
+          id: "first-four-bars",
+          concept: {
+            heading: "Play the first four bars of a 12-bar blues.",
+            body: "C7, F7, back to C7 twice.",
+          },
+          discovery: {
+            heading: "That quick move to F and back is called a 'quick change.'",
+            body: "One of the blues' most common opening moves.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-turnaround",
+      index: 4,
+      title: "The Turnaround",
+      steps: [
+        {
+          id: "the-turnaround",
+          concept: {
+            heading: "Compare two ways to end a blues chorus.",
+            body: "Landing on the home chord versus landing on the turnaround.",
+          },
+          discovery: {
+            heading: "That's a turnaround.",
+            body: "Landing on G7 instead of C7 is what pulls the whole form back around to bar 1.",
+          },
+        },
+      ],
+    },
+    {
+      id: "hearing-the-blues-shuffle",
+      index: 5,
+      title: "Hearing the Blues Shuffle",
+      steps: [
+        {
+          id: "blues-shuffle",
+          concept: {
+            heading: "The blues has its own rhythmic feel too.",
+            body: "Listen for the shuffle.",
+          },
+          discovery: {
+            heading: "That uneven, swung feel is as much a part of the blues as the chords are.",
+            body: "Rhythm and harmony both carry the style.",
+          },
+        },
+      ],
+    },
+    {
+      id: "soloing-over-the-blues",
+      index: 6,
+      title: "Soloing Over the Blues",
+      steps: [
+        {
+          id: "soloing-over-blues",
+          concept: {
+            heading: "Improvise over the blues.",
+            body: "Using this five-note blues scale.",
+          },
+          discovery: {
+            heading: "That clash between a minor scale and dominant chords is the sound of the blues.",
+            body: "The safety net from Module 6, tuned specifically for this style.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-full-form",
+      index: 7,
+      title: "The Full Form",
+      steps: [
+        {
+          id: "the-full-form",
+          concept: {
+            heading: "Play the middle of the form.",
+            body: "The move to F, back to C, then to G.",
+          },
+          discovery: {
+            heading: "You're now most of the way through a real 12-bar blues.",
+            body: "One section left.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-play-the-blues-now",
+      index: 8,
+      title: "You Can Play the Blues Now",
+      steps: [
+        {
+          id: "play-the-blues-now",
+          concept: {
+            heading: "Play the entire 12-bar blues, start to finish.",
+            body: "Every bar, in order.",
+          },
+          discovery: {
+            heading: "That's a real 12-bar blues.",
+            body: "The most recognizable form in music, and you just played all of it.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);
