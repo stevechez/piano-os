@@ -42,6 +42,13 @@ export const CHORDS: Record<string, Chord> = {
   // borrows from its harmonic minor scale for a stronger cadence than the
   // natural minor's own (minor) v chord.
   eMajor: { id: "eMajor", name: "E Major", notes: ["E4", "G#4", "B4"] },
+  // Module 16: open/spread voicings -- the same three notes as their
+  // close-position counterparts, with exactly one note moved an octave
+  // to give the chord room to breathe. Kept within C3-B4/C5 so they
+  // still fit PlayProgressionInteraction's fixed keyboard range.
+  cMajorSpread: { id: "cMajorSpread", name: "C Major (Spread)", notes: ["C3", "E4", "G4"] },
+  fMajorSpread: { id: "fMajorSpread", name: "F Major (Spread)", notes: ["F3", "A3", "C5"] },
+  gMajorSpread: { id: "gMajorSpread", name: "G Major (Spread)", notes: ["G3", "D4", "B4"] },
 };
 
 export interface Progression {
@@ -193,6 +200,13 @@ export const PROGRESSIONS: Record<string, Progression> = {
     id: "myMinorSong",
     label: "Your Minor Verse → Your Minor Chorus",
     chordIds: ["aMinor", "fMajor", "dMinor", "eMajor", "dMinor", "eMajor", "aMinor"],
+  },
+  // Module 16: IV-V-I in spread voicings -- a satisfying, fuller-sounding
+  // cadence built from the three spread chords above.
+  spreadCadence: {
+    id: "spreadCadence",
+    label: "F (spread) → G (spread) → C (spread)",
+    chordIds: ["fMajorSpread", "gMajorSpread", "cMajorSpread"],
   },
 };
 

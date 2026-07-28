@@ -2682,7 +2682,180 @@ export const MODULE_15: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15];
+export const MODULE_16_ID = "module-16";
+
+/**
+ * Module 16: Spreading Your Sound. A genuinely new technique -- open/
+ * spread voicings -- kept deliberately simple: move exactly one note of
+ * a chord you already know up or down an octave to give it more room.
+ * Distinct from Module 3's chord inversions (which changes which note
+ * sits on the bottom, but keeps every note within the same octave);
+ * this changes how much *space* the chord occupies. Built without a
+ * Phase handoff, per docs/46 Decision 018.
+ *
+ * Needs three new chord entries (`cMajorSpread`, `fMajorSpread`,
+ * `gMajorSpread`) -- each an existing triad with one note moved an
+ * octave, kept within `PlayProgressionInteraction`'s fixed C3-C5
+ * keyboard range -- and one new progression (`spreadCadence`). Reuses
+ * `ChoiceInteraction`, `NoteSequenceInteraction`, `EarTrainingInteraction`,
+ * and `PlayProgressionInteraction` exclusively -- the tenth module
+ * (after 4, 5, 7, 8, 9, 10, 12, 13, and 14) needing zero new interaction
+ * primitives.
+ */
+export const MODULE_16: Module = {
+  id: MODULE_16_ID,
+  index: 16,
+  title: "Spreading Your Sound",
+  subtitle: "A Chord Can Fill More Space",
+  lessons: [
+    {
+      id: "a-chord-bunched-together",
+      index: 1,
+      title: "A Chord, Bunched Together",
+      steps: [
+        {
+          id: "chord-bunched-together",
+          concept: {
+            heading: "Every chord you've played so far has been bunched together.",
+            body: "Compare that to spreading the same notes out.",
+          },
+          discovery: {
+            heading: "Same three notes. A completely fuller sound.",
+            body: "That's a spread voicing — nothing new to learn about the chord itself, just where its notes sit.",
+          },
+        },
+      ],
+    },
+    {
+      id: "building-a-spread-voicing",
+      index: 2,
+      title: "Building a Spread Voicing",
+      steps: [
+        {
+          id: "building-spread-voicing",
+          concept: {
+            heading: "Build a spread voicing yourself.",
+            body: "Root low, fifth and third up high.",
+          },
+          discovery: {
+            heading: "That's the same chord, just given room to breathe.",
+            body: "Moving one note an octave is the entire technique.",
+          },
+        },
+      ],
+    },
+    {
+      id: "spreading-a-minor-chord",
+      index: 3,
+      title: "Spreading a Minor Chord",
+      steps: [
+        {
+          id: "spreading-minor-chord",
+          concept: {
+            heading: "Try it with a minor chord too.",
+            body: "Compare close A Minor to a spread version.",
+          },
+          discovery: {
+            heading: "The technique works with any chord.",
+            body: "It's about space, not chord quality — major, minor, doesn't matter.",
+          },
+        },
+      ],
+    },
+    {
+      id: "ending-on-a-spread-chord",
+      index: 4,
+      title: "Ending On a Spread Chord",
+      steps: [
+        {
+          id: "ending-on-spread-chord",
+          concept: {
+            heading: "Compare two ways to finish a progression.",
+            body: "A close final chord versus a spread one.",
+          },
+          discovery: {
+            heading: "A spread ending is one of the simplest ways to feel complete.",
+            body: "The same three notes, arriving with noticeably more presence.",
+          },
+        },
+      ],
+    },
+    {
+      id: "spreading-your-own-songs-chorus",
+      index: 5,
+      title: "Spreading Your Own Song's Chorus",
+      steps: [
+        {
+          id: "spreading-own-chorus",
+          concept: {
+            heading: "Your own chorus from Module 7.",
+            body: "Bunched, then spread.",
+          },
+          discovery: {
+            heading: "Same song. A noticeably fuller sound.",
+            body: "Just by rearranging where the notes sit — nothing about the chords themselves changed.",
+          },
+        },
+      ],
+    },
+    {
+      id: "spread-voicing-by-ear",
+      index: 6,
+      title: "Spread Voicing, By Ear",
+      steps: [
+        {
+          id: "spread-voicing-by-ear",
+          concept: {
+            heading: "Listen and decide.",
+            body: "Is this chord close together, or spread out?",
+          },
+          discovery: {
+            heading: "You can hear the difference now, not just see it.",
+            body: "Spacing has its own sound.",
+          },
+        },
+      ],
+    },
+    {
+      id: "playing-a-spread-chord-yourself",
+      index: 7,
+      title: "Playing a Spread Chord Yourself",
+      steps: [
+        {
+          id: "playing-spread-chord",
+          concept: {
+            heading: "Build one more spread voicing yourself.",
+            body: "F Major, spread this time.",
+          },
+          discovery: {
+            heading: "One more spread voicing, built by hand.",
+            body: "The same technique, a different chord — this is a real tool now, not a one-off trick.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-fill-the-room-now",
+      index: 8,
+      title: "You Can Fill the Room Now",
+      steps: [
+        {
+          id: "fill-the-room-now",
+          concept: {
+            heading: "Play a full cadence, spread.",
+            body: "F, G, back to C — every chord given room to breathe.",
+          },
+          discovery: {
+            heading: "You can fill the room now.",
+            body: "Any chord you already know can sound this way — you just have to give it the space.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

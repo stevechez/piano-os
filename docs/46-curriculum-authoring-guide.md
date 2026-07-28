@@ -365,9 +365,22 @@ Built immediately following Module 13, on the same "proceed without a checkpoint
 
 Built immediately following Module 14, on the same "proceed without a checkpoint" instruction — see Decision 017 below. Deliberately not staff notation — CLAUDE.md states plainly that PianoOS is "not a traditional sheet music education platform" and to "teach patterns before notation." A chord chart (just chord names, in order) is the notation real musicians actually use for exactly this kind of playing, and it's a written form of a pattern the student already holds rather than a competing system. Introduces `ChordChartInteraction`, a new primitive: unlike `PlayProgressionInteraction`, the keyboard gives no highlighted-key hint — recalling each chord's notes from its written name alone is the entire point. Every chart reuses chords already in `chords.ts`, including one (Lesson 4) combining chords in an order never previously used together, a genuine first sight-read. Zero new chords needed. Onboarding, pricing, and the paywall remain untouched.
 
+**Module 16: Spreading Your Sound** (paid — `src/features/curriculum/modules.ts`):
+
+1. A Chord, Bunched Together (1 step)
+2. Building a Spread Voicing (1 step)
+3. Spreading a Minor Chord (1 step)
+4. Ending On a Spread Chord (1 step)
+5. Spreading Your Own Song's Chorus (1 step)
+6. Spread Voicing, By Ear (1 step)
+7. Playing a Spread Chord Yourself (1 step)
+8. You Can Fill the Room Now (1 step)
+
+Built immediately following Module 15, on the same "proceed without a checkpoint" instruction — see Decision 018 below. A genuinely new technique kept deliberately simple: open/spread voicings, moving exactly one note of a known chord an octave to give it more room — distinct from Module 3's inversions (which changes which note is lowest, not how much space the chord occupies). Needs three new chord entries (`cMajorSpread`, `fMajorSpread`, `gMajorSpread`, each an existing triad with one note displaced an octave, kept within `PlayProgressionInteraction`'s fixed C3-C5 range) and one new progression (`spreadCadence`). Reuses `ChoiceInteraction`, `NoteSequenceInteraction`, `EarTrainingInteraction`, and `PlayProgressionInteraction` exclusively — the tenth module (after 4, 5, 7, 8, 9, 10, 12, 13, and 14) needing zero new interaction primitives. Onboarding, pricing, and the paywall remain untouched.
+
 ## PLANNED (not built — do not treat as existing)
 
-Module 16 and beyond are not yet named or scoped.
+Module 17 and beyond are not yet named or scoped.
 
 ---
 
@@ -411,19 +424,21 @@ Status, updated as each item clears:
 
 ⚠ Module 15 was built via a fifteenth explicit override (Decision 017) — the risk was raised directly again before starting, and the product owner again chose to proceed. Module 15 introduces chord-chart reading, deliberately distinct from staff notation, per CLAUDE.md's "not a traditional sheet music education platform." Same exclusions apply regardless.
 
+⚠ Module 16 was built via a sixteenth explicit override (Decision 018) — the risk was raised directly again before starting, and the product owner again chose to proceed. This override came after the user briefly requested "Module 26," clarified to mean the next sequential module. Same exclusions apply regardless.
+
 > ## STOP.
 >
-> **Do not start Module 16, and do not treat Modules 1–15 as validated content, until:**
+> **Do not start Module 17, and do not treat Modules 1–16 as validated content, until:**
 >
 > ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation in `47` does not satisfy this)
 >
-> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, whether Module 8's borrowed-chord content (modal mixture) is simply too advanced for a persona defined as "adult beginners," whether Module 9's introduction of a full mode (Mixolydian) compounds that same risk further, whether Module 10's synthesis capstone actually feels like a satisfying culmination or like ten modules is already more curriculum than a genuine beginner has earned the right to skip past validating, whether Module 11's ear-training content actually lands as a practical skill or as an additional 8 lessons stacked onto an already-long, unvalidated sequence, whether Module 12's transposition content is a genuine "aha" or one abstraction too many stacked on top of eleven prior modules, whether Module 13's minor-key reframing genuinely clarifies or adds a layer of ambiguity ("which chord is home?") a beginner didn't ask for, whether Module 14's second song feels like a genuine creative milestone or like a template rerun with different chords, whether Module 15's chart-reading actually feels like real-world utility or like an academic exercise dropped in among the creative modules, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
+> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, whether Module 8's borrowed-chord content (modal mixture) is simply too advanced for a persona defined as "adult beginners," whether Module 9's introduction of a full mode (Mixolydian) compounds that same risk further, whether Module 10's synthesis capstone actually feels like a satisfying culmination or like ten modules is already more curriculum than a genuine beginner has earned the right to skip past validating, whether Module 11's ear-training content actually lands as a practical skill or as an additional 8 lessons stacked onto an already-long, unvalidated sequence, whether Module 12's transposition content is a genuine "aha" or one abstraction too many stacked on top of eleven prior modules, whether Module 13's minor-key reframing genuinely clarifies or adds a layer of ambiguity ("which chord is home?") a beginner didn't ask for, whether Module 14's second song feels like a genuine creative milestone or like a template rerun with different chords, whether Module 15's chart-reading actually feels like real-world utility or like an academic exercise dropped in among the creative modules, whether Module 16's spread-voicing content is a genuinely useful technique or a nuance a beginner doesn't yet have the ear for, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
 >
 > ✓ Per the Phase 11 handoff: if testing surfaces philosophy-level changes, apply them starting with the most recent module, and backport into earlier modules where appropriate
 >
-> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Fifteen modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted ten times in a row (Modules 6 through 15); asking again before Module 16 remains the standing expectation, not a one-time courtesy. Fifteen full modules now exist, unvalidated, for a product whose own founding principle is "adult beginners only."
+> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Sixteen modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted eleven times in a row (Modules 6 through 16); asking again before Module 17 remains the standing expectation, not a one-time courtesy. Sixteen full modules now exist, unvalidated, for a product whose own founding principle is "adult beginners only."
 
-If you are reading this document and considering starting Module 16, check the boxes above first.
+If you are reading this document and considering starting Module 17, check the boxes above first.
 
 ---
 
@@ -595,5 +610,15 @@ Module 14 is a synthesis rather than new theory: structurally identical to Modul
 **Reason:** This is the fifteenth consecutive override. The validation gate's requirement is unchanged. Fifteen full modules now exist with zero real user feedback.
 
 Module 15 is deliberately not staff notation — CLAUDE.md is explicit that PianoOS is "not a traditional sheet music education platform" and to "teach patterns before notation." A chord chart (chord names, in order, no staff, no individual notes) is the notation real musicians actually use for exactly this kind of music, and it's a written form of a pattern the student already holds rather than a competing system introduced from scratch. It introduces `ChordChartInteraction`, a new primitive: unlike `PlayProgressionInteraction`, the keyboard gives no highlighted-key hint — recalling each chord's notes from its written name is the entire point, a genuinely new mechanic distinct from every prior interaction in the codebase. Every chart reuses chords already in `chords.ts`; Lesson 4 combines chords in an order never previously used together, giving the student a genuine first sight-read. Zero new chords needed.
+
+**Date:** July 2026
+
+## Decision 018
+
+**Decision:** Module 16 ("Spreading Your Sound") was built immediately following Module 15. No Phase handoff document existed for it. The product owner briefly asked for "Module 26" — since only 15 modules existed at the time, this was clarified directly, and the product owner confirmed the intent was to continue the sequence with Module 16, not to skip ahead. Consistent with the standing expectation, the risk was surfaced directly to the product owner an eleventh time before starting, and the product owner again chose to proceed.
+
+**Reason:** This is the sixteenth consecutive override. The validation gate's requirement is unchanged. Sixteen full modules now exist with zero real user feedback.
+
+Module 16 introduces open/spread chord voicings, kept deliberately simple: move exactly one note of an already-known chord an octave to give it more room, distinct from Module 3's inversions (which reorders which note is lowest without changing how much space the chord occupies). It needed three new chord entries (`cMajorSpread`, `fMajorSpread`, `gMajorSpread`), each an existing triad with one note displaced an octave and deliberately kept within `PlayProgressionInteraction`'s fixed C3-C5 keyboard range, plus one new progression (`spreadCadence`). It reuses `ChoiceInteraction`, `NoteSequenceInteraction`, `EarTrainingInteraction`, and `PlayProgressionInteraction` exclusively — the tenth module (after 4, 5, 7, 8, 9, 10, 12, 13, and 14) to need zero new interaction primitives.
 
 **Date:** July 2026

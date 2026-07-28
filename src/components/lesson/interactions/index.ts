@@ -131,6 +131,14 @@ import { ChartInNewKeyInteraction } from "./ChartInNewKeyInteraction";
 import { ReadingOwnSongChartInteraction } from "./ReadingOwnSongChartInteraction";
 import { MinorChartInteraction } from "./MinorChartInteraction";
 import { ReadAnythingNowInteraction } from "./ReadAnythingNowInteraction";
+import { ChordBunchedTogetherInteraction } from "./ChordBunchedTogetherInteraction";
+import { BuildingSpreadVoicingInteraction } from "./BuildingSpreadVoicingInteraction";
+import { SpreadingMinorChordInteraction } from "./SpreadingMinorChordInteraction";
+import { EndingOnSpreadChordInteraction } from "./EndingOnSpreadChordInteraction";
+import { SpreadingOwnChorusInteraction } from "./SpreadingOwnChorusInteraction";
+import { SpreadVoicingByEarInteraction } from "./SpreadVoicingByEarInteraction";
+import { PlayingSpreadChordInteraction } from "./PlayingSpreadChordInteraction";
+import { FillTheRoomNowInteraction } from "./FillTheRoomNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -287,4 +295,13 @@ export const LESSON_INTERACTIONS: Record<
   "reading-own-song-chart": ReadingOwnSongChartInteraction,
   "minor-chart": MinorChartInteraction,
   "read-anything-now": ReadAnythingNowInteraction,
+  // Module 16: Spreading Your Sound
+  "chord-bunched-together": ChordBunchedTogetherInteraction,
+  "building-spread-voicing": BuildingSpreadVoicingInteraction,
+  "spreading-minor-chord": SpreadingMinorChordInteraction,
+  "ending-on-spread-chord": EndingOnSpreadChordInteraction,
+  "spreading-own-chorus": SpreadingOwnChorusInteraction,
+  "spread-voicing-by-ear": SpreadVoicingByEarInteraction,
+  "playing-spread-chord": PlayingSpreadChordInteraction,
+  "fill-the-room-now": FillTheRoomNowInteraction,
 };
