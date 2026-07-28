@@ -51,6 +51,14 @@ import { OomPahPatternInteraction } from "./OomPahPatternInteraction";
 import { FillingTheSpaceInteraction } from "./FillingTheSpaceInteraction";
 import { FullArrangementInteraction } from "./FullArrangementInteraction";
 import { AccompanyAnyoneInteraction } from "./AccompanyAnyoneInteraction";
+import { CallAndResponseInteraction } from "./CallAndResponseInteraction";
+import { SafetyNetScaleInteraction } from "./SafetyNetScaleInteraction";
+import { QuestionAndAnswerInteraction } from "./QuestionAndAnswerInteraction";
+import { RhythmicVariationInteraction } from "./RhythmicVariationInteraction";
+import { AddingAnOrnamentInteraction } from "./AddingAnOrnamentInteraction";
+import { ImprovisingOverProgressionInteraction } from "./ImprovisingOverProgressionInteraction";
+import { TwoIdeasBackToBackInteraction } from "./TwoIdeasBackToBackInteraction";
+import { YouAreAlreadyImprovisingInteraction } from "./YouAreAlreadyImprovisingInteraction";
 
 export type { LessonInteractionProps };
 
@@ -117,4 +125,13 @@ export const LESSON_INTERACTIONS: Record<
   "filling-the-space": FillingTheSpaceInteraction,
   "full-arrangement": FullArrangementInteraction,
   "accompany-anyone": AccompanyAnyoneInteraction,
+  // Module 6: Improvising Your Own Ideas
+  "call-and-response": CallAndResponseInteraction,
+  "safety-net-scale": SafetyNetScaleInteraction,
+  "question-and-answer": QuestionAndAnswerInteraction,
+  "rhythmic-variation": RhythmicVariationInteraction,
+  "adding-an-ornament": AddingAnOrnamentInteraction,
+  "improvising-over-progression": ImprovisingOverProgressionInteraction,
+  "two-ideas-back-to-back": TwoIdeasBackToBackInteraction,
+  "you-are-already-improvising": YouAreAlreadyImprovisingInteraction,
 };

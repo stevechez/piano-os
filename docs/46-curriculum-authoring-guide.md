@@ -235,9 +235,22 @@ Built immediately following Module 3, continuing the same "proceed without a che
 
 Built immediately following Module 4, continuing the same "proceed without a checkpoint" instruction — see Decision 007 below. No Phase handoff document existed for this one either; the theme (broken chords, alternating bass, verse/chorus contrast, harmonizing a melody, the oom-pah pattern, filling space, full arrangement) comes from `11-roadmap.md`'s Song Learning Engine and Accompaniment territory. Deliberately excludes anything requiring live audio input (e.g. following a real singer's tempo) since the product has no MIDI/audio-analysis capability yet. Like Module 4, every lesson reuses an existing interaction primitive (`ChoiceInteraction`, `NoteSequenceInteraction`, or `PlayProgressionInteraction`) — the second consecutive module needing zero new interaction types. Onboarding, pricing, and the paywall remain untouched.
 
+**Module 6: Improvising Your Own Ideas** (paid — `src/features/curriculum/modules.ts`):
+
+1. Call and Response (1 step)
+2. The Safety Net Scale (1 step)
+3. Question and Answer (1 step)
+4. Rhythmic Variation (1 step)
+5. Adding an Ornament (1 step)
+6. Improvising Over a Progression (1 step)
+7. Two Ideas Back to Back (1 step)
+8. You Are Already Improvising (1 step)
+
+Built immediately following Module 5, continuing the same "proceed without a checkpoint" instruction — see Decision 008 below. No Phase handoff document existed for this one either; the theme comes from `11-roadmap.md`'s Phase 8 "Musical Creativity" (improvisation, harmonic variation), the part of that phase Module 3 hadn't covered. Introduces `FreePlayInteraction` — the first genuinely new interaction primitive since Module 3's `ChoiceInteraction` — for open-ended play within a "safety net" note set, reused across 4 of the 8 lessons; the remaining lessons reuse `NoteSequenceInteraction` and `ChoiceInteraction`. Onboarding, pricing, and the paywall remain untouched.
+
 ## PLANNED (not built — do not treat as existing)
 
-Module 6 and beyond are not yet named or scoped.
+Module 7 and beyond are not yet named or scoped.
 
 ---
 
@@ -261,19 +274,21 @@ Status, updated as each item clears:
 
 ⚠ Module 5 was built via a fifth explicit override (Decision 007), continuing directly from Module 4 on the same "proceed without a checkpoint" instruction. Same exclusions apply.
 
+⚠ Module 6 was built via a sixth explicit override (Decision 008) — this time after the risk was raised directly with the product owner first (per this document's own note that a sixth module should be a point to push back, not just override again) and the product owner chose to proceed anyway. Same exclusions apply.
+
 > ## STOP.
 >
-> **Do not start Module 6, and do not treat Modules 1–5 as validated content, until:**
+> **Do not start Module 7, and do not treat Modules 1–6 as validated content, until:**
 >
 > ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation in `47` does not satisfy this)
 >
-> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
+> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
 >
 > ✓ Per the Phase 11 handoff: if testing surfaces philosophy-level changes, apply them starting with the most recent module, and backport into earlier modules where appropriate
 >
-> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Five modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. If a real test hasn't happened before a sixth module is considered, that is the point to push back rather than override again.
+> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Six modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk was surfaced directly before Module 6 was built and the override was chosen deliberately; the next module should not assume the same choice will be made again without asking.
 
-If you are reading this document and considering starting Module 6, check the boxes above first.
+If you are reading this document and considering starting Module 7, check the boxes above first.
 
 ---
 
@@ -345,5 +360,15 @@ Unlike Modules 2 and 3, Module 4 required no new interaction primitives — ever
 **Reason:** This is the fifth consecutive override, and the risk framing from Decision 006 is repeated rather than softened: five modules now exist with zero real user feedback on any of them. The validation gate's urgency has not changed and should not be read as routine just because it keeps being deferred — see the strengthened Validation Gate note below.
 
 Like Module 4, Module 5 required no new interaction primitives — every lesson reuses `ChoiceInteraction`, `NoteSequenceInteraction`, or `PlayProgressionInteraction`. This is the second consecutive module validating the maturity of the existing interaction vocabulary, independent of whether the content itself is right for the persona.
+
+**Date:** July 2026
+
+## Decision 008
+
+**Decision:** Module 6 ("Improvising Your Own Ideas") was built immediately following Module 5. No Phase handoff document existed for it — the theme was derived from `11-roadmap.md`'s Phase 8 "Musical Creativity" (improvisation, harmonic variation), the part of that phase Module 3 ("Expressing Yourself") hadn't covered. Unlike every prior override, this one was not a unilateral continuation: the validation gate's own note that a sixth module should be a point to push back, not override again, was surfaced directly to the product owner before starting, and the product owner explicitly chose to proceed with the override rather than pause for real testing.
+
+**Reason:** This is the sixth consecutive override. The framing is the same as Decisions 006 and 007 — six modules now exist with zero real user feedback on any of them, and that risk has not been reduced by asking first, only made a deliberate and informed choice rather than a routine one. The validation gate's requirement is unchanged.
+
+Module 6 introduces `FreePlayInteraction`, the first genuinely new interaction primitive since Module 3's `ChoiceInteraction` — open-ended play within a "safety net" set of notes over a looping backing chord, with no fixed order and no discrete pre-defined options. It is reused across 4 of the module's 8 lessons (Safety Net Scale, Question and Answer, Improvising Over a Progression, You Are Already Improvising); the remaining lessons reuse `NoteSequenceInteraction` and `ChoiceInteraction`. This module's core premise — there is no "wrong" improvised idea — mirrors Module 3's "no wrong choice" framing, now applied to genuinely open-ended play rather than a small set of options.
 
 **Date:** July 2026

@@ -943,7 +943,180 @@ export const MODULE_5: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5];
+export const MODULE_6_ID = "module-6";
+
+/**
+ * Module 6: Improvising Your Own Ideas. Every prior module was about
+ * playing music that already existed -- chords, progressions,
+ * accompaniment patterns. This module introduces the one genuinely new
+ * mechanic in the curriculum's history: open-ended free play within a
+ * "safety net" set of notes that always sounds good over a looping
+ * backing chord, rather than a fixed sequence or a small discrete set of
+ * options. Built without a Phase handoff, per docs/46 Decision 008 --
+ * derived from `11-roadmap.md`'s Phase 8 "Musical Creativity"
+ * (improvisation, harmonic variation), the part of that phase Module 3
+ * ("Expressing Yourself") hadn't covered.
+ *
+ * Deliberately avoids claiming PianoOS can judge whether an improvised
+ * idea is musically "good" -- there is no correct answer here, matching
+ * the same "no wrong choice" premise Module 3 established with
+ * ChoiceInteraction, just applied to genuinely open-ended play instead of
+ * a discrete set of pre-defined options.
+ */
+export const MODULE_6: Module = {
+  id: MODULE_6_ID,
+  index: 6,
+  title: "Improvising Your Own Ideas",
+  subtitle: "From Playing Music To Making It",
+  lessons: [
+    {
+      id: "call-and-response",
+      index: 1,
+      title: "Call and Response",
+      steps: [
+        {
+          id: "call-and-response",
+          concept: {
+            heading: "Music is a conversation.",
+            body: "Listen to this short phrase, then play it back — exactly as you heard it.",
+          },
+          discovery: {
+            heading: "That's call and response.",
+            body: "Listening, then answering, is the instinct every improviser starts from — before you ever play an idea of your own, you learn to really hear one.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-safety-net-scale",
+      index: 2,
+      title: "The Safety Net Scale",
+      steps: [
+        {
+          id: "safety-net-scale",
+          concept: {
+            heading: "Every note here sounds good.",
+            body: "These five notes are your safety net over this chord. Play freely — there's no wrong note to land on.",
+          },
+          discovery: {
+            heading: "That's your permission to experiment.",
+            body: "This is C major's pentatonic scale — the notes with no half-steps to stumble into. It's the same safety net real improvisers lean on before they ever learn the exceptions.",
+          },
+        },
+      ],
+    },
+    {
+      id: "question-and-answer",
+      index: 3,
+      title: "Question and Answer",
+      steps: [
+        {
+          id: "question-and-answer",
+          concept: {
+            heading: "Here's a musical question.",
+            body: "Now play your own answer, using any of the safety net notes.",
+          },
+          discovery: {
+            heading: "You just improvised a real answer.",
+            body: "That question-and-answer instinct — hear a musical idea, respond with your own — is the same one behind every real solo you've ever heard.",
+          },
+        },
+      ],
+    },
+    {
+      id: "rhythmic-variation",
+      index: 4,
+      title: "Rhythmic Variation",
+      steps: [
+        {
+          id: "rhythmic-variation",
+          concept: {
+            heading: "Same three notes. Two different feels.",
+            body: "Compare a steady rhythm to a syncopated one.",
+          },
+          discovery: {
+            heading: "The notes never changed. The rhythm did.",
+            body: "Rhythmic variation is one of the simplest improvisational tools you have — you don't need new notes to make a phrase feel completely different.",
+          },
+        },
+      ],
+    },
+    {
+      id: "adding-an-ornament",
+      index: 5,
+      title: "Adding an Ornament",
+      steps: [
+        {
+          id: "adding-an-ornament",
+          concept: {
+            heading: "A plain phrase, then the same phrase with a little extra.",
+            body: "Compare the plain version to one with a quick note added for color.",
+          },
+          discovery: {
+            heading: "That's ornamentation.",
+            body: "A quick passing note dropped into a simple phrase is decoration, not a new idea — one of the easiest ways to make something plain feel expressive.",
+          },
+        },
+      ],
+    },
+    {
+      id: "improvising-over-a-progression",
+      index: 6,
+      title: "Improvising Over a Progression",
+      steps: [
+        {
+          id: "improvising-over-progression",
+          concept: {
+            heading: "The progression you already know is looping underneath.",
+            body: "Play freely, using the safety net notes, for as long as you like.",
+          },
+          discovery: {
+            heading: "That's no longer following someone else's music.",
+            body: "You just improvised over the same progression from your very first song — C, G, Am, F. That's making it your own.",
+          },
+        },
+      ],
+    },
+    {
+      id: "two-ideas-back-to-back",
+      index: 7,
+      title: "Two Ideas Back to Back",
+      steps: [
+        {
+          id: "two-ideas-back-to-back",
+          concept: {
+            heading: "Repeat an idea, or follow it with a new one.",
+            body: "Compare playing the same short idea twice to playing two different ideas back to back.",
+          },
+          discovery: {
+            heading: "That's how real melodies get built.",
+            body: "Repetition creates familiarity. Contrast creates interest. Most musical ideas you actually enjoy listening to use both.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-are-already-improvising",
+      index: 8,
+      title: "You Are Already Improvising",
+      steps: [
+        {
+          id: "you-are-already-improvising",
+          concept: {
+            heading: "One more time — freely, however you like.",
+            body: "Call and response. The safety net scale. Question and answer. Rhythm and ornament. Play over the progression, your way.",
+          },
+          discovery: {
+            heading: "You are already improvising.",
+            body: "Every choice you just made — which note, when, how long — was yours. That's not a beginner exercise anymore. That's musicianship.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

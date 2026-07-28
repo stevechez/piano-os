@@ -13,6 +13,7 @@ const PROTECTED_PREFIXES: string[] = [
   "/learn/module-3",
   "/learn/module-4",
   "/learn/module-5",
+  "/learn/module-6",
 ];
 const AUTH_PREFIXES = ["/login", "/signup"];
 
