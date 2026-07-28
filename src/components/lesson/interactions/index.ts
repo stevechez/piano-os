@@ -139,6 +139,14 @@ import { SpreadingOwnChorusInteraction } from "./SpreadingOwnChorusInteraction";
 import { SpreadVoicingByEarInteraction } from "./SpreadVoicingByEarInteraction";
 import { PlayingSpreadChordInteraction } from "./PlayingSpreadChordInteraction";
 import { FillTheRoomNowInteraction } from "./FillTheRoomNowInteraction";
+import { SteadierBeatInteraction } from "./SteadierBeatInteraction";
+import { FasterBeatInteraction } from "./FasterBeatInteraction";
+import { CountingYourselfInInteraction } from "./CountingYourselfInInteraction";
+import { SteadyOrRushedInteraction } from "./SteadyOrRushedInteraction";
+import { PracticingSlowInteraction } from "./PracticingSlowInteraction";
+import { YourTempoYourChoiceInteraction } from "./YourTempoYourChoiceInteraction";
+import { KeepingTimeOwnSongInteraction } from "./KeepingTimeOwnSongInteraction";
+import { CanKeepTimeNowInteraction } from "./CanKeepTimeNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -304,4 +312,13 @@ export const LESSON_INTERACTIONS: Record<
   "spread-voicing-by-ear": SpreadVoicingByEarInteraction,
   "playing-spread-chord": PlayingSpreadChordInteraction,
   "fill-the-room-now": FillTheRoomNowInteraction,
+  // Module 17: Keeping Steady Time
+  "steadier-beat": SteadierBeatInteraction,
+  "faster-beat": FasterBeatInteraction,
+  "counting-yourself-in": CountingYourselfInInteraction,
+  "steady-or-rushed": SteadyOrRushedInteraction,
+  "practicing-slow": PracticingSlowInteraction,
+  "your-tempo-your-choice": YourTempoYourChoiceInteraction,
+  "keeping-time-own-song": KeepingTimeOwnSongInteraction,
+  "can-keep-time-now": CanKeepTimeNowInteraction,
 };

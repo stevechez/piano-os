@@ -2855,7 +2855,181 @@ export const MODULE_16: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16];
+export const MODULE_17_ID = "module-17";
+
+/**
+ * Module 17: Keeping Steady Time. A rhythm-focused module returning to
+ * ground Module 2 first touched (its "Rhythm Creates Music" lesson) --
+ * not new harmonic content, but a practical, honestly-measured skill:
+ * real timestamp-based tap accuracy against a metronome, the same
+ * mechanic Module 2's bespoke RhythmTapInteraction already proved out
+ * safely in production. Built without a Phase handoff, per docs/46
+ * Decision 019.
+ *
+ * Introduces `TempoTapInteraction`, generalizing RhythmTapInteraction's
+ * exact mechanic (BPM, tolerance window, downbeat accent) into a
+ * reusable primitive with configurable tempo and tap count -- past the
+ * genuine-second-repetition threshold this codebase extracts shared
+ * primitives at. `RhythmTapInteraction` itself is left untouched rather
+ * than refactored onto the new primitive, consistent with how
+ * `MajorOrMinorEarInteraction` was left alone when `EarTrainingInteraction`
+ * was extracted in Module 11. Also reuses `EarTrainingInteraction` and
+ * `ChoiceInteraction` for the two lessons that don't need real tapping.
+ */
+export const MODULE_17: Module = {
+  id: MODULE_17_ID,
+  index: 17,
+  title: "Keeping Steady Time",
+  subtitle: "Rhythm You Can Feel and Measure",
+  lessons: [
+    {
+      id: "a-steadier-beat",
+      index: 1,
+      title: "A Steadier Beat",
+      steps: [
+        {
+          id: "steadier-beat",
+          concept: {
+            heading: "Tap along with a steady, slow beat.",
+            body: "Nothing to play yet — just find the pulse.",
+          },
+          discovery: {
+            heading: "That's your internal clock, warming up.",
+            body: "Every rhythm skill you've built starts from being able to feel a beat that isn't rushing or dragging.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-faster-beat",
+      index: 2,
+      title: "A Faster Beat",
+      steps: [
+        {
+          id: "faster-beat",
+          concept: {
+            heading: "Now try a faster tempo.",
+            body: "Same tapping, a quicker pulse.",
+          },
+          discovery: {
+            heading: "Same skill, just quicker.",
+            body: "Tempo is a dial, not a wall — the feel doesn't change, only the speed.",
+          },
+        },
+      ],
+    },
+    {
+      id: "counting-yourself-in",
+      index: 3,
+      title: "Counting Yourself In",
+      steps: [
+        {
+          id: "counting-yourself-in",
+          concept: {
+            heading: "Before you play, you count yourself in.",
+            body: "Tap a count-in, the way you would before starting a song.",
+          },
+          discovery: {
+            heading: "That count-in is a real habit, not a formality.",
+            body: "It's how you and anyone playing with you arrive at the first note already in time.",
+          },
+        },
+      ],
+    },
+    {
+      id: "steady-or-rushed",
+      index: 4,
+      title: "Steady or Rushed?",
+      steps: [
+        {
+          id: "steady-or-rushed",
+          concept: {
+            heading: "Listen to four clicks.",
+            body: "Is the tempo steady, or does it rush ahead?",
+          },
+          discovery: {
+            heading: "You can hear unsteady time, not just feel it.",
+            body: "That's the same ear you've trained since Module 11 — now pointed at rhythm instead of pitch.",
+          },
+        },
+      ],
+    },
+    {
+      id: "practicing-slow-on-purpose",
+      index: 5,
+      title: "Practicing Slow On Purpose",
+      steps: [
+        {
+          id: "practicing-slow",
+          concept: {
+            heading: "The same short phrase, two speeds.",
+            body: "Performance tempo, then practice tempo.",
+          },
+          discovery: {
+            heading: "Slow practice isn't a lesser version of the real thing.",
+            body: "It's how the real thing gets built — most real progress happens well under performance speed.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-tempo-your-choice",
+      index: 6,
+      title: "Your Tempo, Your Choice",
+      steps: [
+        {
+          id: "your-tempo-your-choice",
+          concept: {
+            heading: "Your own progression, at two different tempos.",
+            body: "A relaxed feel, then a driving one.",
+          },
+          discovery: {
+            heading: "Neither is correct.",
+            body: "Tempo is a mood, the same way dynamics are — your call every time you sit down to play.",
+          },
+        },
+      ],
+    },
+    {
+      id: "keeping-time-through-your-own-song",
+      index: 7,
+      title: "Keeping Time Through Your Own Song",
+      steps: [
+        {
+          id: "keeping-time-own-song",
+          concept: {
+            heading: "Keep time the way you would through a real song.",
+            body: "Longer this time — a full phrase's worth.",
+          },
+          discovery: {
+            heading: "That's the tempo your own Module 7 song could live at.",
+            body: "Not a drill anymore — a rehearsal for playing it for real.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-keep-time-now",
+      index: 8,
+      title: "You Can Keep Time Now",
+      steps: [
+        {
+          id: "can-keep-time-now",
+          concept: {
+            heading: "One more time, all the way through.",
+            body: "The longest count yet.",
+          },
+          discovery: {
+            heading: "You can keep time now.",
+            body: "Not just play notes in the right order — hold a steady pulse under all of it.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

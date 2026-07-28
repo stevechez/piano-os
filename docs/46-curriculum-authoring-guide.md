@@ -378,9 +378,22 @@ Built immediately following Module 14, on the same "proceed without a checkpoint
 
 Built immediately following Module 15, on the same "proceed without a checkpoint" instruction — see Decision 018 below. A genuinely new technique kept deliberately simple: open/spread voicings, moving exactly one note of a known chord an octave to give it more room — distinct from Module 3's inversions (which changes which note is lowest, not how much space the chord occupies). Needs three new chord entries (`cMajorSpread`, `fMajorSpread`, `gMajorSpread`, each an existing triad with one note displaced an octave, kept within `PlayProgressionInteraction`'s fixed C3-C5 range) and one new progression (`spreadCadence`). Reuses `ChoiceInteraction`, `NoteSequenceInteraction`, `EarTrainingInteraction`, and `PlayProgressionInteraction` exclusively — the tenth module (after 4, 5, 7, 8, 9, 10, 12, 13, and 14) needing zero new interaction primitives. Onboarding, pricing, and the paywall remain untouched.
 
+**Module 17: Keeping Steady Time** (paid — `src/features/curriculum/modules.ts`):
+
+1. A Steadier Beat (1 step)
+2. A Faster Beat (1 step)
+3. Counting Yourself In (1 step)
+4. Steady or Rushed? (1 step)
+5. Practicing Slow On Purpose (1 step)
+6. Your Tempo, Your Choice (1 step)
+7. Keeping Time Through Your Own Song (1 step)
+8. You Can Keep Time Now (1 step)
+
+Built immediately following Module 16, on the same "proceed without a checkpoint" instruction — see Decision 019 below. A rhythm-focused module returning to ground Module 2 first touched. Introduces `TempoTapInteraction`, generalizing the exact mechanic Module 2's bespoke `RhythmTapInteraction` already used once (a metronome with tolerance-windowed tap detection, no penalty for a miss) into a reusable primitive with configurable tempo and tap count — reused across 5 of the 8 lessons here. `RhythmTapInteraction` itself is deliberately left untouched rather than refactored onto the new primitive, consistent with how `MajorOrMinorEarInteraction` was left alone when `EarTrainingInteraction` was extracted in Module 11. The remaining lessons reuse `EarTrainingInteraction` and `ChoiceInteraction`. Zero new chords. Onboarding, pricing, and the paywall remain untouched.
+
 ## PLANNED (not built — do not treat as existing)
 
-Module 17 and beyond are not yet named or scoped.
+Module 18 and beyond are not yet named or scoped.
 
 ---
 
@@ -426,19 +439,21 @@ Status, updated as each item clears:
 
 ⚠ Module 16 was built via a sixteenth explicit override (Decision 018) — the risk was raised directly again before starting, and the product owner again chose to proceed. This override came after the user briefly requested "Module 26," clarified to mean the next sequential module. Same exclusions apply regardless.
 
+⚠ Module 17 was built via a seventeenth explicit override (Decision 019) — the risk was raised directly again before starting, and the product owner again chose to proceed. Same exclusions apply regardless.
+
 > ## STOP.
 >
-> **Do not start Module 17, and do not treat Modules 1–16 as validated content, until:**
+> **Do not start Module 18, and do not treat Modules 1–17 as validated content, until:**
 >
 > ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation in `47` does not satisfy this)
 >
-> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, whether Module 8's borrowed-chord content (modal mixture) is simply too advanced for a persona defined as "adult beginners," whether Module 9's introduction of a full mode (Mixolydian) compounds that same risk further, whether Module 10's synthesis capstone actually feels like a satisfying culmination or like ten modules is already more curriculum than a genuine beginner has earned the right to skip past validating, whether Module 11's ear-training content actually lands as a practical skill or as an additional 8 lessons stacked onto an already-long, unvalidated sequence, whether Module 12's transposition content is a genuine "aha" or one abstraction too many stacked on top of eleven prior modules, whether Module 13's minor-key reframing genuinely clarifies or adds a layer of ambiguity ("which chord is home?") a beginner didn't ask for, whether Module 14's second song feels like a genuine creative milestone or like a template rerun with different chords, whether Module 15's chart-reading actually feels like real-world utility or like an academic exercise dropped in among the creative modules, whether Module 16's spread-voicing content is a genuinely useful technique or a nuance a beginner doesn't yet have the ear for, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
+> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, whether Module 8's borrowed-chord content (modal mixture) is simply too advanced for a persona defined as "adult beginners," whether Module 9's introduction of a full mode (Mixolydian) compounds that same risk further, whether Module 10's synthesis capstone actually feels like a satisfying culmination or like ten modules is already more curriculum than a genuine beginner has earned the right to skip past validating, whether Module 11's ear-training content actually lands as a practical skill or as an additional 8 lessons stacked onto an already-long, unvalidated sequence, whether Module 12's transposition content is a genuine "aha" or one abstraction too many stacked on top of eleven prior modules, whether Module 13's minor-key reframing genuinely clarifies or adds a layer of ambiguity ("which chord is home?") a beginner didn't ask for, whether Module 14's second song feels like a genuine creative milestone or like a template rerun with different chords, whether Module 15's chart-reading actually feels like real-world utility or like an academic exercise dropped in among the creative modules, whether Module 16's spread-voicing content is a genuinely useful technique or a nuance a beginner doesn't yet have the ear for, whether Module 17's tap-timing mechanic actually measures something meaningful for a mouse-driven beginner or introduces frustration from click-latency variance that has nothing to do with real musical timing, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
 >
 > ✓ Per the Phase 11 handoff: if testing surfaces philosophy-level changes, apply them starting with the most recent module, and backport into earlier modules where appropriate
 >
-> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Sixteen modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted eleven times in a row (Modules 6 through 16); asking again before Module 17 remains the standing expectation, not a one-time courtesy. Sixteen full modules now exist, unvalidated, for a product whose own founding principle is "adult beginners only."
+> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Seventeen modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted twelve times in a row (Modules 6 through 17); asking again before Module 18 remains the standing expectation, not a one-time courtesy. Seventeen full modules now exist, unvalidated, for a product whose own founding principle is "adult beginners only."
 
-If you are reading this document and considering starting Module 17, check the boxes above first.
+If you are reading this document and considering starting Module 18, check the boxes above first.
 
 ---
 
@@ -620,5 +635,15 @@ Module 15 is deliberately not staff notation — CLAUDE.md is explicit that Pian
 **Reason:** This is the sixteenth consecutive override. The validation gate's requirement is unchanged. Sixteen full modules now exist with zero real user feedback.
 
 Module 16 introduces open/spread chord voicings, kept deliberately simple: move exactly one note of an already-known chord an octave to give it more room, distinct from Module 3's inversions (which reorders which note is lowest without changing how much space the chord occupies). It needed three new chord entries (`cMajorSpread`, `fMajorSpread`, `gMajorSpread`), each an existing triad with one note displaced an octave and deliberately kept within `PlayProgressionInteraction`'s fixed C3-C5 keyboard range, plus one new progression (`spreadCadence`). It reuses `ChoiceInteraction`, `NoteSequenceInteraction`, `EarTrainingInteraction`, and `PlayProgressionInteraction` exclusively — the tenth module (after 4, 5, 7, 8, 9, 10, 12, 13, and 14) to need zero new interaction primitives.
+
+**Date:** July 2026
+
+## Decision 019
+
+**Decision:** Module 17 ("Keeping Steady Time") was built immediately following Module 16. No Phase handoff document existed for it. Consistent with the standing expectation, the risk was surfaced directly to the product owner a twelfth time before starting, and the product owner again chose to proceed.
+
+**Reason:** This is the seventeenth consecutive override. The validation gate's requirement is unchanged. Seventeen full modules now exist with zero real user feedback. This module also introduces a genuine, if narrow, new risk worth naming directly: real-time tap accuracy measured from mouse clicks conflates click/input latency with actual musical timing skill, and the gate note reflects that concern explicitly rather than treating the mechanic as self-evidently sound just because it was already shipped once.
+
+Module 17 returns to rhythm, a subject Module 2 first touched but hasn't been revisited since. It introduces `TempoTapInteraction`, generalizing the exact mechanic Module 2's bespoke `RhythmTapInteraction` already used once (a metronome with a tolerance-windowed tap detector, no penalty for a miss) into a reusable primitive with configurable BPM and tap count — reused across 5 of this module's 8 lessons, with the remaining 3 reusing `EarTrainingInteraction` and `ChoiceInteraction`. `RhythmTapInteraction` itself is deliberately left untouched, consistent with how `MajorOrMinorEarInteraction` was left alone when `EarTrainingInteraction` was extracted in Module 11. Zero new chords needed.
 
 **Date:** July 2026
