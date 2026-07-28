@@ -38,6 +38,10 @@ export const CHORDS: Record<string, Chord> = {
   // spelling a musician would actually read.
   fMinor: { id: "fMinor", name: "F Minor", notes: ["F3", "G#3", "C4"] },
   bFlatMajor: { id: "bFlatMajor", name: "B♭ Major", notes: ["A#3", "D4", "F4"] },
+  // Module 13: A minor's raised leading tone -- the major V a minor key
+  // borrows from its harmonic minor scale for a stronger cadence than the
+  // natural minor's own (minor) v chord.
+  eMajor: { id: "eMajor", name: "E Major", notes: ["E4", "G#4", "B4"] },
 };
 
 export interface Progression {
@@ -155,6 +159,21 @@ export const PROGRESSIONS: Record<string, Progression> = {
     id: "myFullSongInG",
     label: "Your Verse → Your Chorus (In G)",
     chordIds: ["gMajor", "eMinor", "cMajor", "dMajor", "cMajor", "dMajor", "gMajor"],
+  },
+  // Module 13: the same four chords from Module 7's song (Am, F, C, G),
+  // now centered on A minor as home instead of C major -- reordered to
+  // start and end on the tonic. myMinorCadence is the classic i-iv-V-i
+  // minor-key resolution, using the borrowed major V (eMajor) instead of
+  // the natural minor's own (softer) v chord.
+  myMinorHomeProgression: {
+    id: "myMinorHomeProgression",
+    label: "Am → F → C → G → Am",
+    chordIds: ["aMinor", "fMajor", "cMajor", "gMajor", "aMinor"],
+  },
+  myMinorCadence: {
+    id: "myMinorCadence",
+    label: "Am → Dm → E → Am",
+    chordIds: ["aMinor", "dMinor", "eMajor", "aMinor"],
   },
 };
 

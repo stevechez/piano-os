@@ -326,9 +326,22 @@ Built immediately following Module 10, on the same "proceed without a checkpoint
 
 Built immediately following Module 11, on the same "proceed without a checkpoint" instruction — see Decision 014 below. A genuinely new theme (transposition) rather than a third consecutive pullback, but framed as proof of portability rather than new vocabulary: the student's Module 7 song is moved from C major into G major, and every chord involved (`gMajor`, `eMinor`, `cMajor`, `dMajor`, `cMinor`) already existed in `chords.ts` — only three new progressions (`myVerseInG`, `myChorusInG`, `myFullSongInG`) were needed. Reuses `ChoiceInteraction`, `NoteSequenceInteraction`, `PlayProgressionInteraction`, `EarTrainingInteraction`, and `FreePlayInteraction` exclusively — the eighth module (after 4, 5, 7, 8, 9, 10, and 11) needing zero new interaction primitives. Onboarding, pricing, and the paywall remain untouched.
 
+**Module 13: Playing in a Minor Key** (paid — `src/features/curriculum/modules.ts`):
+
+1. The Same Four Chords, A New Home (1 step)
+2. A Minor's Own Progression (1 step)
+3. The Minor iv Chord (1 step)
+4. Building the Natural v (1 step)
+5. The Stronger Pull (1 step)
+6. Your Solo, In A Minor Key (1 step)
+7. Choosing Your Home, Deliberately (1 step)
+8. You Have Two Homes Now (1 step)
+
+Built immediately following Module 12, on the same "proceed without a checkpoint" instruction — see Decision 015 below. Reframes chords the student has used since onboarding (Am, F, C, G) around A minor as tonic rather than a visitor inside C major — a new listening perspective, not new vocabulary. Needed exactly one new chord (`eMajor`, the harmonic-minor raised leading tone) and two new progressions (`myMinorHomeProgression`, `myMinorCadence`), both built mostly from chords already in `chords.ts`. Reuses `ChoiceInteraction`, `NoteSequenceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` exclusively — the ninth module (after 4, 5, 7, 8, 9, 10, 11, and 12) needing zero new interaction primitives. Onboarding, pricing, and the paywall remain untouched.
+
 ## PLANNED (not built — do not treat as existing)
 
-Module 13 and beyond are not yet named or scoped.
+Module 14 and beyond are not yet named or scoped.
 
 ---
 
@@ -366,19 +379,21 @@ Status, updated as each item clears:
 
 ⚠ Module 12 was built via a twelfth explicit override (Decision 014) — the risk was raised directly again before starting, and the product owner again chose to proceed. Module 12 introduces a genuinely new theme (transposition) but frames it as portability of existing understanding rather than new vocabulary. Same exclusions apply regardless.
 
+⚠ Module 13 was built via a thirteenth explicit override (Decision 015) — the risk was raised directly again before starting, and the product owner again chose to proceed. Module 13 reframes chords already taught (Am, F, C, G) around a minor tonic rather than introducing new vocabulary. Same exclusions apply regardless.
+
 > ## STOP.
 >
-> **Do not start Module 13, and do not treat Modules 1–12 as validated content, until:**
+> **Do not start Module 14, and do not treat Modules 1–13 as validated content, until:**
 >
 > ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation in `47` does not satisfy this)
 >
-> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, whether Module 8's borrowed-chord content (modal mixture) is simply too advanced for a persona defined as "adult beginners," whether Module 9's introduction of a full mode (Mixolydian) compounds that same risk further, whether Module 10's synthesis capstone actually feels like a satisfying culmination or like ten modules is already more curriculum than a genuine beginner has earned the right to skip past validating, whether Module 11's ear-training content actually lands as a practical skill or as an additional 8 lessons stacked onto an already-long, unvalidated sequence, whether Module 12's transposition content is a genuine "aha" or one abstraction too many stacked on top of eleven prior modules, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
+> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, whether Module 8's borrowed-chord content (modal mixture) is simply too advanced for a persona defined as "adult beginners," whether Module 9's introduction of a full mode (Mixolydian) compounds that same risk further, whether Module 10's synthesis capstone actually feels like a satisfying culmination or like ten modules is already more curriculum than a genuine beginner has earned the right to skip past validating, whether Module 11's ear-training content actually lands as a practical skill or as an additional 8 lessons stacked onto an already-long, unvalidated sequence, whether Module 12's transposition content is a genuine "aha" or one abstraction too many stacked on top of eleven prior modules, whether Module 13's minor-key reframing genuinely clarifies or adds a layer of ambiguity ("which chord is home?") a beginner didn't ask for, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
 >
 > ✓ Per the Phase 11 handoff: if testing surfaces philosophy-level changes, apply them starting with the most recent module, and backport into earlier modules where appropriate
 >
-> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Twelve modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted seven times in a row (Modules 6 through 12); asking again before Module 13 remains the standing expectation, not a one-time courtesy. Twelve full modules now exist, unvalidated, for a product whose own founding principle is "adult beginners only" — a full curriculum's worth of content built on an assumption that has never once been checked against a real beginner.
+> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Thirteen modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted eight times in a row (Modules 6 through 13); asking again before Module 14 remains the standing expectation, not a one-time courtesy. Thirteen full modules now exist, unvalidated, for a product whose own founding principle is "adult beginners only."
 
-If you are reading this document and considering starting Module 13, check the boxes above first.
+If you are reading this document and considering starting Module 14, check the boxes above first.
 
 ---
 
@@ -520,5 +535,15 @@ Module 11 introduces `EarTrainingInteraction`, generalizing the "listen, guess f
 **Reason:** This is the twelfth consecutive override, and the seventh in a row made with the risk explicitly named rather than silently continued. The validation gate's requirement is unchanged. Twelve full modules now exist with zero real user feedback, for a product whose entire premise depends on a persona ("adult beginners only") that has never been checked against an actual beginner.
 
 Module 12 transposes the student's Module 7 song from C major into G major — every chord involved (`gMajor`, `eMinor`, `cMajor`, `dMajor`, `cMinor`) already existed in `chords.ts`, so only three new progressions were needed (`myVerseInG`, `myChorusInG`, `myFullSongInG`). It reuses `ChoiceInteraction`, `NoteSequenceInteraction`, `PlayProgressionInteraction`, `EarTrainingInteraction` (Lesson 5, distinguishing a transposed pattern from a genuinely different one), and `FreePlayInteraction` (Lesson 8, improvising in the new key) — the eighth module (after 4, 5, 7, 8, 9, 10, and 11) to need zero new interaction primitives.
+
+**Date:** July 2026
+
+## Decision 015
+
+**Decision:** Module 13 ("Playing in a Minor Key") was built immediately following Module 12. No Phase handoff document existed for it. Consistent with the standing expectation, the risk was surfaced directly to the product owner an eighth time before starting, and the product owner again chose to proceed.
+
+**Reason:** This is the thirteenth consecutive override. The validation gate's requirement is unchanged; the strengthened note below states plainly that thirteen full modules now exist for a product whose own founding principle — "adult beginners only" — has never been checked against an actual beginner.
+
+Module 13 reframes chords the student has used since onboarding (Am, F, C, G) around A minor as tonic rather than a visitor inside C major, a genuinely new listening perspective rather than new vocabulary. It needed exactly one new chord (`eMajor`, the harmonic-minor raised leading tone A minor borrows for a stronger cadence than its own natural, minor five chord) and two new progressions (`myMinorHomeProgression`, `myMinorCadence`), both built mostly from chords already in `chords.ts` (`aMinor`, `fMajor`, `cMajor`, `gMajor`, `dMinor`). It reuses `ChoiceInteraction`, `NoteSequenceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` exclusively — the ninth module (after 4, 5, 7, 8, 9, 10, 11, and 12) to need zero new interaction primitives.
 
 **Date:** July 2026

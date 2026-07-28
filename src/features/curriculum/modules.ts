@@ -2163,7 +2163,181 @@ export const MODULE_12: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12];
+export const MODULE_13_ID = "module-13";
+
+/**
+ * Module 13: Playing in a Minor Key. Every prior module treated a minor
+ * chord as a visitor inside a major key -- the relative minor (Module
+ * 4's vi chord), a borrowed color (Module 8), a mode's flavor (Module
+ * 9). This module reframes the exact same four chords the student has
+ * used since onboarding (Am, F, C, G) around A minor as the tonic
+ * itself -- a genuinely new listening perspective, not new vocabulary.
+ * Built without a Phase handoff, per docs/46 Decision 015.
+ *
+ * Needs exactly one new chord (`eMajor` -- the harmonic-minor raised
+ * leading tone a minor key borrows for a stronger cadence than its own
+ * natural, minor five chord) and two new progressions
+ * (`myMinorHomeProgression`, `myMinorCadence`), both built mostly from
+ * chords already in `chords.ts` (aMinor, fMajor, cMajor, gMajor,
+ * dMinor). Reuses `ChoiceInteraction`, `NoteSequenceInteraction`,
+ * `PlayProgressionInteraction`, and `FreePlayInteraction` exclusively --
+ * the ninth module (after 4, 5, 7, 8, 9, 10, 11, and 12) needing zero
+ * new interaction primitives.
+ */
+export const MODULE_13: Module = {
+  id: MODULE_13_ID,
+  index: 13,
+  title: "Playing in a Minor Key",
+  subtitle: "Same Chords, A Different Home",
+  lessons: [
+    {
+      id: "the-same-four-chords-a-new-home",
+      index: 1,
+      title: "The Same Four Chords, A New Home",
+      steps: [
+        {
+          id: "same-four-chords-new-home",
+          concept: {
+            heading: "Four chords you already know.",
+            body: "Am, F, C, G. Compare which one they land on.",
+          },
+          discovery: {
+            heading: "Same four chords. A completely different home.",
+            body: "Nothing about the chords changed — only which one felt like arriving.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-minors-own-progression",
+      index: 2,
+      title: "A Minor's Own Progression",
+      steps: [
+        {
+          id: "minor-home-progression",
+          concept: {
+            heading: "Play a progression genuinely centered on A minor.",
+            body: "Am, F, C, G, back to Am. Play each chord yourself.",
+          },
+          discovery: {
+            heading: "That's a minor key doing what a major key does.",
+            body: "Establishing home, wandering, and returning — the same journey, built on a minor tonic instead.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-minor-iv-chord",
+      index: 3,
+      title: "The Minor iv Chord",
+      steps: [
+        {
+          id: "minor-iv-chord",
+          concept: {
+            heading: "Every key has its own iv chord.",
+            body: "Compare D Major to D Minor — only one belongs here.",
+          },
+          discovery: {
+            heading: "D Minor is A minor's iv chord.",
+            body: "The same relationship major keys have with their IV — just built from a minor scale instead.",
+          },
+        },
+      ],
+    },
+    {
+      id: "building-the-natural-v",
+      index: 4,
+      title: "Building the Natural v",
+      steps: [
+        {
+          id: "building-natural-v",
+          concept: {
+            heading: "Build A minor's own five chord.",
+            body: "Root to fifth, the same way you've built every chord.",
+          },
+          discovery: {
+            heading: "E Minor is the 'natural' five chord in A minor.",
+            body: "Softer than the version most songs actually use — which is exactly what the next lesson is about.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-stronger-pull",
+      index: 5,
+      title: "The Stronger Pull",
+      steps: [
+        {
+          id: "stronger-pull",
+          concept: {
+            heading: "Compare two ways to resolve to A minor.",
+            body: "The natural five chord versus its major twin.",
+          },
+          discovery: {
+            heading: "That single raised note pulls much harder toward home.",
+            body: "It's why so many minor-key songs borrow this one chord instead of using the softer, natural version.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-solo-in-a-minor-key",
+      index: 6,
+      title: "Your Solo, In A Minor Key",
+      steps: [
+        {
+          id: "solo-in-minor-key",
+          concept: {
+            heading: "Improvise freely.",
+            body: "This safety net is built for a minor home.",
+          },
+          discovery: {
+            heading: "The safety net moved to a whole new home.",
+            body: "Not just a new starting note — a genuinely different center of gravity.",
+          },
+        },
+      ],
+    },
+    {
+      id: "choosing-your-home-deliberately",
+      index: 7,
+      title: "Choosing Your Home, Deliberately",
+      steps: [
+        {
+          id: "choosing-your-home",
+          concept: {
+            heading: "The same four chords, arranged fully.",
+            body: "Two different homes. Compare them.",
+          },
+          discovery: {
+            heading: "Neither home is more correct.",
+            body: "Which one you choose is a real musical decision — the same chords can tell two different stories.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-have-two-homes-now",
+      index: 8,
+      title: "You Have Two Homes Now",
+      steps: [
+        {
+          id: "two-homes-now",
+          concept: {
+            heading: "Play the classic minor-key cadence yourself.",
+            body: "Am, Dm, E Major, back to Am.",
+          },
+          discovery: {
+            heading: "That's the sound of resolution in a minor key.",
+            body: "You have two homes now — major and minor — and you know how to arrive at either one.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

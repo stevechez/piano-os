@@ -107,6 +107,14 @@ import { SamePatternNewKeyInteraction } from "./SamePatternNewKeyInteraction";
 import { BorrowedChordTransposedInteraction } from "./BorrowedChordTransposedInteraction";
 import { SongInNewKeyInteraction } from "./SongInNewKeyInteraction";
 import { PlayAnywhereNowInteraction } from "./PlayAnywhereNowInteraction";
+import { SameFourChordsNewHomeInteraction } from "./SameFourChordsNewHomeInteraction";
+import { MinorHomeProgressionInteraction } from "./MinorHomeProgressionInteraction";
+import { MinorIvChordInteraction } from "./MinorIvChordInteraction";
+import { BuildingNaturalVInteraction } from "./BuildingNaturalVInteraction";
+import { StrongerPullInteraction } from "./StrongerPullInteraction";
+import { SoloInMinorKeyInteraction } from "./SoloInMinorKeyInteraction";
+import { ChoosingYourHomeInteraction } from "./ChoosingYourHomeInteraction";
+import { TwoHomesNowInteraction } from "./TwoHomesNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -236,4 +244,13 @@ export const LESSON_INTERACTIONS: Record<
   "borrowed-chord-transposed": BorrowedChordTransposedInteraction,
   "song-in-new-key": SongInNewKeyInteraction,
   "play-anywhere-now": PlayAnywhereNowInteraction,
+  // Module 13: Playing in a Minor Key
+  "same-four-chords-new-home": SameFourChordsNewHomeInteraction,
+  "minor-home-progression": MinorHomeProgressionInteraction,
+  "minor-iv-chord": MinorIvChordInteraction,
+  "building-natural-v": BuildingNaturalVInteraction,
+  "stronger-pull": StrongerPullInteraction,
+  "solo-in-minor-key": SoloInMinorKeyInteraction,
+  "choosing-your-home": ChoosingYourHomeInteraction,
+  "two-homes-now": TwoHomesNowInteraction,
 };
