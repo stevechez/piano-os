@@ -113,6 +113,29 @@ export const PROGRESSIONS: Record<string, Progression> = {
     label: "C → B♭ → C → B♭",
     chordIds: ["cMajor", "bFlatMajor", "cMajor", "bFlatMajor"],
   },
+  // Module 10: a bridge for the student's Module 7 song -- vi-IV-I-V,
+  // built entirely from chords already in this file. myVerseIntoBridge
+  // and myCompletePiece are myVerse/myBridge/myChorus concatenated, for
+  // real play-throughs of increasingly complete song structure.
+  myBridge: {
+    id: "myBridge",
+    label: "Am → F → C → G",
+    chordIds: ["aMinor", "fMajor", "cMajor", "gMajor"],
+  },
+  myVerseIntoBridge: {
+    id: "myVerseIntoBridge",
+    label: "Your Verse → Your Bridge",
+    chordIds: ["cMajor", "aMinor", "fMajor", "gMajor", "aMinor", "fMajor", "cMajor", "gMajor"],
+  },
+  myCompletePiece: {
+    id: "myCompletePiece",
+    label: "Your Verse → Your Bridge → Your Chorus",
+    chordIds: [
+      "cMajor", "aMinor", "fMajor", "gMajor",
+      "aMinor", "fMajor", "cMajor", "gMajor",
+      "fMajor", "gMajor", "cMajor",
+    ],
+  },
 };
 
 export function getChord(chordId: string): Chord {

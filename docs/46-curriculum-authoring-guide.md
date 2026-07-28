@@ -287,9 +287,22 @@ Built immediately following Module 7, on the same "proceed without a checkpoint"
 
 Built immediately following Module 8, on the same "proceed without a checkpoint" instruction — see Decision 011 below. No Phase handoff document existed for this one either; the theme (modal playing, kept to a single mode) comes from `11-roadmap.md`'s Phase 9 "Advanced Musicianship," continuing Module 8's exploration of that phase. Introduces the Mixolydian mode as one flattened 7th away from a major scale the student already knows, reusing Module 8's `bFlatMajor` chord (Mixolydian's defining color chord is the same ♭VII already built) and adding only one new progression, `mixolydianVamp`, from chords that already existed — no new chords needed. Reuses Module 6's `FreePlayInteraction` "safety net" framing with a new note set. Zero new interaction primitives — the fifth module (after 4, 5, 7, and 8) needing none, reusing `ChoiceInteraction`, `NoteSequenceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` exclusively. Onboarding, pricing, and the paywall remain untouched.
 
+**Module 10: Putting It All Together** (paid — `src/features/curriculum/modules.ts`):
+
+1. A Third Section: The Bridge (1 step)
+2. Bridge Into Final Chorus (1 step)
+3. A Color for the Bridge (1 step)
+4. Your Solo Section (1 step)
+5. Verse Into Your Bridge (1 step)
+6. Landing Somewhere Unexpected (1 step)
+7. Performing with Intention (1 step)
+8. Your Complete Performance (1 step)
+
+Built immediately following Module 9, on the same "proceed without a checkpoint" instruction — see Decision 012 below. Unlike Modules 8 and 9, this one is a deliberate course-correction rather than more new theory: the Validation Gate had directly flagged Modules 8 and 9 as the curriculum's deepest departure yet from its "adult beginner" persona, so Module 10 teaches exactly one new structural idea (a bridge — the vi-IV-I-V shape) and otherwise synthesizes skills the student already has (Module 7's song, Module 6's improvisation, Module 8's borrowed chords, Module 2's dynamics) into one complete, performable piece. Drawn from `11-roadmap.md`'s Phase 9 "Composition" and "Performance" rather than continuing into "Advanced harmony" or "Modal playing." Needs zero new chords and zero new interaction primitives — the sixth module (after 4, 5, 7, 8, and 9) needing none, reusing `ChoiceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` exclusively. Three new progressions (`myBridge`, `myVerseIntoBridge`, `myCompletePiece`) are all built from chords already in `chords.ts`. Onboarding, pricing, and the paywall remain untouched.
+
 ## PLANNED (not built — do not treat as existing)
 
-Module 10 and beyond are not yet named or scoped.
+Module 11 and beyond are not yet named or scoped.
 
 ---
 
@@ -321,19 +334,21 @@ Status, updated as each item clears:
 
 ⚠ Module 9 was built via a ninth explicit override (Decision 011) — the risk was raised directly again before starting, including a direct note that Module 8 had already moved into content further from "adult beginner" territory, and the product owner again chose to proceed. Same exclusions apply.
 
+⚠ Module 10 was built via a tenth explicit override (Decision 012) — the risk was raised directly again before starting, and the product owner again chose to proceed. Unlike Modules 8 and 9, Module 10 itself is a deliberate pullback from advancing theory further — a synthesis/performance capstone rather than new territory — chosen specifically in response to this gate's own concern about Modules 8-9 drifting from the beginner persona. Same exclusions apply regardless.
+
 > ## STOP.
 >
-> **Do not start Module 10, and do not treat Modules 1–9 as validated content, until:**
+> **Do not start Module 11, and do not treat Modules 1–10 as validated content, until:**
 >
 > ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation in `47` does not satisfy this)
 >
-> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, whether Module 8's borrowed-chord content (modal mixture) is simply too advanced for a persona defined as "adult beginners," whether Module 9's introduction of a full mode (Mixolydian) compounds that same risk further, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
+> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, whether Module 8's borrowed-chord content (modal mixture) is simply too advanced for a persona defined as "adult beginners," whether Module 9's introduction of a full mode (Mixolydian) compounds that same risk further, whether Module 10's synthesis capstone actually feels like a satisfying culmination or like ten modules is already more curriculum than a genuine beginner has earned the right to skip past validating, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
 >
 > ✓ Per the Phase 11 handoff: if testing surfaces philosophy-level changes, apply them starting with the most recent module, and backport into earlier modules where appropriate
 >
-> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Nine modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted four times in a row (Modules 6 through 9); asking again before Module 10 remains the standing expectation, not a one-time courtesy. Modules 8 and 9 together represent two consecutive modules drawn from Phase 9 "Advanced Musicianship" — the curriculum's deepest departure yet from the "adult beginner" persona it was built around, which makes real testing more urgent here, not less.
+> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Ten modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted five times in a row (Modules 6 through 10); asking again before Module 11 remains the standing expectation, not a one-time courtesy. Ten full modules now exist, unvalidated, for a product whose own founding principle is "adult beginners only" — that gap between what's built and what's confirmed to work is no longer a footnote.
 
-If you are reading this document and considering starting Module 10, check the boxes above first.
+If you are reading this document and considering starting Module 11, check the boxes above first.
 
 ---
 
@@ -445,5 +460,15 @@ Module 8 borrows F Minor and B♭ Major — chords from C major's parallel minor
 **Reason:** This is the ninth consecutive override, and the fourth in a row made with the risk explicitly named rather than silently continued. The validation gate's requirement stands exactly as it did at Decision 003. Modules 8 and 9 together are now two consecutive modules drawn from Phase 9 "Advanced Musicianship" — the curriculum's deepest departure yet from its own stated persona ("adult beginners only") — and the updated Validation Gate note reflects that directly rather than treating it as routine.
 
 Module 9 introduces the Mixolydian mode as one flattened 7th away from a major scale the student already knows, deliberately avoiding a survey of multiple modes at once. It reuses Module 8's `bFlatMajor` chord — Mixolydian's defining ♭VII color chord is the same chord already built for reharmonization — and needed only one new progression (`mixolydianVamp`), no new chords. It also reuses Module 6's `FreePlayInteraction` "safety net" framing with a new note set, reinforcing that pattern's reach into a third context. Zero new interaction primitives — the fifth module (after 4, 5, 7, and 8) to need none, reusing `ChoiceInteraction`, `NoteSequenceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` exclusively.
+
+**Date:** July 2026
+
+## Decision 012
+
+**Decision:** Module 10 ("Putting It All Together") was built immediately following Module 9. No Phase handoff document existed for it. Consistent with the standing expectation, the risk was surfaced directly to the product owner a fifth time before starting, and the product owner again chose to proceed. Unlike every override since Decision 010, though, the module itself was designed as a deliberate pullback rather than a continuation of the same trajectory: Modules 8 and 9 had pushed into genuinely advanced territory, and the Validation Gate's own note flagged that as the curriculum's deepest departure yet from "adult beginners only." Rather than building an eleventh module further into that territory (e.g., jazz reharmonization or a second mode), Module 10 is a synthesis and performance capstone — one new structural idea (a bridge) plus a combination of skills the student already has.
+
+**Reason:** This is the tenth consecutive override, and the fifth in a row made with the risk explicitly named rather than silently continued. The validation gate's requirement is unchanged and, per the strengthened note below, is now treated as urgent rather than routine: ten full modules exist with zero real user feedback, for a product whose entire premise depends on fitting a specific persona. The choice to make Module 10 a synthesis capstone rather than more new theory is itself a response to risk the gate had already surfaced — it doesn't reduce the validation debt, but it avoids compounding the specific "too advanced" risk Modules 8-9 raised.
+
+Module 10 teaches exactly one new concept — a bridge, the vi-IV-I-V progression a large share of real songs use — and otherwise combines Module 7's song, Module 6's improvisation (a solo section), Module 8's borrowed chords (color for the bridge), and Module 2's dynamics (performing with intention) into one complete piece. It needed zero new chords and zero new interaction primitives — the sixth module (after 4, 5, 7, 8, and 9) to need none, reusing `ChoiceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` exclusively.
 
 **Date:** July 2026

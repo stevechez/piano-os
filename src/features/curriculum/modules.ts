@@ -1634,7 +1634,184 @@ export const MODULE_9: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9];
+export const MODULE_10_ID = "module-10";
+
+/**
+ * Module 10: Putting It All Together. A deliberate course-correction, not
+ * more new theory -- Modules 8 and 9 pushed into genuinely advanced
+ * territory (borrowed chords, a full mode), and docs/46's Validation
+ * Gate flagged that directly as the curriculum's deepest departure yet
+ * from its own "adult beginner" persona. Rather than pushing further,
+ * this module is a synthesis and performance capstone: it teaches
+ * exactly one new structural idea (a bridge -- the vi-IV-I-V a huge
+ * number of songs use) and otherwise combines skills the student already
+ * has (Module 7's song, Module 6's improvisation, Module 8's borrowed
+ * chords, Module 2's dynamics) into one complete, performable piece.
+ * Built without a Phase handoff, per docs/46 Decision 012 -- derived
+ * from `11-roadmap.md`'s Phase 9 "Composition" and "Performance," rather
+ * than continuing further into "Advanced harmony" or "Modal playing."
+ *
+ * Needs zero new chords and zero new interaction primitives -- the
+ * sixth module (after 4, 5, 7, 8, and 9) to need none, reusing
+ * `ChoiceInteraction`, `PlayProgressionInteraction`, and
+ * `FreePlayInteraction` exclusively. The three new progressions
+ * (`myBridge`, `myVerseIntoBridge`, `myCompletePiece`) are all built
+ * from chords already in `chords.ts`.
+ */
+export const MODULE_10: Module = {
+  id: MODULE_10_ID,
+  index: 10,
+  title: "Putting It All Together",
+  subtitle: "Your Complete Performance Piece",
+  lessons: [
+    {
+      id: "a-third-section-the-bridge",
+      index: 1,
+      title: "A Third Section: The Bridge",
+      steps: [
+        {
+          id: "third-section-bridge",
+          concept: {
+            heading: "Verse and chorus aren't the whole story.",
+            body: "Most songs have a third section that goes somewhere different before the final chorus. Play it yourself: Am, F, C, G.",
+          },
+          discovery: {
+            heading: "That's a bridge.",
+            body: "Same four chords as ever, borrowed and reordered — it feels like a detour, right before coming home.",
+          },
+        },
+      ],
+    },
+    {
+      id: "bridge-into-final-chorus",
+      index: 2,
+      title: "Bridge Into Final Chorus",
+      steps: [
+        {
+          id: "bridge-into-chorus",
+          concept: {
+            heading: "Compare two ways to reach your final chorus.",
+            body: "Looping your chorus a second time, versus letting the bridge lead into it instead.",
+          },
+          discovery: {
+            heading: "The bridge earns the final chorus.",
+            body: "Repetition alone doesn't build the same kind of payoff — the detour is what makes coming home feel like something.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-color-for-the-bridge",
+      index: 3,
+      title: "A Color for the Bridge",
+      steps: [
+        {
+          id: "color-for-bridge",
+          concept: {
+            heading: "The bridge can borrow color too.",
+            body: "Compare the plain bridge to one with a borrowed chord.",
+          },
+          discovery: {
+            heading: "A little shadow makes the arrival feel brighter.",
+            body: "One borrowed chord in the bridge makes the final chorus land even harder — the same lesson from Module 8, now serving your own song.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-solo-section",
+      index: 4,
+      title: "Your Solo Section",
+      steps: [
+        {
+          id: "your-solo-section",
+          concept: {
+            heading: "The bridge is also where a solo often lives.",
+            body: "Play freely over it, using the safety net notes.",
+          },
+          discovery: {
+            heading: "That's a real solo section.",
+            body: "Built on Module 6's safety net, placed inside your own song's structure. Not a separate exercise — part of the piece.",
+          },
+        },
+      ],
+    },
+    {
+      id: "verse-into-your-bridge",
+      index: 5,
+      title: "Verse Into Your Bridge",
+      steps: [
+        {
+          id: "verse-into-bridge",
+          concept: {
+            heading: "Play the transition for real.",
+            body: "Your verse, moving into your new bridge.",
+          },
+          discovery: {
+            heading: "That handoff is the hardest part of song structure to get right.",
+            body: "And you just played it — your own verse, leading somewhere new, on purpose.",
+          },
+        },
+      ],
+    },
+    {
+      id: "landing-somewhere-unexpected",
+      index: 6,
+      title: "Landing Somewhere Unexpected",
+      steps: [
+        {
+          id: "landing-somewhere-unexpected",
+          concept: {
+            heading: "Compare two ways to end your piece.",
+            body: "Landing on the expected chord versus landing on an unexpected one.",
+          },
+          discovery: {
+            heading: "That doesn't feel wrong. It feels like a choice.",
+            body: "Landing somewhere unexpected is the difference between a mistake and a decision — and you're the one making it.",
+          },
+        },
+      ],
+    },
+    {
+      id: "performing-with-intention",
+      index: 7,
+      title: "Performing with Intention",
+      steps: [
+        {
+          id: "performing-with-intention",
+          concept: {
+            heading: "The same bridge, played two different ways.",
+            body: "Compare a quiet build to an immediate climax.",
+          },
+          discovery: {
+            heading: "Both are valid performance choices.",
+            body: "Which one you pick shapes how the whole piece lands — dynamics aren't decoration, they're a decision every time you sit down to play.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-complete-performance",
+      index: 8,
+      title: "Your Complete Performance",
+      steps: [
+        {
+          id: "complete-performance",
+          concept: {
+            heading: "Play the whole thing, start to finish.",
+            body: "Your verse, your bridge, your chorus.",
+          },
+          discovery: {
+            heading: "Ten modules of understanding, one complete performance.",
+            body: "This is the piece you built — every section, every choice, genuinely yours.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

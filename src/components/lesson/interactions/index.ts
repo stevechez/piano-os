@@ -83,6 +83,14 @@ import { SameChordsDifferentMoodInteraction } from "./SameChordsDifferentMoodInt
 import { GroovingInMixolydianInteraction } from "./GroovingInMixolydianInteraction";
 import { EndingOnTheRootInteraction } from "./EndingOnTheRootInteraction";
 import { HearInMoreThanOneColorInteraction } from "./HearInMoreThanOneColorInteraction";
+import { ThirdSectionBridgeInteraction } from "./ThirdSectionBridgeInteraction";
+import { BridgeIntoChorusInteraction } from "./BridgeIntoChorusInteraction";
+import { ColorForBridgeInteraction } from "./ColorForBridgeInteraction";
+import { YourSoloSectionInteraction } from "./YourSoloSectionInteraction";
+import { VerseIntoBridgeInteraction } from "./VerseIntoBridgeInteraction";
+import { LandingSomewhereUnexpectedInteraction } from "./LandingSomewhereUnexpectedInteraction";
+import { PerformingWithIntentionInteraction } from "./PerformingWithIntentionInteraction";
+import { CompletePerformanceInteraction } from "./CompletePerformanceInteraction";
 
 export type { LessonInteractionProps };
 
@@ -185,4 +193,13 @@ export const LESSON_INTERACTIONS: Record<
   "grooving-in-mixolydian": GroovingInMixolydianInteraction,
   "ending-on-the-root": EndingOnTheRootInteraction,
   "hear-in-more-than-one-color": HearInMoreThanOneColorInteraction,
+  // Module 10: Putting It All Together
+  "third-section-bridge": ThirdSectionBridgeInteraction,
+  "bridge-into-chorus": BridgeIntoChorusInteraction,
+  "color-for-bridge": ColorForBridgeInteraction,
+  "your-solo-section": YourSoloSectionInteraction,
+  "verse-into-bridge": VerseIntoBridgeInteraction,
+  "landing-somewhere-unexpected": LandingSomewhereUnexpectedInteraction,
+  "performing-with-intention": PerformingWithIntentionInteraction,
+  "complete-performance": CompletePerformanceInteraction,
 };
