@@ -163,6 +163,14 @@ import { ThreeOrFourInteraction } from "./ThreeOrFourInteraction";
 import { WaltzingMinorKeyInteraction } from "./WaltzingMinorKeyInteraction";
 import { LongerWaltzPatternInteraction } from "./LongerWaltzPatternInteraction";
 import { PlayInThreeNowInteraction } from "./PlayInThreeNowInteraction";
+import { ReadingTheBluesInteraction } from "./ReadingTheBluesInteraction";
+import { ReadingSpreadVoicingsInteraction } from "./ReadingSpreadVoicingsInteraction";
+import { ReadingTwoFiveOneInteraction } from "./ReadingTwoFiveOneInteraction";
+import { ReadingBorrowedTurnInteraction } from "./ReadingBorrowedTurnInteraction";
+import { ReadingMixolydianVampInteraction } from "./ReadingMixolydianVampInteraction";
+import { ReadingSecondSongInteraction } from "./ReadingSecondSongInteraction";
+import { ReadingMinorCadenceInteraction } from "./ReadingMinorCadenceInteraction";
+import { ReadAnythingStillInteraction } from "./ReadAnythingStillInteraction";
 
 export type { LessonInteractionProps };
 
@@ -355,4 +363,13 @@ export const LESSON_INTERACTIONS: Record<
   "waltzing-minor-key": WaltzingMinorKeyInteraction,
   "longer-waltz-pattern": LongerWaltzPatternInteraction,
   "play-in-three-now": PlayInThreeNowInteraction,
+  // Module 20: The Complete Chart Reader
+  "reading-the-blues": ReadingTheBluesInteraction,
+  "reading-spread-voicings": ReadingSpreadVoicingsInteraction,
+  "reading-two-five-one": ReadingTwoFiveOneInteraction,
+  "reading-borrowed-turn": ReadingBorrowedTurnInteraction,
+  "reading-mixolydian-vamp": ReadingMixolydianVampInteraction,
+  "reading-second-song": ReadingSecondSongInteraction,
+  "reading-minor-cadence": ReadingMinorCadenceInteraction,
+  "read-anything-still": ReadAnythingStillInteraction,
 };

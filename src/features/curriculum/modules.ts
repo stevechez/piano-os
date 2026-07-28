@@ -3374,7 +3374,178 @@ export const MODULE_19: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19];
+export const MODULE_20_ID = "module-20";
+
+/**
+ * Module 20: The Complete Chart Reader. A 20th-module milestone that
+ * doesn't introduce anything new -- it extends Module 15's chart-
+ * reading skill across everything learned since (Modules 16-19, plus a
+ * few earlier progressions that had never actually been read from a
+ * chart before): the blues, spread voicings, the ii-V-I, a borrowed-
+ * chord turn, the Mixolydian vamp, the student's own minor song, and a
+ * final chart that mixes several of these together. Built without a
+ * Phase handoff, per docs/46 Decision 022.
+ *
+ * Needs zero new chords or progressions -- every chart is a hardcoded
+ * chord-id array using chords already in `chords.ts`. Reuses
+ * `ChordChartInteraction` exclusively, across all 8 lessons -- the
+ * twelfth module (after 4, 5, 7, 8, 9, 10, 12, 13, 14, 16, and 18)
+ * needing zero new interaction primitives.
+ */
+export const MODULE_20: Module = {
+  id: MODULE_20_ID,
+  index: 20,
+  title: "The Complete Chart Reader",
+  subtitle: "Every New Sound, On the Page",
+  lessons: [
+    {
+      id: "reading-the-blues",
+      index: 1,
+      title: "Reading the Blues",
+      steps: [
+        {
+          id: "reading-the-blues",
+          concept: {
+            heading: "Read the entire 12-bar blues from its chart.",
+            body: "No PlayProgressionInteraction hints this time — just the chord names.",
+          },
+          discovery: {
+            heading: "You just sight-read a real 12-bar blues.",
+            body: "The form from Module 18, recalled entirely from its written chords.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-spread-voicings",
+      index: 2,
+      title: "Reading Spread Voicings",
+      steps: [
+        {
+          id: "reading-spread-voicings",
+          concept: {
+            heading: "Read a chart marked for spread voicings.",
+            body: "The chart tells you the voicing, not just the chord.",
+          },
+          discovery: {
+            heading: "A chart can carry more than just chord names.",
+            body: "It told you exactly how to voice each chord from Module 16, and you recalled the shape.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-the-ii-v-i",
+      index: 3,
+      title: "Reading the ii-V-I",
+      steps: [
+        {
+          id: "reading-two-five-one",
+          concept: {
+            heading: "Read harmony's most common move.",
+            body: "Dm, G7, C — straight from the chart.",
+          },
+          discovery: {
+            heading: "That's the ii-V-I from Module 4, read instead of remembered from a lesson.",
+            body: "The most common chord move in music, and you can read it cold.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-a-borrowed-turn",
+      index: 4,
+      title: "Reading a Borrowed Turn",
+      steps: [
+        {
+          id: "reading-borrowed-turn",
+          concept: {
+            heading: "Read a chart with a borrowed chord in it.",
+            body: "C, Fm, G, C.",
+          },
+          discovery: {
+            heading: "The chart didn't flag anything as unusual.",
+            body: "It just wrote the chord — Module 8's borrowing technique reads exactly like any other chord change.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-the-mixolydian-vamp",
+      index: 5,
+      title: "Reading the Mixolydian Vamp",
+      steps: [
+        {
+          id: "reading-mixolydian-vamp",
+          concept: {
+            heading: "Read the vamp that defines a whole mode.",
+            body: "C, B♭, C, B♭.",
+          },
+          discovery: {
+            heading: "Module 9's Mixolydian sound, recalled from two chord names.",
+            body: "The mode lives in the chords — the chart just has to name them.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-your-second-song",
+      index: 6,
+      title: "Reading Your Second Song",
+      steps: [
+        {
+          id: "reading-second-song",
+          concept: {
+            heading: "Read your minor-key song from Module 14.",
+            body: "Verse into chorus, entirely from the page.",
+          },
+          discovery: {
+            heading: "You wrote this song. Now you can read it back.",
+            body: "The same piece, in two different forms — memory and notation — and either one gets you there.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-a-minor-cadence",
+      index: 7,
+      title: "Reading a Minor Cadence",
+      steps: [
+        {
+          id: "reading-minor-cadence",
+          concept: {
+            heading: "Read the classic minor-key resolution.",
+            body: "Am, Dm, E, Am.",
+          },
+          discovery: {
+            heading: "That's Module 13's cadence, read cold.",
+            body: "The raised leading tone reads just like any other chord — the chart doesn't need to explain the theory for you to play it.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-read-anything-still",
+      index: 8,
+      title: "You Can Read Anything, Still",
+      steps: [
+        {
+          id: "read-anything-still",
+          concept: {
+            heading: "One chart, several ideas mixed together.",
+            body: "A dominant seventh, a borrowed chord, and a spread voicing, back to back.",
+          },
+          discovery: {
+            heading: "You can read anything, still.",
+            body: "Twenty modules of vocabulary, and a chart is still just names in order — you know how to turn every one of them into music.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);
