@@ -2509,7 +2509,180 @@ export const MODULE_14: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14];
+export const MODULE_15_ID = "module-15";
+
+/**
+ * Module 15: Reading a Chord Chart. Deliberately not staff notation --
+ * CLAUDE.md is explicit that PianoOS is "not a traditional sheet music
+ * education platform" and to "teach patterns before notation." A chord
+ * chart (just chord names, in order, no staff, no individual notes) is
+ * the notation real musicians actually use for exactly this kind of
+ * music, and it's a written form of a pattern the student already
+ * holds, not a competing system to learn from scratch. Built without a
+ * Phase handoff, per docs/46 Decision 017.
+ *
+ * Introduces `ChordChartInteraction`, a new primitive: unlike
+ * `PlayProgressionInteraction`, the keyboard gives no highlighted-key
+ * hint -- recalling each chord's notes from its written name alone is
+ * the entire point. Every chart reuses chords already in `chords.ts`
+ * (including a chart -- Lesson 4 -- that combines chords in an order
+ * never previously used together, a genuine first sight-read). Zero new
+ * chords needed.
+ */
+export const MODULE_15: Module = {
+  id: MODULE_15_ID,
+  index: 15,
+  title: "Reading a Chord Chart",
+  subtitle: "The Way Real Musicians Write Songs Down",
+  lessons: [
+    {
+      id: "what-a-chart-looks-like",
+      index: 1,
+      title: "What a Chart Looks Like",
+      steps: [
+        {
+          id: "what-a-chart-looks-like",
+          concept: {
+            heading: "A chord chart just lists the chords, in order.",
+            body: "No staff, no individual notes — just names. Read this one and play it.",
+          },
+          discovery: {
+            heading: "That's a real chord chart.",
+            body: "If you can recall the chord from its name, you can play from any chart.",
+          },
+        },
+      ],
+    },
+    {
+      id: "repeated-chords",
+      index: 2,
+      title: "Repeated Chords",
+      steps: [
+        {
+          id: "repeated-chords",
+          concept: {
+            heading: "Sometimes a chord repeats before the chart moves on.",
+            body: "Read this chart, chord by chord.",
+          },
+          discovery: {
+            heading: "A repeat in the chart isn't a shortcut.",
+            body: "It means play it again, deliberately — the chart is telling you exactly what to do, twice.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-sevenths-and-suspensions",
+      index: 3,
+      title: "Reading Sevenths and Suspensions",
+      steps: [
+        {
+          id: "reading-sevenths-suspensions",
+          concept: {
+            heading: "Chart symbols include the chord type too.",
+            body: "Not just the letter. Read G7 and Csus4.",
+          },
+          discovery: {
+            heading: "The '7' and 'sus4' weren't decoration.",
+            body: "They told you exactly which notes to recall — the same chords from Module 4, now read from a page instead of a lesson.",
+          },
+        },
+      ],
+    },
+    {
+      id: "sight-reading-a-new-chart",
+      index: 4,
+      title: "Sight-Reading a New Chart",
+      steps: [
+        {
+          id: "sight-reading-new-chart",
+          concept: {
+            heading: "This chart is one you've never played before.",
+            body: "Read it and play it for the first time.",
+          },
+          discovery: {
+            heading: "That's sight-reading.",
+            body: "You didn't need to hear it first — the chart told you everything.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-chart-in-a-new-key",
+      index: 5,
+      title: "A Chart In A New Key",
+      steps: [
+        {
+          id: "chart-in-new-key",
+          concept: {
+            heading: "Read this chart.",
+            body: "It might look familiar.",
+          },
+          discovery: {
+            heading: "That's your song, transposed.",
+            body: "You read it exactly the same way, letter by letter, in any key.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-your-own-songs-chart",
+      index: 6,
+      title: "Reading Your Own Song's Chart",
+      steps: [
+        {
+          id: "reading-own-song-chart",
+          concept: {
+            heading: "Read your own song's full chart, start to finish.",
+            body: "Verse into chorus.",
+          },
+          discovery: {
+            heading: "You wrote this song in Module 7.",
+            body: "Now you could hand someone else the chart, and they could play it too.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-minor-chart",
+      index: 7,
+      title: "A Minor Chart",
+      steps: [
+        {
+          id: "minor-chart",
+          concept: {
+            heading: "Read a chart in a minor key.",
+            body: "Your Module 14 song, on the page.",
+          },
+          discovery: {
+            heading: "Minor charts read exactly the same way.",
+            body: "The notation doesn't care what mood the chord makes.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-read-anything-now",
+      index: 8,
+      title: "You Can Read Anything Now",
+      steps: [
+        {
+          id: "read-anything-now",
+          concept: {
+            heading: "One more chart.",
+            body: "Everything you've learned, all in one page.",
+          },
+          discovery: {
+            heading: "You can read anything now.",
+            body: "A chart is just chord names in order — and you know how to turn any name into music.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

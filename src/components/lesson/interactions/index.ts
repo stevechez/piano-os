@@ -123,6 +123,14 @@ import { MinorEndingInteraction } from "./MinorEndingInteraction";
 import { VerseIntoMinorChorusInteraction } from "./VerseIntoMinorChorusInteraction";
 import { NamingMinorSoundInteraction } from "./NamingMinorSoundInteraction";
 import { WroteSecondSongInteraction } from "./WroteSecondSongInteraction";
+import { WhatAChartLooksLikeInteraction } from "./WhatAChartLooksLikeInteraction";
+import { RepeatedChordsInteraction } from "./RepeatedChordsInteraction";
+import { ReadingSeventhsSuspensionsInteraction } from "./ReadingSeventhsSuspensionsInteraction";
+import { SightReadingNewChartInteraction } from "./SightReadingNewChartInteraction";
+import { ChartInNewKeyInteraction } from "./ChartInNewKeyInteraction";
+import { ReadingOwnSongChartInteraction } from "./ReadingOwnSongChartInteraction";
+import { MinorChartInteraction } from "./MinorChartInteraction";
+import { ReadAnythingNowInteraction } from "./ReadAnythingNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -270,4 +278,13 @@ export const LESSON_INTERACTIONS: Record<
   "verse-into-minor-chorus": VerseIntoMinorChorusInteraction,
   "naming-minor-sound": NamingMinorSoundInteraction,
   "wrote-second-song": WroteSecondSongInteraction,
+  // Module 15: Reading a Chord Chart
+  "what-a-chart-looks-like": WhatAChartLooksLikeInteraction,
+  "repeated-chords": RepeatedChordsInteraction,
+  "reading-sevenths-suspensions": ReadingSeventhsSuspensionsInteraction,
+  "sight-reading-new-chart": SightReadingNewChartInteraction,
+  "chart-in-new-key": ChartInNewKeyInteraction,
+  "reading-own-song-chart": ReadingOwnSongChartInteraction,
+  "minor-chart": MinorChartInteraction,
+  "read-anything-now": ReadAnythingNowInteraction,
 };
