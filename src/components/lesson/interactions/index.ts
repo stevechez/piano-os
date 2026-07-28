@@ -67,6 +67,14 @@ import { ASimpleEndingInteraction } from "./ASimpleEndingInteraction";
 import { VerseIntoChorusInteraction } from "./VerseIntoChorusInteraction";
 import { NamingYourSoundInteraction } from "./NamingYourSoundInteraction";
 import { YouWroteASongInteraction } from "./YouWroteASongInteraction";
+import { ChordFromNextDoorInteraction } from "./ChordFromNextDoorInteraction";
+import { HearingTheDifferenceInteraction } from "./HearingTheDifferenceInteraction";
+import { ChordFromFurtherAwayInteraction } from "./ChordFromFurtherAwayInteraction";
+import { BuildingBorrowedChordInteraction } from "./BuildingBorrowedChordInteraction";
+import { BorrowingInProgressionInteraction } from "./BorrowingInProgressionInteraction";
+import { ReharmonizingYourEndingInteraction } from "./ReharmonizingYourEndingInteraction";
+import { WhenToBorrowInteraction } from "./WhenToBorrowInteraction";
+import { HearOutsideKeyNowInteraction } from "./HearOutsideKeyNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -151,4 +159,13 @@ export const LESSON_INTERACTIONS: Record<
   "verse-into-chorus": VerseIntoChorusInteraction,
   "naming-your-sound": NamingYourSoundInteraction,
   "you-wrote-a-song": YouWroteASongInteraction,
+  // Module 8: Borrowed Chords
+  "chord-from-next-door": ChordFromNextDoorInteraction,
+  "hearing-the-difference": HearingTheDifferenceInteraction,
+  "chord-from-further-away": ChordFromFurtherAwayInteraction,
+  "building-borrowed-chord": BuildingBorrowedChordInteraction,
+  "borrowing-in-progression": BorrowingInProgressionInteraction,
+  "reharmonizing-your-ending": ReharmonizingYourEndingInteraction,
+  "when-to-borrow": WhenToBorrowInteraction,
+  "hear-outside-key-now": HearOutsideKeyNowInteraction,
 };

@@ -32,6 +32,12 @@ export const CHORDS: Record<string, Chord> = {
   g7: { id: "g7", name: "G7", notes: ["G3", "B3", "D4", "F4"] },
   cSus4: { id: "cSus4", name: "Csus4", notes: ["C4", "F4", "G4"] },
   dMinor: { id: "dMinor", name: "D Minor", notes: ["D4", "F4", "A4"] },
+  // Module 8: borrowed chords from C major's parallel minor. Voiced with
+  // sharps (G#3 for A♭, A#3 for B♭) since note names in this codebase are
+  // sharp-only (see notes.ts) -- the display name still uses the flat
+  // spelling a musician would actually read.
+  fMinor: { id: "fMinor", name: "F Minor", notes: ["F3", "G#3", "C4"] },
+  bFlatMajor: { id: "bFlatMajor", name: "B♭ Major", notes: ["A#3", "D4", "F4"] },
 };
 
 export interface Progression {
@@ -84,6 +90,19 @@ export const PROGRESSIONS: Record<string, Progression> = {
     id: "mySong",
     label: "Your Verse → Your Chorus",
     chordIds: ["cMajor", "aMinor", "fMajor", "gMajor", "fMajor", "gMajor", "cMajor"],
+  },
+  // Module 8: a real progression that borrows a chord from outside the
+  // key, and a capstone that borrows twice, back to back -- deliberately
+  // invented for teaching, not attributed to a specific song.
+  borrowedTurn: {
+    id: "borrowedTurn",
+    label: "C → Fm → G → C",
+    chordIds: ["cMajor", "fMinor", "gMajor", "cMajor"],
+  },
+  borrowedCapstone: {
+    id: "borrowedCapstone",
+    label: "C → Fm → B♭ → C",
+    chordIds: ["cMajor", "fMinor", "bFlatMajor", "cMajor"],
   },
 };
 

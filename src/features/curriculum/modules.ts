@@ -1287,7 +1287,181 @@ export const MODULE_7: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7];
+export const MODULE_8_ID = "module-8";
+
+/**
+ * Module 8: Borrowed Chords. Modal mixture / reharmonization, kept
+ * beginner-appropriate: borrowing a chord from a key's parallel minor (F
+ * Minor and B♭ Major, borrowed into C major) for color, rather than full
+ * jazz reharmonization or modal playing. Built without a Phase handoff,
+ * per docs/46 Decision 010 -- derived from `11-roadmap.md`'s Phase 9
+ * "Advanced Musicianship" ("Advanced harmony," "Modal playing,"
+ * "Reharmonization"), the first curriculum drawn from that phase.
+ *
+ * Deliberately distinct from Module 4's vi-chord substitution (also a
+ * kind of reharmonization, but a diatonic chord) and Module 6's melody
+ * harmonization (which chord under a fixed melody note) -- this module's
+ * chords come from *outside* the key entirely. Reuses ChoiceInteraction,
+ * NoteSequenceInteraction, and PlayProgressionInteraction only -- the
+ * fourth module (after 4, 5, and 7) needing zero new interaction
+ * primitives. Lesson 6 deliberately calls back to the student's own song
+ * from Module 7, reharmonizing its ending rather than introducing an
+ * unrelated example.
+ */
+export const MODULE_8: Module = {
+  id: MODULE_8_ID,
+  index: 8,
+  title: "Borrowed Chords",
+  subtitle: "Color From Outside Your Key",
+  lessons: [
+    {
+      id: "the-chord-from-next-door",
+      index: 1,
+      title: "The Chord From Next Door",
+      steps: [
+        {
+          id: "chord-from-next-door",
+          concept: {
+            heading: "Every key has a neighbor chord that isn't supposed to belong.",
+            body: "F Major belongs to C major's key. Compare it to F Minor, which doesn't — but gets borrowed anyway.",
+          },
+          discovery: {
+            heading: "That's a borrowed chord.",
+            body: "Swapping a major chord for its minor twin pulls in color from a related key — one of the simplest reharmonization tricks there is.",
+          },
+        },
+      ],
+    },
+    {
+      id: "hearing-the-difference",
+      index: 2,
+      title: "Hearing the Difference",
+      steps: [
+        {
+          id: "hearing-the-difference",
+          concept: {
+            heading: "Same journey, different chord in the middle.",
+            body: "C to a middle chord and back to C. Compare the diatonic middle chord to the borrowed one.",
+          },
+          discovery: {
+            heading: "The borrowed version doesn't sound wrong.",
+            body: "It sounds like it means something. That emotional shift is the whole reason to borrow a chord in the first place.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-chord-from-even-further-away",
+      index: 3,
+      title: "The Chord From Even Further Away",
+      steps: [
+        {
+          id: "chord-from-further-away",
+          concept: {
+            heading: "There's another neighbor chord, from even further outside the key.",
+            body: "Compare G Major, which belongs to C major, to B♭ Major, which doesn't.",
+          },
+          discovery: {
+            heading: "B♭ Major isn't in C major's key at all.",
+            body: "It's borrowed from C's parallel minor. It gives an ending real weight without ever using a chord that sounds 'wrong.'",
+          },
+        },
+      ],
+    },
+    {
+      id: "building-a-borrowed-chord",
+      index: 4,
+      title: "Building a Borrowed Chord",
+      steps: [
+        {
+          id: "building-borrowed-chord",
+          concept: {
+            heading: "Where does F Minor actually come from?",
+            body: "Build it yourself: root, then minor third, then fifth.",
+          },
+          discovery: {
+            heading: "Same formula as every minor chord you've built.",
+            body: "It's not a special chord. It's a familiar shape, borrowed from a different key.",
+          },
+        },
+      ],
+    },
+    {
+      id: "borrowing-in-a-real-progression",
+      index: 5,
+      title: "Borrowing in a Real Progression",
+      steps: [
+        {
+          id: "borrowing-in-progression",
+          concept: {
+            heading: "Play a full progression that borrows, for real.",
+            body: "C, F Minor, G, back to C. Play each chord yourself, in order.",
+          },
+          discovery: {
+            heading: "The borrowed chord didn't derail it.",
+            body: "It gave the progression a moment of shadow before the light came back. That's a real reharmonized progression, and you just played it.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reharmonizing-your-songs-ending",
+      index: 6,
+      title: "Reharmonizing Your Song's Ending",
+      steps: [
+        {
+          id: "reharmonizing-your-ending",
+          concept: {
+            heading: "Remember the song you wrote in Module 7?",
+            body: "Its ending has another option. Compare your original ending to a borrowed one.",
+          },
+          discovery: {
+            heading: "Same song, same final chord — a different road there.",
+            body: "Reharmonizing isn't rewriting your song. It's discovering it had more than one voice all along.",
+          },
+        },
+      ],
+    },
+    {
+      id: "when-to-borrow",
+      index: 7,
+      title: "When to Borrow",
+      steps: [
+        {
+          id: "when-to-borrow",
+          concept: {
+            heading: "Compare a plain progression to the same one with one chord borrowed.",
+            body: "All diatonic, then the same loop with a single borrowed chord swapped in.",
+          },
+          discovery: {
+            heading: "One borrowed chord stands out.",
+            body: "If every chord were borrowed, none of them would. Restraint is what makes the technique work.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-hear-outside-the-key-now",
+      index: 8,
+      title: "You Can Hear Outside the Key Now",
+      steps: [
+        {
+          id: "hear-outside-key-now",
+          concept: {
+            heading: "Play it yourself, start to finish.",
+            body: "C, F Minor, B♭, back to C. Every chord borrowed on purpose.",
+          },
+          discovery: {
+            heading: "You are no longer limited to the seven chords inside a key.",
+            body: "You can reach outside it, on purpose, whenever a moment calls for it. That's not a beginner's boundary anymore.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

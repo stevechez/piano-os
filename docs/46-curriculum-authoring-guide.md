@@ -261,9 +261,22 @@ Built immediately following Module 5, continuing the same "proceed without a che
 
 Built immediately following Module 6, on the same "proceed without a checkpoint" instruction — see Decision 009 below. No Phase handoff document existed for this one either; the theme (songwriting basics) comes from `11-roadmap.md`'s Phase 8 "Musical Creativity," the last piece of that phase not yet covered by Modules 3 and 6. A capstone: the student assembles their own verse-into-chorus song from chords they already know, adds an improvised melody, and chooses an ending and an arrangement style — every choice is theirs, culminating in a real play-through of the whole piece. Requires three new progressions in `src/lib/music/chords.ts` (`myVerse`, `myChorus`, `mySong`), deliberately with no `songReference` since the point is that this one belongs to the student. Zero new interaction primitives — the third module (after 4 and 5) needing none, reusing `ChoiceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` only. Onboarding, pricing, and the paywall remain untouched.
 
+**Module 8: Borrowed Chords** (paid — `src/features/curriculum/modules.ts`):
+
+1. The Chord From Next Door (1 step)
+2. Hearing the Difference (1 step)
+3. The Chord From Even Further Away (1 step)
+4. Building a Borrowed Chord (1 step)
+5. Borrowing in a Real Progression (1 step)
+6. Reharmonizing Your Song's Ending (1 step)
+7. When to Borrow (1 step)
+8. You Can Hear Outside the Key Now (1 step)
+
+Built immediately following Module 7, on the same "proceed without a checkpoint" instruction — see Decision 010 below. No Phase handoff document existed for this one either; the theme (modal mixture / reharmonization, kept beginner-appropriate) comes from `11-roadmap.md`'s Phase 9 "Advanced Musicianship" — the first curriculum drawn from that phase, rather than Phase 8. Introduces `fMinor` and `bFlatMajor` chords borrowed from C major's parallel minor, plus `borrowedTurn` and `borrowedCapstone` progressions in `src/lib/music/chords.ts`. Lesson 6 deliberately reharmonizes the ending of the student's own song from Module 7 rather than an unrelated example. Zero new interaction primitives — the fourth module (after 4, 5, and 7) needing none, reusing `ChoiceInteraction`, `NoteSequenceInteraction`, and `PlayProgressionInteraction` only. Onboarding, pricing, and the paywall remain untouched.
+
 ## PLANNED (not built — do not treat as existing)
 
-Module 8 and beyond are not yet named or scoped.
+Module 9 and beyond are not yet named or scoped.
 
 ---
 
@@ -291,19 +304,21 @@ Status, updated as each item clears:
 
 ⚠ Module 7 was built via a seventh explicit override (Decision 009) — the risk was raised directly again before starting, consistent with Decision 008's note, and the product owner again chose to proceed. Same exclusions apply.
 
+⚠ Module 8 was built via an eighth explicit override (Decision 010) — the risk was raised directly again before starting, consistent with the standing expectation, and the product owner again chose to proceed. Same exclusions apply.
+
 > ## STOP.
 >
-> **Do not start Module 8, and do not treat Modules 1–7 as validated content, until:**
+> **Do not start Module 9, and do not treat Modules 1–8 as validated content, until:**
 >
 > ✓ A **real** external user test is completed (`45-first-user-test-script.md` — the simulation in `47` does not satisfy this)
 >
-> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
+> ✓ Its feedback is reviewed — specifically watching whether Lessons 5–8's theory density (scales, chord formulas) lands for a genuine beginner, whether Module 2's reinterpreted mechanics (rhythm tapping, A/B dynamics, landmark recall without hints) actually teach what they intend to, whether Module 3's premise (creative choice, no wrong answer) makes sense to someone who's still building basic confidence, whether Module 4's harmonic content (7ths, suspensions, diatonic theory) is introduced too early relative to how much a beginner has actually absorbed, whether Module 5's accompaniment concepts (broken chords, alternating bass, harmonizing a melody) make sense once a beginner has only ever played chords in isolation, whether Module 6's open-ended improvisation (no "correct" note or idea) feels liberating or disorienting to someone who has only ever had a single right answer up to this point, whether Module 7's songwriting capstone actually feels like an achievement or like busywork stitched from prior lessons, whether Module 8's borrowed-chord content (modal mixture) is simply too advanced for a persona defined as "adult beginners," and whether any module overshoots the persona the same way the founder's own "elementary" reaction may have undershot Lessons 1–4
 >
 > ✓ Per the Phase 11 handoff: if testing surfaces philosophy-level changes, apply them starting with the most recent module, and backport into earlier modules where appropriate
 >
-> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Seven modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted twice in a row (Modules 6 and 7); asking again before Module 8 remains the standing expectation, not a one-time courtesy.
+> **The next milestone is still validation.** Building curriculum answered "can PianoOS teach this content at all" — it did not answer "does this land for a real beginner," which remains open for everything built under an override. Eight modules deep with no real user feedback is a real risk, not just a formality — this gate should be treated as increasingly urgent, not increasingly routine. This risk has now been surfaced and knowingly accepted three times in a row (Modules 6, 7, and 8); asking again before Module 9 remains the standing expectation, not a one-time courtesy. Module 8 in particular draws from Phase 9 "Advanced Musicianship" for the first time — content genuinely further from "adult beginner" than anything built so far — which makes real testing more urgent here, not less.
 
-If you are reading this document and considering starting Module 8, check the boxes above first.
+If you are reading this document and considering starting Module 9, check the boxes above first.
 
 ---
 
@@ -395,5 +410,15 @@ Module 6 introduces `FreePlayInteraction`, the first genuinely new interaction p
 **Reason:** This is the seventh consecutive override. Two overrides in a row have now been made with the risk explicitly named and knowingly accepted rather than silently continued — that's a meaningfully different posture than Decisions 003–007, even though the underlying risk (unvalidated content compounding) is unchanged. The validation gate's requirement stands exactly as it did at Decision 003.
 
 Module 7 is a deliberate capstone rather than new theoretical territory: it asks the student to assemble their own verse-into-chorus song from chords, an accompaniment style, and an improvised melody they already have from Modules 1, 5, and 6, then choose their own ending and arrangement. It required zero new interaction primitives — the third module (after 4 and 5) to need none, reusing `ChoiceInteraction`, `PlayProgressionInteraction`, and `FreePlayInteraction` exclusively. It did require three new progressions in `chords.ts` (`myVerse`, `myChorus`, `mySong`), deliberately without a `songReference`, since the point of this module is that the song belongs to the student rather than citing an existing one.
+
+**Date:** July 2026
+
+## Decision 010
+
+**Decision:** Module 8 ("Borrowed Chords") was built immediately following Module 7. No Phase handoff document existed for it — the theme (modal mixture / reharmonization, kept beginner-appropriate) was derived from `11-roadmap.md`'s Phase 9 "Advanced Musicianship," the first curriculum drawn from that phase rather than Phase 8. Consistent with the standing expectation from Decision 008, the risk was surfaced directly to the product owner a third time before starting, and the product owner again chose to proceed.
+
+**Reason:** This is the eighth consecutive override. Three overrides in a row have now been made with the risk explicitly named and knowingly accepted — the pattern from Decisions 008 and 009 continues rather than lapsing back into silent continuation. The validation gate's requirement stands exactly as it did at Decision 003. One thing is genuinely new here, though, and is called out directly in the updated Validation Gate note: Module 8 is the first module to draw from Phase 9 "Advanced Musicianship" rather than Phases 2–4 or 8, meaning its content sits further from the "adult beginner" persona than anything built so far. That raises the cost of staying unvalidated, and the gate note reflects that explicitly rather than treating this override as routine.
+
+Module 8 borrows F Minor and B♭ Major — chords from C major's parallel minor — as a controlled, limited introduction to reharmonization, deliberately distinct from Module 4's vi-chord substitution (a diatonic chord) and Module 6's melody harmonization (choosing between two diatonic chords under a fixed note). Lesson 6 reharmonizes the ending of the student's own song from Module 7 rather than an unrelated example, continuing the callback pattern Module 7 itself established. It required zero new interaction primitives — the fourth module (after 4, 5, and 7) to need none, reusing `ChoiceInteraction`, `NoteSequenceInteraction`, and `PlayProgressionInteraction` exclusively.
 
 **Date:** July 2026
