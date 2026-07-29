@@ -4,10 +4,7 @@ import { redirect } from "next/navigation";
 import { stripe } from "./server";
 import { getStripePriceId, type PlanId } from "./pricing";
 import { createClient } from "@/lib/supabase/server";
-
-function appUrl(): string {
-  return process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
-}
+import { getAppUrl } from "@/lib/utils";
 
 /**
  * Starts a Stripe Checkout session for a subscription. No account is
@@ -21,8 +18,8 @@ export async function createCheckoutSession(planId: PlanId): Promise<void> {
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",
     line_items: [{ price: priceId, quantity: 1 }],
-    success_url: `${appUrl()}/checkout/confirm?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${appUrl()}/learn/complete`,
+    success_url: `${getAppUrl()}/checkout/confirm?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${getAppUrl()}/learn/complete`,
   });
 
   if (!session.url) {
@@ -58,7 +55,7 @@ export async function createPortalSession(): Promise<void> {
 
   const portalSession = await stripe.billingPortal.sessions.create({
     customer: profile.stripe_customer_id,
-    return_url: `${appUrl()}/account`,
+    return_url: `${getAppUrl()}/account`,
   });
 
   redirect(portalSession.url);

@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { getAppUrl } from "@/lib/utils";
 
 export interface AuthActionState {
   error?: string;
@@ -31,12 +32,11 @@ export async function sendMagicLink(
     return { error: "Enter your email." };
   }
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
   const supabase = await createClient();
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
-      emailRedirectTo: `${appUrl}/auth/confirm?next=${encodeURIComponent(redirectTo)}`,
+      emailRedirectTo: `${getAppUrl()}/auth/confirm?next=${encodeURIComponent(redirectTo)}`,
     },
   });
 
