@@ -3892,7 +3892,178 @@ export const MODULE_22: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22];
+export const MODULE_23_ID = "module-23";
+
+/**
+ * Module 23: The Missing Seventh Chord. Module 4's "Where Chords Come
+ * From" built chords on five of C major's seven scale degrees (I, ii,
+ * IV, V, vi); this module builds one of the two still missing -- vii°,
+ * the diminished triad on B (B-D-F). Built without a Phase handoff,
+ * per docs/46 Decision 025.
+ *
+ * Needs one new chord (`bDiminished`) and two new progressions
+ * (`leadingToneCadence`, `viiForFive`, plus a capstone `sevenChordClose`
+ * reusing chords already in the file) -- the diminished quality itself
+ * is genuinely new, so a new chord was unavoidable, but every
+ * interaction reuses existing primitives: `NoteSequenceInteraction`,
+ * `ChoiceInteraction`, `PlayProgressionInteraction`, `EarTrainingInteraction`,
+ * and `ChordChartInteraction` -- the fifteenth module needing zero new
+ * interaction primitives.
+ */
+export const MODULE_23: Module = {
+  id: MODULE_23_ID,
+  index: 23,
+  title: "The Missing Seventh Chord",
+  subtitle: "The Diminished Triad",
+  lessons: [
+    {
+      id: "the-seventh-chord-you-havent-built",
+      index: 1,
+      title: "The Seventh Chord You Haven't Built",
+      steps: [
+        {
+          id: "building-b-diminished",
+          concept: {
+            heading: "Module 4 built chords on five of C major's seven scale degrees.",
+            body: "One of the two still missing starts on B. Build it yourself — root to fifth, same as always.",
+          },
+          discovery: {
+            heading: "That's B Diminished.",
+            body: "The seventh diatonic chord in C major, and it doesn't sound like the others.",
+          },
+        },
+      ],
+    },
+    {
+      id: "why-it-sounds-unstable",
+      index: 2,
+      title: "Why It Sounds Unstable",
+      steps: [
+        {
+          id: "major-minor-diminished",
+          concept: {
+            heading: "Major, minor, and now diminished.",
+            body: "All three are stacked thirds. Listen for what's different about this one.",
+          },
+          discovery: {
+            heading: "No perfect fifth means nothing to rest on.",
+            body: "Diminished stacks two minor thirds in a row — it always wants to move somewhere else.",
+          },
+        },
+      ],
+    },
+    {
+      id: "hiding-inside-g7",
+      index: 3,
+      title: "Hiding Inside G7",
+      steps: [
+        {
+          id: "hiding-inside-g7",
+          concept: {
+            heading: "Play G7, then play just B Diminished.",
+            body: "Listen for what they share.",
+          },
+          discovery: {
+            heading: "B Diminished is G7 without its root.",
+            body: "The same pull toward home, one chord away.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-diminished-cadence",
+      index: 4,
+      title: "The Diminished Cadence",
+      steps: [
+        {
+          id: "leading-tone-cadence",
+          concept: {
+            heading: "B Diminished resolves too.",
+            body: "Play it straight into C Major.",
+          },
+          discovery: {
+            heading: "Nearly every note moves by a single step.",
+            body: "That's why the pull feels so strong — it's the shortest possible path home.",
+          },
+        },
+      ],
+    },
+    {
+      id: "diminished-or-not",
+      index: 5,
+      title: "Diminished or Not",
+      steps: [
+        {
+          id: "diminished-or-not",
+          concept: {
+            heading: "Major, minor, or diminished — by ear.",
+            body: "Listen for the instability.",
+          },
+          discovery: {
+            heading: "You can hear it now, not just see it.",
+            body: "Diminished has a sound of its own.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-substitute-for-v",
+      index: 6,
+      title: "A Substitute for V",
+      steps: [
+        {
+          id: "vii-for-five",
+          concept: {
+            heading: "Dm leads to G7 leads to C — the ii-V-I from Module 4.",
+            body: "This time, let vii° stand in for V entirely.",
+          },
+          discovery: {
+            heading: "Same resolution, one fewer chord to reach for.",
+            body: "vii° and V7 share three of their four notes — either one gets you home.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-a-diminished-chord",
+      index: 7,
+      title: "Reading a Diminished Chord",
+      steps: [
+        {
+          id: "reading-a-diminished-chord",
+          concept: {
+            heading: "Read a chart with a diminished chord in it.",
+            body: "Dm, B°, C.",
+          },
+          discovery: {
+            heading: "The chart reads it exactly like anything else.",
+            body: "One more shape in your vocabulary, nothing more.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-know-all-seven-chords-now",
+      index: 8,
+      title: "You Know All Seven Chords Now",
+      steps: [
+        {
+          id: "you-know-all-seven-chords",
+          concept: {
+            heading: "C, Am, B°, back to C.",
+            body: "Play the whole family, one after another.",
+          },
+          discovery: {
+            heading: "You've built almost every chord that lives inside C major now.",
+            body: "I, ii, IV, V, vi, and vii° — one connected family, not a pile of separate facts.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22, MODULE_23];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

@@ -56,6 +56,12 @@ export const CHORDS: Record<string, Chord> = {
   // Module 22: D major's relative minor -- a third circle-of-fifths
   // major/minor pairing, alongside C/Am and G/Em.
   bMinor: { id: "bMinor", name: "B Minor", notes: ["B3", "D4", "F#4"] },
+  // Module 23: the seventh diatonic chord in C major, built from Module
+  // 4's own "where chords come from" scale-degree pattern (B is the one
+  // scale degree that never got its own chord). Two stacked minor
+  // thirds, no perfect fifth -- the only diatonic triad quality distinct
+  // from major and minor.
+  bDiminished: { id: "bDiminished", name: "B Diminished", notes: ["B3", "D4", "F4"] },
 };
 
 export interface Progression {
@@ -231,6 +237,28 @@ export const PROGRESSIONS: Record<string, Progression> = {
     id: "twelveBarBlues",
     label: "The 12-Bar Blues",
     chordIds: ["c7", "f7", "c7", "c7", "f7", "f7", "c7", "c7", "g7", "f7", "c7", "g7"],
+  },
+  // Module 23: vii°-I, the diminished chord's own cadence -- a resolution
+  // built almost entirely from stepwise motion into the tonic.
+  leadingToneCadence: {
+    id: "leadingToneCadence",
+    label: "B° → C",
+    chordIds: ["bDiminished", "cMajor"],
+  },
+  // ii-vii°-I: the same ii-V-I resolution from Module 4, with vii°
+  // standing in for V7 entirely (they share three of four notes).
+  viiForFive: {
+    id: "viiForFive",
+    label: "Dm → B° → C",
+    chordIds: ["dMinor", "bDiminished", "cMajor"],
+  },
+  // Capstone: I-vi-vii°-I, closing the loop on C major's full seven-chord
+  // diatonic family (Module 4 built I, ii, IV, V7, vi; Module 23 adds
+  // the missing vii°).
+  sevenChordClose: {
+    id: "sevenChordClose",
+    label: "C → Am → B° → C",
+    chordIds: ["cMajor", "aMinor", "bDiminished", "cMajor"],
   },
 };
 

@@ -187,6 +187,14 @@ import { WalkingInnerRingInteraction } from "./WalkingInnerRingInteraction";
 import { MajorHomeOrMinorHomeInteraction } from "./MajorHomeOrMinorHomeInteraction";
 import { ReadingInnerRingInteraction } from "./ReadingInnerRingInteraction";
 import { KnowWholeCircleNowInteraction } from "./KnowWholeCircleNowInteraction";
+import { BuildingBDiminishedInteraction } from "./BuildingBDiminishedInteraction";
+import { MajorMinorDiminishedInteraction } from "./MajorMinorDiminishedInteraction";
+import { HidingInsideG7Interaction } from "./HidingInsideG7Interaction";
+import { LeadingToneCadenceInteraction } from "./LeadingToneCadenceInteraction";
+import { DiminishedOrNotInteraction } from "./DiminishedOrNotInteraction";
+import { ViiForFiveInteraction } from "./ViiForFiveInteraction";
+import { ReadingADiminishedChordInteraction } from "./ReadingADiminishedChordInteraction";
+import { YouKnowAllSevenChordsInteraction } from "./YouKnowAllSevenChordsInteraction";
 
 export type { LessonInteractionProps };
 
@@ -406,4 +414,13 @@ export const LESSON_INTERACTIONS: Record<
   "major-home-or-minor-home": MajorHomeOrMinorHomeInteraction,
   "reading-inner-ring": ReadingInnerRingInteraction,
   "know-whole-circle-now": KnowWholeCircleNowInteraction,
+  // Module 23: The Missing Seventh Chord
+  "building-b-diminished": BuildingBDiminishedInteraction,
+  "major-minor-diminished": MajorMinorDiminishedInteraction,
+  "hiding-inside-g7": HidingInsideG7Interaction,
+  "leading-tone-cadence": LeadingToneCadenceInteraction,
+  "diminished-or-not": DiminishedOrNotInteraction,
+  "vii-for-five": ViiForFiveInteraction,
+  "reading-a-diminished-chord": ReadingADiminishedChordInteraction,
+  "you-know-all-seven-chords": YouKnowAllSevenChordsInteraction,
 };
