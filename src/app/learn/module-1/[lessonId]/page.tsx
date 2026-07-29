@@ -42,7 +42,7 @@ export default async function Module1LessonPage({
       lesson={lesson}
       moduleId={MODULE_1_ID}
       basePath="/learn/module-1"
-      totalLessons={MODULE_1.lessons.length}
+      lessons={MODULE_1.lessons}
       nextLessonId={next?.id}
       finalHref="/learn/module-1"
       finalLabel="Back to Module 1"

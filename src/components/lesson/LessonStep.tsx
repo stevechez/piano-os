@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { Check, Sparkles } from "lucide-react";
 import type { Lesson, LessonStepConfig } from "@/features/curriculum/types";
 import { cn } from "@/lib/utils";
@@ -8,7 +9,10 @@ import { cn } from "@/lib/utils";
 export interface LessonStepProps {
   lesson: Lesson;
   step: LessonStepConfig;
-  totalLessons: number;
+  /** Every lesson in this module/onboarding sequence, in order — each renders as a clickable jump-to-lesson segment. */
+  lessons: Lesson[];
+  /** Route prefix this lesson's siblings live under, e.g. "/learn/lessons" or "/learn/module-1". */
+  basePath: string;
   /** 1-based position of this step within the lesson. */
   stepNumber: number;
   totalStepsInLesson: number;
@@ -43,7 +47,8 @@ const MOMENT_EYEBROW: Record<LessonStepProps["moment"], string | null> = {
 export function LessonStep({
   lesson,
   step,
-  totalLessons,
+  lessons,
+  basePath,
   stepNumber,
   totalStepsInLesson,
   completed,
@@ -54,17 +59,20 @@ export function LessonStep({
 }: LessonStepProps) {
   const eyebrow = MOMENT_EYEBROW[moment];
   const MomentIcon = moment === "final" ? Sparkles : Check;
+  const totalLessons = lessons.length;
 
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-14 sm:px-6 md:py-20">
-      {/* Progress */}
+      {/* Progress — each segment jumps straight to that lesson. */}
       <div className="flex items-center gap-2">
-        {Array.from({ length: totalLessons }).map((_, i) => (
-          <span
-            key={i}
+        {lessons.map((l, i) => (
+          <Link
+            key={l.id}
+            href={`${basePath}/${l.id}`}
+            aria-label={`Jump to Lesson ${i + 1}: ${l.title}`}
             className={cn(
-              "h-1 flex-1 rounded-full",
-              i < lesson.index ? "bg-gold" : "bg-border"
+              "h-1 flex-1 rounded-full transition-colors",
+              i < lesson.index ? "bg-gold hover:bg-gold/80" : "bg-border hover:bg-border/60"
             )}
           />
         ))}

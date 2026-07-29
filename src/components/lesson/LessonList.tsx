@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { useLessonProgress } from "@/features/curriculum/progress";
+import { getNextModule } from "@/features/curriculum/modules";
 import type { Lesson } from "@/features/curriculum/types";
 import { cn } from "@/lib/utils";
 
@@ -20,6 +21,7 @@ export function LessonList({ lessons, moduleId, basePath, completionCopy }: Less
   const { isComplete, completedLessonIds } = useLessonProgress(moduleId);
   const allComplete = completedLessonIds.length === lessons.length;
   const nextLesson = lessons.find((lesson) => !isComplete(lesson.id));
+  const nextModule = allComplete ? getNextModule(moduleId) : undefined;
 
   return (
     <div>
@@ -79,6 +81,15 @@ export function LessonList({ lessons, moduleId, basePath, completionCopy }: Less
         <div className="mt-8 rounded-2xl border border-gold/30 bg-gold/[0.06] p-6 text-center">
           <p className="font-serif text-lg text-foreground">{completionCopy.heading}</p>
           <p className="mt-1 text-sm text-muted-foreground">{completionCopy.body}</p>
+
+          {nextModule && (
+            <Link
+              href={`/learn/${nextModule.id}`}
+              className="mt-5 inline-block rounded-full bg-gold px-6 py-3 text-sm font-medium text-gold-foreground transition-transform hover:scale-[1.02]"
+            >
+              Continue to Module {nextModule.index}: {nextModule.title} →
+            </Link>
+          )}
         </div>
       )}
     </div>

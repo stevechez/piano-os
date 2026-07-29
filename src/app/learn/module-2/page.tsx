@@ -30,7 +30,7 @@ export default async function Module2Page() {
           basePath="/learn/module-2"
           completionCopy={{
             heading: "You've completed Module 2.",
-            body: "You can sit down at almost any piano and make real music. Module 3 is on the way.",
+            body: "You can sit down at almost any piano and make real music.",
           }}
         />
       </div>

@@ -14,7 +14,8 @@ export interface LessonPlayerProps {
   moduleId: string;
   /** Route prefix this lesson's siblings live under, e.g. "/learn/lessons" or "/learn/module-1". */
   basePath: string;
-  totalLessons: number;
+  /** Every lesson in this module/onboarding sequence, in order — powers the jump-to-lesson progress bar. */
+  lessons: Lesson[];
   /** Undefined when this is the last lesson in the module. */
   nextLessonId?: string;
   /** Where Continue goes after this lesson's last step, if it's the module's last lesson. */
@@ -32,7 +33,7 @@ export function LessonPlayer({
   lesson,
   moduleId,
   basePath,
-  totalLessons,
+  lessons,
   nextLessonId,
   finalHref,
   finalLabel,
@@ -89,7 +90,8 @@ export function LessonPlayer({
     <LessonStep
       lesson={lesson}
       step={step}
-      totalLessons={totalLessons}
+      lessons={lessons}
+      basePath={basePath}
       stepNumber={stepIndex + 1}
       totalStepsInLesson={lesson.steps.length}
       completed={completed}

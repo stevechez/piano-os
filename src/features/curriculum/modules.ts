@@ -4770,6 +4770,18 @@ export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);
 }
 
+/**
+ * The module that follows this one in the curriculum, if any — powers the
+ * "Continue to Module N" link a module's overview page shows once every
+ * lesson in it is complete. Undefined for the last built module (or an
+ * unrecognized moduleId, e.g. onboarding).
+ */
+export function getNextModule(moduleId: string): Module | undefined {
+  const module = getModule(moduleId);
+  if (!module) return undefined;
+  return MODULES.find((m) => m.index === module.index + 1);
+}
+
 export function getModuleLesson(moduleId: string, lessonId: string) {
   return getModule(moduleId)?.lessons.find((lesson) => lesson.id === lessonId);
 }

@@ -29,8 +29,8 @@ export default async function Module1Page() {
           moduleId={MODULE_1_ID}
           basePath="/learn/module-1"
           completionCopy={{
-            heading: "You've completed everything in Module 1 so far.",
-            body: "The rest of Piano Foundations is on the way — check back soon for the next lesson.",
+            heading: "You've completed Module 1.",
+            body: "Keyboard patterns, intervals, the major scale, your first chords — the foundation everything else builds on.",
           }}
         />
       </div>
