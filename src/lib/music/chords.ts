@@ -309,6 +309,26 @@ export const PROGRESSIONS: Record<string, Progression> = {
     label: "Your Song → Key Change Into G",
     chordIds: ["cMajor", "aMinor", "fMajor", "gMajor", "fMajor", "gMajor", "cMajor", "dMajor", "gMajor"],
   },
+  // Module 28: V/V, the secondary dominant -- D Major (not the diatonic ii,
+  // D Minor) borrowed to point more sharply at G. Needs zero new chords:
+  // dMajor already exists (Module 12), as does g7 (Module 4).
+  secondaryDominantCadence: {
+    id: "secondaryDominantCadence",
+    label: "D → G7 → C",
+    chordIds: ["dMajor", "g7", "cMajor"],
+  },
+  // Module 7's chorus (F-G-C), sharpened with V/V in place of the plain V.
+  myChorusSharpened: {
+    id: "myChorusSharpened",
+    label: "F → D → G7 → C",
+    chordIds: ["fMajor", "dMajor", "g7", "cMajor"],
+  },
+  // Capstone: Module 7's verse, into the sharpened chorus above.
+  mySongSharpened: {
+    id: "mySongSharpened",
+    label: "Your Verse → Your Sharpened Chorus",
+    chordIds: ["cMajor", "aMinor", "fMajor", "gMajor", "fMajor", "dMajor", "g7", "cMajor"],
+  },
 };
 
 export function getChord(chordId: string): Chord {

@@ -219,6 +219,14 @@ import { ComparingKeyChangeEndingsInteraction } from "./ComparingKeyChangeEnding
 import { ReadingAKeyChangeInteraction } from "./ReadingAKeyChangeInteraction";
 import { MelodyAcrossTheChangeInteraction } from "./MelodyAcrossTheChangeInteraction";
 import { YouCanChangeKeysNowInteraction } from "./YouCanChangeKeysNowInteraction";
+import { BuildingVOfVInteraction } from "./BuildingVOfVInteraction";
+import { TwoRoadsToGInteraction } from "./TwoRoadsToGInteraction";
+import { SecondaryDominantCadenceInteraction } from "./SecondaryDominantCadenceInteraction";
+import { SharperThanTwoFiveOneInteraction } from "./SharperThanTwoFiveOneInteraction";
+import { HearingTheSecondaryDominantInteraction } from "./HearingTheSecondaryDominantInteraction";
+import { ReadingASecondaryDominantInteraction } from "./ReadingASecondaryDominantInteraction";
+import { ASharperEndingForYourSongInteraction } from "./ASharperEndingForYourSongInteraction";
+import { YouCanSharpenAnyCadenceNowInteraction } from "./YouCanSharpenAnyCadenceNowInteraction";
 import { SixThatFeelsLikeTwoInteraction } from "./SixThatFeelsLikeTwoInteraction";
 import { ARollingBassPatternInteraction } from "./ARollingBassPatternInteraction";
 import { OwnSongRolledInSixInteraction } from "./OwnSongRolledInSixInteraction";
@@ -491,4 +499,13 @@ export const LESSON_INTERACTIONS: Record<
   "rolling-through-minor-key": RollingThroughMinorKeyInteraction,
   "building-a-longer-roll": BuildingALongerRollInteraction,
   "you-can-roll-in-six-now": YouCanRollInSixNowInteraction,
+  // Module 28: The Secondary Dominant
+  "building-v-of-v": BuildingVOfVInteraction,
+  "two-roads-to-g": TwoRoadsToGInteraction,
+  "secondary-dominant-cadence": SecondaryDominantCadenceInteraction,
+  "sharper-than-two-five-one": SharperThanTwoFiveOneInteraction,
+  "hearing-the-secondary-dominant": HearingTheSecondaryDominantInteraction,
+  "reading-a-secondary-dominant": ReadingASecondaryDominantInteraction,
+  "a-sharper-ending-for-your-song": ASharperEndingForYourSongInteraction,
+  "you-can-sharpen-any-cadence-now": YouCanSharpenAnyCadenceNowInteraction,
 };

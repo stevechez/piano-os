@@ -4764,7 +4764,181 @@ export const MODULE_27: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22, MODULE_23, MODULE_24, MODULE_25, MODULE_26, MODULE_27];
+export const MODULE_28_ID = "module-28";
+
+/**
+ * Module 28: The Secondary Dominant. A genuinely new harmonic concept:
+ * V/V ("five of five") -- borrowing D Major, the V chord's own V,
+ * in place of the diatonic ii (D Minor), to create a sharper pull into
+ * G than the plain ii-V-I offers. Distinct from Module 8's borrowed
+ * chords (parallel-minor mixture) and Module 26's full modulation --
+ * this is a momentary, in-key borrow that resolves right back home.
+ * Built without a Phase handoff, per docs/46 Decision 030.
+ *
+ * Needs zero new chords -- dMajor (Module 12) and g7 (Module 4) both
+ * already exist in `chords.ts` -- and three new progressions
+ * (`secondaryDominantCadence`, `myChorusSharpened`, capstone
+ * `mySongSharpened`), the latter two applying V/V directly to Module
+ * 7's own song. Reuses `NoteSequenceInteraction`, `ChoiceInteraction`,
+ * `PlayProgressionInteraction`, `EarTrainingInteraction`, and
+ * `ChordChartInteraction` exclusively -- the twentieth module (after 4,
+ * 5, 7, 8, 9, 10, 12, 13, 14, 16, 18, 20, 21, 22, 23, 24, 25, 26, and
+ * 27) needing zero new interaction primitives.
+ */
+export const MODULE_28: Module = {
+  id: MODULE_28_ID,
+  index: 28,
+  title: "The Secondary Dominant",
+  subtitle: "Borrowing a V to Point at Any Chord",
+  lessons: [
+    {
+      id: "building-v-of-v",
+      index: 1,
+      title: "The V of the V",
+      steps: [
+        {
+          id: "building-v-of-v",
+          concept: {
+            heading: "Every chord in your key can have its own V pointing at it.",
+            body: "Even your V chord itself. Build the chord starting on D — but major this time.",
+          },
+          discovery: {
+            heading: "That's V/V.",
+            body: "The V chord's own V. Same borrowing instinct as Module 8, aimed at a new target.",
+          },
+        },
+      ],
+    },
+    {
+      id: "two-roads-to-g",
+      index: 2,
+      title: "Two Roads to G",
+      steps: [
+        {
+          id: "two-roads-to-g",
+          concept: {
+            heading: "Compare the diatonic ii chord to its secondary-dominant substitute.",
+            body: "D Minor into G, then D Major into G.",
+          },
+          discovery: {
+            heading: "D Major's F# is G's own leading tone.",
+            body: "It pulls into G far more insistently than D Minor's F ever could.",
+          },
+        },
+      ],
+    },
+    {
+      id: "the-secondary-dominant-cadence",
+      index: 3,
+      title: "The Secondary Dominant Cadence",
+      steps: [
+        {
+          id: "secondary-dominant-cadence",
+          concept: {
+            heading: "Play the borrowed chord straight into its resolution.",
+            body: "D, then G7, then C.",
+          },
+          discovery: {
+            heading: "One borrowed chord, and the whole cadence feels sharper.",
+            body: "Same destination as ever — a more urgent way of getting there.",
+          },
+        },
+      ],
+    },
+    {
+      id: "sharper-than-ii-v-i",
+      index: 4,
+      title: "Sharper Than ii-V-I",
+      steps: [
+        {
+          id: "sharper-than-two-five-one",
+          concept: {
+            heading: "Same destination, two different approaches.",
+            body: "Compare Module 4's plain ii-V-I to its secondary-dominant version.",
+          },
+          discovery: {
+            heading: "The chords barely differ — the pull is completely different.",
+            body: "One note swapped, and the same progression gets noticeably more urgent.",
+          },
+        },
+      ],
+    },
+    {
+      id: "hearing-the-secondary-dominant",
+      index: 5,
+      title: "Hearing the Secondary Dominant",
+      steps: [
+        {
+          id: "hearing-the-secondary-dominant",
+          concept: {
+            heading: "Diatonic ii, or borrowed V/V?",
+            body: "Listen for the sharpened third.",
+          },
+          discovery: {
+            heading: "You can hear the borrow now.",
+            body: "A single raised note, and your ear catches it every time.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-a-secondary-dominant",
+      index: 6,
+      title: "Reading a Secondary Dominant",
+      steps: [
+        {
+          id: "reading-a-secondary-dominant",
+          concept: {
+            heading: "Read a chart with a secondary dominant in it.",
+            body: "F, D, G7, C.",
+          },
+          discovery: {
+            heading: "The chart reads it exactly like any other chord.",
+            body: "Nothing marks it as borrowed — you already know to listen for the pull.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-sharper-ending-for-your-song",
+      index: 7,
+      title: "A Sharper Ending for Your Song",
+      steps: [
+        {
+          id: "a-sharper-ending-for-your-song",
+          concept: {
+            heading: "Take your Module 7 chorus.",
+            body: "F, G, C becomes F, D, G7, C.",
+          },
+          discovery: {
+            heading: "One borrowed chord, and your own chorus gets a stronger pull home.",
+            body: "The same technique, now inside music that's genuinely yours.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-sharpen-any-cadence-now",
+      index: 8,
+      title: "You Can Sharpen Any Cadence Now",
+      steps: [
+        {
+          id: "you-can-sharpen-any-cadence-now",
+          concept: {
+            heading: "Your verse, into your sharpened chorus.",
+            body: "Play it start to finish.",
+          },
+          discovery: {
+            heading: "You can sharpen any cadence now.",
+            body: "Any chord in any key can borrow its own V — this was just the first one.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22, MODULE_23, MODULE_24, MODULE_25, MODULE_26, MODULE_27, MODULE_28];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);
