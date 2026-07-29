@@ -37,9 +37,13 @@ export default async function CheckoutConfirmPage({
   // A stale, reused, or tampered-with session_id makes Stripe throw rather
   // than return null — send the customer back to try again instead of
   // crashing on what should be a graceful "this link didn't work" case.
+  // Expanding `subscription` here removes any ambiguity about whether it's
+  // populated on retrieve vs. only on the original create/webhook payload.
   let session;
   try {
-    session = await stripe.checkout.sessions.retrieve(sessionId);
+    session = await stripe.checkout.sessions.retrieve(sessionId, {
+      expand: ["subscription"],
+    });
   } catch {
     redirect("/learn/complete");
   }
@@ -61,6 +65,13 @@ export default async function CheckoutConfirmPage({
         : session.subscription.id;
     const subscription = await stripe.subscriptions.retrieve(subscriptionId);
     await upsertSubscriptionFromStripe(subscription);
+  } else {
+    // Should not happen for a completed subscription-mode checkout —
+    // surfaced loudly rather than silently leaving the account with no
+    // recorded plan (the webhook, if configured, is the fallback path).
+    console.error(
+      `checkout/confirm: session ${sessionId} (mode=${session.mode}) has no subscription attached`
+    );
   }
 
   const admin = createAdminClient();

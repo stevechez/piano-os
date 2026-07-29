@@ -66,12 +66,18 @@ export async function ensureAccountForCustomer(params: {
 
   // Upsert rather than update: the handle_new_user trigger should have
   // already created the profiles row, but don't depend on that timing.
-  await admin
+  const { error: profileError } = await admin
     .from("profiles")
     .upsert(
       { user_id: userId, email, stripe_customer_id: stripeCustomerId },
       { onConflict: "user_id" }
     );
+
+  if (profileError) {
+    throw new Error(
+      `Failed to upsert profile for ${userId}: ${profileError.message}`
+    );
+  }
 
   return { userId };
 }
@@ -138,7 +144,7 @@ export async function upsertSubscriptionFromStripe(
     (subscription as unknown as { current_period_end?: number })
       .current_period_end ?? subscription.items.data[0]?.current_period_end;
 
-  await admin.from("subscriptions").upsert(
+  const { error: subscriptionError } = await admin.from("subscriptions").upsert(
     {
       user_id: userId,
       stripe_customer_id: customerId,
@@ -155,10 +161,22 @@ export async function upsertSubscriptionFromStripe(
     { onConflict: "stripe_subscription_id" }
   );
 
-  await admin
+  if (subscriptionError) {
+    throw new Error(
+      `Failed to upsert subscription ${subscription.id}: ${subscriptionError.message}`
+    );
+  }
+
+  const { error: profileError } = await admin
     .from("profiles")
     .update({ subscription_status: status, subscription_plan: plan })
     .eq("user_id", userId);
+
+  if (profileError) {
+    throw new Error(
+      `Failed to update profile ${userId} with subscription status: ${profileError.message}`
+    );
+  }
 }
 
 /**
