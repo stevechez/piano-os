@@ -63,8 +63,25 @@ export default async function CheckoutConfirmPage({
       typeof session.subscription === "string"
         ? session.subscription
         : session.subscription.id;
-    const subscription = await stripe.subscriptions.retrieve(subscriptionId);
-    await upsertSubscriptionFromStripe(subscription);
+
+    try {
+      const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+      console.log(
+        `checkout/confirm: retrieved subscription ${subscription.id}, status=${subscription.status}, ` +
+          `customer=${typeof subscription.customer === "string" ? subscription.customer : subscription.customer?.id}`
+      );
+      await upsertSubscriptionFromStripe(subscription);
+      console.log(`checkout/confirm: upsertSubscriptionFromStripe completed for ${subscription.id}`);
+    } catch (err) {
+      // Don't let a provisioning failure block sign-in — the customer paid
+      // and the account exists either way. Log loudly so this is never
+      // silent, since a swallowed error here is exactly what produced the
+      // "no plan" bug this diagnostic was added to catch.
+      console.error(
+        `checkout/confirm: failed to provision subscription ${subscriptionId} for session ${sessionId}:`,
+        err
+      );
+    }
   } else {
     // Should not happen for a completed subscription-mode checkout —
     // surfaced loudly rather than silently leaving the account with no
