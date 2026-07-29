@@ -301,6 +301,14 @@ export const PROGRESSIONS: Record<string, Progression> = {
     label: "Your Third Verse → Your Third Chorus",
     chordIds: ["cMajor", "eMinor", "aMinor", "fMajor", "fMajor", "bDiminished", "cMajor"],
   },
+  // Module 26: Module 7's song (mySong), continuing straight into Module
+  // 12's myChorusInG as a modulated ending -- the shared C Major chord
+  // at the seam is the pivot, so no new chord is needed to change key.
+  mySongWithKeyChange: {
+    id: "mySongWithKeyChange",
+    label: "Your Song → Key Change Into G",
+    chordIds: ["cMajor", "aMinor", "fMajor", "gMajor", "fMajor", "gMajor", "cMajor", "dMajor", "gMajor"],
+  },
 };
 
 export function getChord(chordId: string): Chord {

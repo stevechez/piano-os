@@ -211,6 +211,14 @@ import { ADiminishedEndingInteraction } from "./ADiminishedEndingInteraction";
 import { ThirdVerseIntoChorusInteraction } from "./ThirdVerseIntoChorusInteraction";
 import { NamingYourThirdSoundInteraction } from "./NamingYourThirdSoundInteraction";
 import { YouWroteAThirdSongInteraction } from "./YouWroteAThirdSongInteraction";
+import { OneKeyAwayInteraction } from "./OneKeyAwayInteraction";
+import { WhereTheTwoKeysMeetInteraction } from "./WhereTheTwoKeysMeetInteraction";
+import { SameKeyOrNewKeyInteraction } from "./SameKeyOrNewKeyInteraction";
+import { HowFarIsTooFarInteraction } from "./HowFarIsTooFarInteraction";
+import { ComparingKeyChangeEndingsInteraction } from "./ComparingKeyChangeEndingsInteraction";
+import { ReadingAKeyChangeInteraction } from "./ReadingAKeyChangeInteraction";
+import { MelodyAcrossTheChangeInteraction } from "./MelodyAcrossTheChangeInteraction";
+import { YouCanChangeKeysNowInteraction } from "./YouCanChangeKeysNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -457,4 +465,13 @@ export const LESSON_INTERACTIONS: Record<
   "third-verse-into-chorus": ThirdVerseIntoChorusInteraction,
   "naming-your-third-sound": NamingYourThirdSoundInteraction,
   "you-wrote-a-third-song": YouWroteAThirdSongInteraction,
+  // Module 26: Changing Key Mid-Song
+  "one-key-away": OneKeyAwayInteraction,
+  "where-the-two-keys-meet": WhereTheTwoKeysMeetInteraction,
+  "same-key-or-new-key": SameKeyOrNewKeyInteraction,
+  "how-far-is-too-far": HowFarIsTooFarInteraction,
+  "comparing-key-change-endings": ComparingKeyChangeEndingsInteraction,
+  "reading-a-key-change": ReadingAKeyChangeInteraction,
+  "melody-across-the-change": MelodyAcrossTheChangeInteraction,
+  "you-can-change-keys-now": YouCanChangeKeysNowInteraction,
 };

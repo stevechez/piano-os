@@ -4413,7 +4413,183 @@ export const MODULE_25: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22, MODULE_23, MODULE_24, MODULE_25];
+export const MODULE_26_ID = "module-26";
+
+/**
+ * Module 26: Changing Key Mid-Song. A genuinely new mechanic -- not
+ * transposition (Module 12, starting a song over in a new key) but
+ * modulation: changing key partway through a single performance,
+ * landing in the new key for a lift right at the end. Puts Module 21's
+ * circle of fifths to direct practical use: G is one step from C, so
+ * the two keys share nearly everything, and Module 7's own song
+ * becomes the vehicle. Built without a Phase handoff, per docs/46
+ * Decision 028.
+ *
+ * Needs zero new chords -- cMajor, gMajor, dMajor, fMajor, aMinor, and
+ * bFlatMajor all already exist in `chords.ts` -- and only one new
+ * progression (`mySongWithKeyChange`), which is Module 7's `mySong`
+ * continuing straight into Module 12's `myChorusInG`: the shared C
+ * Major chord at the seam is the pivot, so the key change needs no new
+ * vocabulary at all. Reuses `ChoiceInteraction`,
+ * `PlayProgressionInteraction`, `EarTrainingInteraction`,
+ * `ChordChartInteraction`, and `FreePlayInteraction` exclusively -- the
+ * eighteenth module (after 4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 18, 20,
+ * 21, 22, 23, 24, and 25) needing zero new interaction primitives.
+ */
+export const MODULE_26: Module = {
+  id: MODULE_26_ID,
+  index: 26,
+  title: "Changing Key Mid-Song",
+  subtitle: "Modulation, Using the Circle You Already Mapped",
+  lessons: [
+    {
+      id: "one-key-away",
+      index: 1,
+      title: "One Key Away",
+      steps: [
+        {
+          id: "one-key-away",
+          concept: {
+            heading: "C and G — one step apart on the circle you mapped in Module 21.",
+            body: "Compare them.",
+          },
+          discovery: {
+            heading: "They're the two closest major keys you know.",
+            body: "That closeness is exactly what makes moving between them so smooth.",
+          },
+        },
+      ],
+    },
+    {
+      id: "where-the-two-keys-meet",
+      index: 2,
+      title: "Where the Two Keys Meet",
+      steps: [
+        {
+          id: "where-the-two-keys-meet",
+          concept: {
+            heading: "Play C, D, G — the same three chords that ended your song in G back in Module 12.",
+            body: "Listen for where it lands.",
+          },
+          discovery: {
+            heading: "C Major is the door into G Major.",
+            body: "The same chord that's home in C is also G major's IV chord — no new vocabulary needed to walk through.",
+          },
+        },
+      ],
+    },
+    {
+      id: "same-key-or-new-key",
+      index: 3,
+      title: "Same Key or New Key?",
+      steps: [
+        {
+          id: "same-key-or-new-key",
+          concept: {
+            heading: "Did the song stay home, or move to the new key?",
+            body: "Listen and decide.",
+          },
+          discovery: {
+            heading: "You can hear the shift now.",
+            body: "Not because the chords sound wrong — because they sound like they belong somewhere new.",
+          },
+        },
+      ],
+    },
+    {
+      id: "how-far-is-too-far",
+      index: 4,
+      title: "How Far Is Too Far?",
+      steps: [
+        {
+          id: "how-far-is-too-far",
+          concept: {
+            heading: "Compare a nearby key change to a more distant one.",
+            body: "C into G, then C into B♭.",
+          },
+          discovery: {
+            heading: "G shares nearly everything with C — it's an easy landing.",
+            body: "B♭ feels like a bigger leap, even though it's still just one chord away in the moment.",
+          },
+        },
+      ],
+    },
+    {
+      id: "comparing-key-change-endings",
+      index: 5,
+      title: "Comparing Endings",
+      steps: [
+        {
+          id: "comparing-key-change-endings",
+          concept: {
+            heading: "Compare ending your song in place to ending it with a key change.",
+            body: "Same song, two different final feelings.",
+          },
+          discovery: {
+            heading: "That lift is the classic key change.",
+            body: "Now you know exactly why it works: G was one step away the whole time.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-a-key-change",
+      index: 6,
+      title: "Reading a Key Change",
+      steps: [
+        {
+          id: "reading-a-key-change",
+          concept: {
+            heading: "Read a chart that changes key partway through.",
+            body: "F, G, C, D, G.",
+          },
+          discovery: {
+            heading: "The chart never announces the key change.",
+            body: "You just follow the chords — and by now, you can hear exactly where it happens.",
+          },
+        },
+      ],
+    },
+    {
+      id: "melody-across-the-change",
+      index: 7,
+      title: "Melody Across the Change",
+      steps: [
+        {
+          id: "melody-across-the-change",
+          concept: {
+            heading: "Improvise freely while the pivot plays underneath.",
+            body: "Use your safety net notes across the whole thing.",
+          },
+          discovery: {
+            heading: "Your safety net notes worked across the whole key change.",
+            body: "That's not an accident — C major and G major share almost everything.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-change-keys-now",
+      index: 8,
+      title: "You Can Change Keys Now",
+      steps: [
+        {
+          id: "you-can-change-keys-now",
+          concept: {
+            heading: "Play your Module 7 song, start to finish — but let the ending modulate into G.",
+            body: "Every chord yourself.",
+          },
+          discovery: {
+            heading: "You can change keys now.",
+            body: "Not just play in different keys — actually move between them, mid-performance, on purpose.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22, MODULE_23, MODULE_24, MODULE_25, MODULE_26];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);
