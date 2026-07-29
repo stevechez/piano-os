@@ -125,13 +125,25 @@ export async function upsertSubscriptionFromStripe(
       ? subscription.customer
       : subscription.customer.id;
 
-  const { data: profile } = await admin
+  const { data: profile, error: profileLookupError } = await admin
     .from("profiles")
     .select("user_id")
     .eq("stripe_customer_id", customerId)
     .maybeSingle();
 
-  if (!profile) return;
+  if (profileLookupError) {
+    throw new Error(
+      `Failed to look up profile for customer ${customerId}: ${profileLookupError.message}`
+    );
+  }
+
+  if (!profile) {
+    console.error(
+      `upsertSubscriptionFromStripe: no profile found for stripe_customer_id ${customerId} ` +
+        `(subscription ${subscription.id}) — subscription not recorded, treated as a safe no-op`
+    );
+    return;
+  }
 
   const userId = profile.user_id as string;
   const price = subscription.items.data[0]?.price;
