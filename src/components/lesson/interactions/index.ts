@@ -203,6 +203,14 @@ import { HomeSoftenedOrNotInteraction } from "./HomeSoftenedOrNotInteraction";
 import { ReadingTheWholeFamilyInteraction } from "./ReadingTheWholeFamilyInteraction";
 import { SameChordDifferentJobInteraction } from "./SameChordDifferentJobInteraction";
 import { KnowTheWholeFamilyNowInteraction } from "./KnowTheWholeFamilyNowInteraction";
+import { ChoosingYourThirdChordsInteraction } from "./ChoosingYourThirdChordsInteraction";
+import { YourThirdVerseInteraction } from "./YourThirdVerseInteraction";
+import { YourThirdChorusInteraction } from "./YourThirdChorusInteraction";
+import { AddingAThirdMelodyInteraction } from "./AddingAThirdMelodyInteraction";
+import { ADiminishedEndingInteraction } from "./ADiminishedEndingInteraction";
+import { ThirdVerseIntoChorusInteraction } from "./ThirdVerseIntoChorusInteraction";
+import { NamingYourThirdSoundInteraction } from "./NamingYourThirdSoundInteraction";
+import { YouWroteAThirdSongInteraction } from "./YouWroteAThirdSongInteraction";
 
 export type { LessonInteractionProps };
 
@@ -440,4 +448,13 @@ export const LESSON_INTERACTIONS: Record<
   "reading-the-whole-family": ReadingTheWholeFamilyInteraction,
   "same-chord-different-job": SameChordDifferentJobInteraction,
   "know-the-whole-family-now": KnowTheWholeFamilyNowInteraction,
+  // Module 25: Writing Your Third Song
+  "choosing-your-third-chords": ChoosingYourThirdChordsInteraction,
+  "your-third-verse": YourThirdVerseInteraction,
+  "your-third-chorus": YourThirdChorusInteraction,
+  "adding-a-third-melody": AddingAThirdMelodyInteraction,
+  "a-diminished-ending": ADiminishedEndingInteraction,
+  "third-verse-into-chorus": ThirdVerseIntoChorusInteraction,
+  "naming-your-third-sound": NamingYourThirdSoundInteraction,
+  "you-wrote-a-third-song": YouWroteAThirdSongInteraction,
 };

@@ -4238,7 +4238,182 @@ export const MODULE_24: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22, MODULE_23, MODULE_24];
+export const MODULE_25_ID = "module-25";
+
+/**
+ * Module 25: Writing Your Third Song. A synthesis module breaking the
+ * theory-only streak of Modules 21-24 (flagged explicitly in docs/46
+ * Decision 026) -- structurally identical in shape to Module 7 and
+ * Module 14's songwriting capstones (choose chords, verse, chorus,
+ * melody, ending, arrangement, capstone), but this time deliberately
+ * built from Modules 21-24's harmonic vocabulary: iii (Module 24) in
+ * the verse, vii° (Module 23) as the chorus's turnaround into I. Built
+ * without a Phase handoff, per docs/46 Decision 027.
+ *
+ * Needs zero new chords -- cMajor, eMinor, aMinor, fMajor, and
+ * bDiminished all already exist in `chords.ts` -- only three new
+ * progressions (`myThirdVerse`, `myThirdChorus`, `myThirdSong`),
+ * deliberately a different chord order than Module 7's I-vi-IV-V and
+ * Module 14's minor-key cadence so this song has its own identity.
+ * Reuses `ChoiceInteraction`, `PlayProgressionInteraction`, and
+ * `FreePlayInteraction` exclusively -- the seventeenth module (after 4,
+ * 5, 7, 8, 9, 10, 12, 13, 14, 16, 18, 20, 21, 22, 23, and 24) needing
+ * zero new interaction primitives.
+ */
+export const MODULE_25: Module = {
+  id: MODULE_25_ID,
+  index: 25,
+  title: "Writing Your Third Song",
+  subtitle: "Your Full Harmonic Vocabulary, In One Piece",
+  lessons: [
+    {
+      id: "choosing-your-third-chords",
+      index: 1,
+      title: "Choosing Your Third Chords",
+      steps: [
+        {
+          id: "choosing-your-third-chords",
+          concept: {
+            heading: "This song draws on everything you've learned since Module 21.",
+            body: "Five chords, including iii and vii° this time. Try each one.",
+          },
+          discovery: {
+            heading: "That's your palette.",
+            body: "C, Em, Am, F, and B° — your full harmonic vocabulary, ready to be put to use.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-third-verse",
+      index: 2,
+      title: "Your Third Verse",
+      steps: [
+        {
+          id: "your-third-verse",
+          concept: {
+            heading: "Put those chords in an order — your verse.",
+            body: "Play each chord yourself, in order: C, Em, Am, F.",
+          },
+          discovery: {
+            heading: "That's a verse with a different color.",
+            body: "iii instead of the more familiar vi-first move — a softer, more searching opening than your first two songs.",
+          },
+        },
+      ],
+    },
+    {
+      id: "your-third-chorus",
+      index: 3,
+      title: "Your Third Chorus",
+      steps: [
+        {
+          id: "your-third-chorus",
+          concept: {
+            heading: "A chorus needs its own identity.",
+            body: "Play this shorter, punchier order yourself: F, B°, C.",
+          },
+          discovery: {
+            heading: "That's a turnaround, not just a cadence.",
+            body: "vii° leaning into I gives this chorus a sharper pull home than a plain V-I ever could.",
+          },
+        },
+      ],
+    },
+    {
+      id: "adding-a-third-melody",
+      index: 4,
+      title: "Adding a Melody",
+      steps: [
+        {
+          id: "adding-a-third-melody",
+          concept: {
+            heading: "Your verse needs a melody on top.",
+            body: "Your verse is looping underneath. Play a melody over it, freely, using the safety net notes.",
+          },
+          discovery: {
+            heading: "That melody is part of your song now.",
+            body: "A third original melody, over a verse built from a chord you've only recently learned to hear as home's understudy.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-diminished-ending",
+      index: 5,
+      title: "A Diminished Ending",
+      steps: [
+        {
+          id: "a-diminished-ending",
+          concept: {
+            heading: "Every song needs an ending.",
+            body: "Compare landing on C directly to leaning through B° first.",
+          },
+          discovery: {
+            heading: "The diminished chord makes an ending feel arrived-at, not just stopped.",
+            body: "That's the same pull from Module 23, now used on purpose, in your own music.",
+          },
+        },
+      ],
+    },
+    {
+      id: "third-verse-into-chorus",
+      index: 6,
+      title: "Verse Into Chorus",
+      steps: [
+        {
+          id: "third-verse-into-chorus",
+          concept: {
+            heading: "A verse on its own can feel like it's missing something.",
+            body: "Compare looping the verse by itself to letting it move into the chorus.",
+          },
+          discovery: {
+            heading: "That movement is song form.",
+            body: "The searching verse resolves into a chorus with real forward pull — tension, then release.",
+          },
+        },
+      ],
+    },
+    {
+      id: "naming-your-third-sound",
+      index: 7,
+      title: "Naming Your Sound",
+      steps: [
+        {
+          id: "naming-your-third-sound",
+          concept: {
+            heading: "The same song, played two ways.",
+            body: "Compare a simple arrangement of your third song to a fuller one with a bass note under every chord.",
+          },
+          discovery: {
+            heading: "That choice is your sound.",
+            body: "Three songs in, and the same decision is still yours to make every time.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-wrote-a-third-song",
+      index: 8,
+      title: "You Wrote a Third Song",
+      steps: [
+        {
+          id: "you-wrote-a-third-song",
+          concept: {
+            heading: "Play it start to finish.",
+            body: "Your verse, into your chorus, to a real ending. Play every chord yourself.",
+          },
+          discovery: {
+            heading: "You wrote a third song — and it sounds like nothing you've written before.",
+            body: "iii, vii°, and everything else from Modules 21 through 24 isn't just theory anymore. It's music you made.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22, MODULE_23, MODULE_24, MODULE_25];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

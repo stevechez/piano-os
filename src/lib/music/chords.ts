@@ -281,6 +281,26 @@ export const PROGRESSIONS: Record<string, Progression> = {
     label: "C → Dm → Em → F → G → Am → B° → C",
     chordIds: ["cMajor", "dMinor", "eMinor", "fMajor", "gMajor", "aMinor", "bDiminished", "cMajor"],
   },
+  // Module 25: a third original song, this one deliberately drawing on
+  // Modules 21-24's harmonic vocabulary -- iii (Module 24) in the
+  // verse, vii° (Module 23) as the chorus's turnaround into I -- giving
+  // it its own identity distinct from Module 7's I-vi-IV-V and Module
+  // 14's minor-key cadence.
+  myThirdVerse: {
+    id: "myThirdVerse",
+    label: "C → Em → Am → F",
+    chordIds: ["cMajor", "eMinor", "aMinor", "fMajor"],
+  },
+  myThirdChorus: {
+    id: "myThirdChorus",
+    label: "F → B° → C",
+    chordIds: ["fMajor", "bDiminished", "cMajor"],
+  },
+  myThirdSong: {
+    id: "myThirdSong",
+    label: "Your Third Verse → Your Third Chorus",
+    chordIds: ["cMajor", "eMinor", "aMinor", "fMajor", "fMajor", "bDiminished", "cMajor"],
+  },
 };
 
 export function getChord(chordId: string): Chord {
