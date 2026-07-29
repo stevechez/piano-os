@@ -219,6 +219,14 @@ import { ComparingKeyChangeEndingsInteraction } from "./ComparingKeyChangeEnding
 import { ReadingAKeyChangeInteraction } from "./ReadingAKeyChangeInteraction";
 import { MelodyAcrossTheChangeInteraction } from "./MelodyAcrossTheChangeInteraction";
 import { YouCanChangeKeysNowInteraction } from "./YouCanChangeKeysNowInteraction";
+import { SixThatFeelsLikeTwoInteraction } from "./SixThatFeelsLikeTwoInteraction";
+import { ARollingBassPatternInteraction } from "./ARollingBassPatternInteraction";
+import { OwnSongRolledInSixInteraction } from "./OwnSongRolledInSixInteraction";
+import { FullSixEightMeasureInteraction } from "./FullSixEightMeasureInteraction";
+import { WaltzOrRollInteraction } from "./WaltzOrRollInteraction";
+import { RollingThroughMinorKeyInteraction } from "./RollingThroughMinorKeyInteraction";
+import { BuildingALongerRollInteraction } from "./BuildingALongerRollInteraction";
+import { YouCanRollInSixNowInteraction } from "./YouCanRollInSixNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -474,4 +482,13 @@ export const LESSON_INTERACTIONS: Record<
   "reading-a-key-change": ReadingAKeyChangeInteraction,
   "melody-across-the-change": MelodyAcrossTheChangeInteraction,
   "you-can-change-keys-now": YouCanChangeKeysNowInteraction,
+  // Module 27: 6/8 -- A Rolling Groove
+  "six-that-feels-like-two": SixThatFeelsLikeTwoInteraction,
+  "a-rolling-bass-pattern": ARollingBassPatternInteraction,
+  "own-song-rolled-in-six": OwnSongRolledInSixInteraction,
+  "full-six-eight-measure": FullSixEightMeasureInteraction,
+  "waltz-or-roll": WaltzOrRollInteraction,
+  "rolling-through-minor-key": RollingThroughMinorKeyInteraction,
+  "building-a-longer-roll": BuildingALongerRollInteraction,
+  "you-can-roll-in-six-now": YouCanRollInSixNowInteraction,
 };

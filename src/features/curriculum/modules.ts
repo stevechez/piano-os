@@ -4589,7 +4589,182 @@ export const MODULE_26: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22, MODULE_23, MODULE_24, MODULE_25, MODULE_26];
+export const MODULE_27_ID = "module-27";
+
+/**
+ * Module 27: 6/8 -- A Rolling Groove. A direct parallel to Module 19's
+ * 3/4 waltz, mirroring its exact lesson shape (count it, build a
+ * signature bass pattern, hear your own song in it, a full measure,
+ * meter-by-ear, apply it in a minor key, generalize the pattern to a
+ * new chord, a longer capstone tap-along) but for compound time: 6/8
+ * technically counts six, but rolls as two big beats of three, and its
+ * signature accompaniment is a rolling arpeggio rather than the
+ * waltz's bass-and-stab. Built without a Phase handoff, per docs/46
+ * Decision 029.
+ *
+ * Needs zero new chords or progressions -- every lesson reuses chords
+ * and progressions already in `chords.ts` (cMajor, fMajor, gMajor,
+ * dMinor, eMajor, aMinor). `TempoTapInteraction`'s `beatsPerMeasure`
+ * prop, added for Module 19, is reused here at 6 with no changes
+ * needed. Reuses `TempoTapInteraction`, `NoteSequenceInteraction`,
+ * `ChoiceInteraction`, and `EarTrainingInteraction` exclusively -- the
+ * nineteenth module (after 4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 18, 20,
+ * 21, 22, 23, 24, 25, and 26) needing zero new interaction primitives.
+ */
+export const MODULE_27: Module = {
+  id: MODULE_27_ID,
+  index: 27,
+  title: "6/8: A Rolling Groove",
+  subtitle: "Six Beats That Feel Like Two",
+  lessons: [
+    {
+      id: "six-that-feels-like-two",
+      index: 1,
+      title: "Six That Feels Like Two",
+      steps: [
+        {
+          id: "six-that-feels-like-two",
+          concept: {
+            heading: "3/4 counts three.",
+            body: "Try tapping along to something that counts six — but listen for how it groups.",
+          },
+          discovery: {
+            heading: "That's 6/8.",
+            body: "Six beats, but felt as two big rolling groups of three.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-rolling-bass-pattern",
+      index: 2,
+      title: "A Rolling Bass Pattern",
+      steps: [
+        {
+          id: "a-rolling-bass-pattern",
+          concept: {
+            heading: "Build a rolling arpeggio.",
+            body: "Up through the chord, twice.",
+          },
+          discovery: {
+            heading: "That roll is 6/8's signature move.",
+            body: "Where the waltz stabs, 6/8 flows.",
+          },
+        },
+      ],
+    },
+    {
+      id: "own-song-rolled-in-six",
+      index: 3,
+      title: "Your Own Song, Rolled in Six",
+      steps: [
+        {
+          id: "own-song-rolled-in-six",
+          concept: {
+            heading: "Your own chorus from Module 7.",
+            body: "In two different meters.",
+          },
+          discovery: {
+            heading: "Same chords. A completely different roll.",
+            body: "6/8's flowing texture reshapes a song just as much as the waltz's did.",
+          },
+        },
+      ],
+    },
+    {
+      id: "a-full-six-eight-measure",
+      index: 4,
+      title: "A Full 6/8 Measure",
+      steps: [
+        {
+          id: "full-six-eight-measure",
+          concept: {
+            heading: "Two full measures of six.",
+            body: "Tap along.",
+          },
+          discovery: {
+            heading: "You're locking into 6/8 now, not just tolerating it.",
+            body: "The roll is starting to feel like home.",
+          },
+        },
+      ],
+    },
+    {
+      id: "waltz-or-roll",
+      index: 5,
+      title: "Waltz or Roll?",
+      steps: [
+        {
+          id: "waltz-or-roll",
+          concept: {
+            heading: "Bass-and-stab, or a rolling arpeggio?",
+            body: "Listen for the texture.",
+          },
+          discovery: {
+            heading: "Two different accompaniment patterns, two different feels.",
+            body: "Both count to a multiple of three — the pattern on top is what tells them apart.",
+          },
+        },
+      ],
+    },
+    {
+      id: "rolling-through-minor-key",
+      index: 6,
+      title: "Rolling Through a Minor Key",
+      steps: [
+        {
+          id: "rolling-through-minor-key",
+          concept: {
+            heading: "Your minor progression from Module 14.",
+            body: "Straight, then rolled.",
+          },
+          discovery: {
+            heading: "The roll doesn't care whether you're in major or minor.",
+            body: "Same independent layer as the waltz — on top of whatever key or mood you've already chosen.",
+          },
+        },
+      ],
+    },
+    {
+      id: "building-a-longer-roll",
+      index: 7,
+      title: "Building a Longer Roll",
+      steps: [
+        {
+          id: "building-a-longer-roll",
+          concept: {
+            heading: "Same roll, a different chord.",
+            body: "Build it on G Major this time.",
+          },
+          discovery: {
+            heading: "The rolling pattern generalizes to any key.",
+            body: "It's a shape, not a one-time trick tied to a single chord.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-can-roll-in-six-now",
+      index: 8,
+      title: "You Can Roll in Six Now",
+      steps: [
+        {
+          id: "you-can-roll-in-six-now",
+          concept: {
+            heading: "Three full measures, all the way through.",
+            body: "The longest count yet, in six.",
+          },
+          discovery: {
+            heading: "You can roll in six now.",
+            body: "3/4 and 6/8 both count in threes underneath — and you can feel the difference between them.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22, MODULE_23, MODULE_24, MODULE_25, MODULE_26, MODULE_27];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);
