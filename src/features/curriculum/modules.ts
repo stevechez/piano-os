@@ -4063,7 +4063,182 @@ export const MODULE_23: Module = {
   ],
 };
 
-export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22, MODULE_23];
+export const MODULE_24_ID = "module-24";
+
+/**
+ * Module 24: The Last Missing Chord. Module 23 named the two scale
+ * degrees Module 4 left unbuilt (E and B) and built one (vii°, on B).
+ * This module builds the other: iii, on E -- the same E Minor chord
+ * students have already played since Module 1, now understood as C
+ * major's third scale degree. Built without a Phase handoff, per
+ * docs/46 Decision 026.
+ *
+ * Needs zero new chords -- `eMinor` already exists in `chords.ts` from
+ * Module 1. Needs two small new progressions (`iiiToFour`, `iiiToSix`)
+ * plus a new capstone (`fullDiatonicFamily`, walking all seven
+ * diatonic chords in order for the first time), and reuses Module 12's
+ * `myVerseInG` progression directly to make the point that the same
+ * chord's Roman-numeral function depends on the key, not the chord
+ * itself. Reuses `NoteSequenceInteraction`, `ChoiceInteraction`,
+ * `PlayProgressionInteraction`, `EarTrainingInteraction`, and
+ * `ChordChartInteraction` exclusively -- the sixteenth module (after 4,
+ * 5, 7, 8, 9, 10, 12, 13, 14, 16, 18, 20, 21, 22, and 23) needing zero
+ * new interaction primitives.
+ */
+export const MODULE_24: Module = {
+  id: MODULE_24_ID,
+  index: 24,
+  title: "The Last Missing Chord",
+  subtitle: "iii Completes the Family",
+  lessons: [
+    {
+      id: "the-last-missing-chord",
+      index: 1,
+      title: "The Last Missing Chord",
+      steps: [
+        {
+          id: "building-e-minor-as-iii",
+          concept: {
+            heading: "One scale degree in C major's family still has no name.",
+            body: "Build the chord starting on E — root to fifth, same as always.",
+          },
+          discovery: {
+            heading: "That's the iii chord.",
+            body: "E Minor, understood now as C major's third scale degree. Every note in the family finally has a name.",
+          },
+        },
+      ],
+    },
+    {
+      id: "two-understudies-for-home",
+      index: 2,
+      title: "Two Understudies for Home",
+      steps: [
+        {
+          id: "two-understudies-for-home",
+          concept: {
+            heading: "vi and iii both stand in for home.",
+            body: "Compare C Major, A Minor, and E Minor.",
+          },
+          discovery: {
+            heading: "Each one shares two notes with I.",
+            body: "vi and iii are both home, softened — just in different colors.",
+          },
+        },
+      ],
+    },
+    {
+      id: "iii-leans-into-iv",
+      index: 3,
+      title: "iii Leans Into IV",
+      steps: [
+        {
+          id: "iii-into-iv",
+          concept: {
+            heading: "Play E Minor, then F Major.",
+            body: "Listen to how little moves.",
+          },
+          discovery: {
+            heading: "iii resolves into IV almost by itself.",
+            body: "Most of the chord just stays put.",
+          },
+        },
+      ],
+    },
+    {
+      id: "iii-leans-into-vi-too",
+      index: 4,
+      title: "iii Leans Into vi Too",
+      steps: [
+        {
+          id: "iii-into-vi",
+          concept: {
+            heading: "Now play E Minor into A Minor.",
+            body: "A different, equally smooth landing.",
+          },
+          discovery: {
+            heading: "iii sits between two other minor-feeling chords.",
+            body: "It's flexible, not locked into just one path.",
+          },
+        },
+      ],
+    },
+    {
+      id: "home-softened-or-not",
+      index: 5,
+      title: "Home, Softened, or Not",
+      steps: [
+        {
+          id: "home-softened-or-not",
+          concept: {
+            heading: "Home, iii, or vi — by ear.",
+            body: "Listen for register as much as quality.",
+          },
+          discovery: {
+            heading: "iii and vi aren't interchangeable once you're really listening.",
+            body: "Different roots, different colors — even though both are minor.",
+          },
+        },
+      ],
+    },
+    {
+      id: "reading-the-whole-family",
+      index: 6,
+      title: "Reading the Whole Family",
+      steps: [
+        {
+          id: "reading-the-whole-family",
+          concept: {
+            heading: "Read a chart pulling from four different scale degrees.",
+            body: "Dm, Em, F, B°.",
+          },
+          discovery: {
+            heading: "Every one of these came from the same seven notes.",
+            body: "The chart doesn't need to explain that — you already hear it.",
+          },
+        },
+      ],
+    },
+    {
+      id: "same-chord-different-job",
+      index: 7,
+      title: "Same Chord, Different Job",
+      steps: [
+        {
+          id: "same-chord-different-job",
+          concept: {
+            heading: "This is your Module 12 song, transposed to G major.",
+            body: "Listen for the E Minor again.",
+          },
+          discovery: {
+            heading: "In G major, that same chord is vi. In C major, it's iii.",
+            body: "The chord doesn't change — its job in the key does.",
+          },
+        },
+      ],
+    },
+    {
+      id: "you-know-the-whole-family-now",
+      index: 8,
+      title: "You Know the Whole Family Now",
+      steps: [
+        {
+          id: "know-the-whole-family-now",
+          concept: {
+            heading: "C, Dm, Em, F, G, Am, B°, back to C.",
+            body: "Play the entire family, in order, for the first time.",
+          },
+          discovery: {
+            heading: "I through vii°, and home again.",
+            body: "Every diatonic chord in C major — one connected family, not seven separate facts.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export const MODULES: Module[] = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6, MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16, MODULE_17, MODULE_18, MODULE_19, MODULE_20, MODULE_21, MODULE_22, MODULE_23, MODULE_24];
 
 export function getModule(moduleId: string): Module | undefined {
   return MODULES.find((module) => module.id === moduleId);

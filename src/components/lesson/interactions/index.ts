@@ -195,6 +195,14 @@ import { DiminishedOrNotInteraction } from "./DiminishedOrNotInteraction";
 import { ViiForFiveInteraction } from "./ViiForFiveInteraction";
 import { ReadingADiminishedChordInteraction } from "./ReadingADiminishedChordInteraction";
 import { YouKnowAllSevenChordsInteraction } from "./YouKnowAllSevenChordsInteraction";
+import { BuildingEMinorAsThreeInteraction } from "./BuildingEMinorAsThreeInteraction";
+import { TwoUnderstudiesForHomeInteraction } from "./TwoUnderstudiesForHomeInteraction";
+import { IiiIntoFourInteraction } from "./IiiIntoFourInteraction";
+import { IiiIntoSixInteraction } from "./IiiIntoSixInteraction";
+import { HomeSoftenedOrNotInteraction } from "./HomeSoftenedOrNotInteraction";
+import { ReadingTheWholeFamilyInteraction } from "./ReadingTheWholeFamilyInteraction";
+import { SameChordDifferentJobInteraction } from "./SameChordDifferentJobInteraction";
+import { KnowTheWholeFamilyNowInteraction } from "./KnowTheWholeFamilyNowInteraction";
 
 export type { LessonInteractionProps };
 
@@ -423,4 +431,13 @@ export const LESSON_INTERACTIONS: Record<
   "vii-for-five": ViiForFiveInteraction,
   "reading-a-diminished-chord": ReadingADiminishedChordInteraction,
   "you-know-all-seven-chords": YouKnowAllSevenChordsInteraction,
+  // Module 24: The Last Missing Chord
+  "building-e-minor-as-iii": BuildingEMinorAsThreeInteraction,
+  "two-understudies-for-home": TwoUnderstudiesForHomeInteraction,
+  "iii-into-iv": IiiIntoFourInteraction,
+  "iii-into-vi": IiiIntoSixInteraction,
+  "home-softened-or-not": HomeSoftenedOrNotInteraction,
+  "reading-the-whole-family": ReadingTheWholeFamilyInteraction,
+  "same-chord-different-job": SameChordDifferentJobInteraction,
+  "know-the-whole-family-now": KnowTheWholeFamilyNowInteraction,
 };

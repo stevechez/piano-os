@@ -260,6 +260,27 @@ export const PROGRESSIONS: Record<string, Progression> = {
     label: "C → Am → B° → C",
     chordIds: ["cMajor", "aMinor", "bDiminished", "cMajor"],
   },
+  // Module 24: iii (E Minor) resolving into its two natural neighbors --
+  // most of the chord barely moves either direction.
+  iiiToFour: {
+    id: "iiiToFour",
+    label: "Em → F",
+    chordIds: ["eMinor", "fMajor"],
+  },
+  iiiToSix: {
+    id: "iiiToSix",
+    label: "Em → Am",
+    chordIds: ["eMinor", "aMinor"],
+  },
+  // Capstone: the complete C major diatonic family, walked in order --
+  // I, ii, iii, IV, V, vi, vii°, back to I. Every chord already exists
+  // in this file; Module 24 is the first time they're played as one
+  // connected sequence rather than separate facts.
+  fullDiatonicFamily: {
+    id: "fullDiatonicFamily",
+    label: "C → Dm → Em → F → G → Am → B° → C",
+    chordIds: ["cMajor", "dMinor", "eMinor", "fMajor", "gMajor", "aMinor", "bDiminished", "cMajor"],
+  },
 };
 
 export function getChord(chordId: string): Chord {
